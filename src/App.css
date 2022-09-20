@@ -1,12 +1,22 @@
 body {
   font-family: Georgia;
 }
-
+.navbar 
+{
+  background-color: white;
+}
+#navbarNavDropdown
+{
+  text-align: center;
+}
 .imgfix {
   width: 100%;
   height: auto;
 }
-
+.text-reset
+{
+  text-decoration: none;
+}
 #animateimg {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -45,4 +55,12 @@ body {
   100% {
     transform: translateY(-10px);
   }
+}
+#footer
+{
+  text-align: center;
+}
+#copyright-text
+{
+  background-color: rgba(0, 0, 0, 0.025);
 }
