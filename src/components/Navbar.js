@@ -27,7 +27,6 @@ const Navbar = () => {
                   className={(navData) =>
                     navData.isActive ? "menu_active" : "nav-link"
                   }
-                  aria-current="page"
                   to="/Home"
                   onClick={() => {
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

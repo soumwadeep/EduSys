@@ -14,13 +14,15 @@ function App() {
     <div className="container">
       <NavBar/>
       <Routes>
+
+        <Route exact path="/" element={<Home/>} />
         <Route exact path="/Home" element={<Home/>} />
         <Route exact path="/Features" element={<Features/>} />
         <Route exact path="/Pricing" element={<Pricing/>} />
         <Route exact path="/About" element={<About/>} />
         <Route exact path="/Contact" element={<Contact/>} />
         <Route exact path="/Login" element={<Login/>} />
-        <Route path="*" element={<Navigate to="/Home" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer/>
     </div>
