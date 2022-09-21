@@ -32,14 +32,10 @@ a:hover {
   width: 100%;
   /* max-width: 400px; */
 }
-
 /* Vertically Alligned CSS Ends */
+
 .navbar {
   background-color: white;
-}
-
-#navbarNavDropdown {
-  text-align: center;
 }
 
 .imgfix {

@@ -17,54 +17,36 @@ const Footer = () => {
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-facebook-f"></i>
             </NavLink>
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-twitter"></i>
             </NavLink>
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-google"></i>
             </NavLink>
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-instagram"></i>
             </NavLink>
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-linkedin"></i>
             </NavLink>
             <NavLink
               to="/"
               className="me-4 link-secondary"
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              }}
             >
               <i className="fab fa-github"></i>
             </NavLink>
@@ -86,7 +68,7 @@ const Footer = () => {
               </div>
 
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mb-4">Features</h6>
+                <h6 className="text-uppercase fw-bold mt-4 mb-4">Features</h6>
                 <p>
                   <NavLink
                     to="/"
@@ -134,7 +116,7 @@ const Footer = () => {
               </div>
 
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mb-4">Useful Links</h6>
+                <h6 className="text-uppercase fw-bold mt-4 mb-4">Useful Links</h6>
                 <p>
                   <NavLink
                     to="/Home"
@@ -181,7 +163,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+                <h6 className="text-uppercase fw-bold mt-4 mb-4">Contact</h6>
                 <p>
                   <a
                     href="https://goo.gl/maps/1sigdrwWr4vyMYFu7"
