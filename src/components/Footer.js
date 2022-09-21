@@ -4,29 +4,68 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <footer className="text-center text-lg-start bg-white text-muted">
+      <footer
+        className="text-center text-lg-start bg-white text-muted"
+        id="footer"
+      >
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
           <div className="me-5 d-none d-lg-block">
             <span>Get Connected With Us On Social Networks:</span>
           </div>
 
           <div>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-facebook-f"></i>
             </NavLink>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-twitter"></i>
             </NavLink>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-google"></i>
             </NavLink>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-instagram"></i>
             </NavLink>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-linkedin"></i>
             </NavLink>
-            <NavLink to="" className="me-4 link-secondary">
+            <NavLink
+              to="/"
+              className="me-4 link-secondary"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               <i className="fab fa-github"></i>
             </NavLink>
           </div>
@@ -35,7 +74,7 @@ const Footer = () => {
         <section id="footer-contents">
           <div className="container text-center text-md-start mt-5">
             <div className="row mt-3">
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div className="col-sm">
                 <h6 className="text-uppercase fw-bold mb-4">
                   <i className="fas fa-gem me-3 text-secondary"></i>EduSys
                 </h6>
@@ -46,55 +85,102 @@ const Footer = () => {
                 </p>
               </div>
 
-              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-sm">
                 <h6 className="text-uppercase fw-bold mb-4">Features</h6>
                 <p>
-                  <NavLink to="#!" className="text-reset">
+                  <NavLink
+                    to="/"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Digital Library
                   </NavLink>
                 </p>
                 <p>
-                  <NavLink to="#!" className="text-reset">
+                  <NavLink
+                    to="/"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Liva And Recorded Classes
                   </NavLink>
                 </p>
                 <p>
-                  <NavLink to="#!" className="text-reset">
+                  <NavLink
+                    to="/"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Fess Payment
                   </NavLink>
                 </p>
                 <p>
-                  <NavLink to="#!" className="text-reset">
+                  <NavLink
+                    to="/"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Virtual Labs
                   </NavLink>
                 </p>
               </div>
 
-              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-sm">
                 <h6 className="text-uppercase fw-bold mb-4">Useful Links</h6>
                 <p>
-                  <NavLink to="/Home" className="text-reset">
+                  <NavLink
+                    to="/Home"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Home
                   </NavLink>
                 </p>
                 <p>
-                  <NavLink to="/Features" className="text-reset">
+                  <NavLink
+                    to="/About"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
+                    About
+                  </NavLink>
+                </p>
+                <p>
+                  <NavLink
+                    to="/Features"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Features
                   </NavLink>
                 </p>
                 <p>
-                  <NavLink to="/Pricing" className="text-reset">
+                  <NavLink
+                    to="/Pricing"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
                     Pricing
                   </NavLink>
                 </p>
-                <p>
-                  <NavLink to="/About" className="text-reset">
-                    About
-                  </NavLink>
-                </p>
               </div>
-
-              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <div className="col-sm">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                 <p>
                   <a
@@ -129,7 +215,13 @@ const Footer = () => {
 
         <div className="text-center p-4" id="copyright-text">
           © 2022 Copyright:
-          <NavLink className="text-reset fw-bold" to="/">
+          <NavLink
+            className="text-reset fw-bold"
+            to="/"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+          >
             {" "}
             EduSys
           </NavLink>

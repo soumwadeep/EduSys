@@ -1,5 +1,6 @@
 body {
   font-family: Georgia;
+  overflow-x: hidden;
 }
 
 a {
@@ -27,7 +28,9 @@ a:hover {
 .inner {
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  height: auto;
+  width: 100%;
+  /* max-width: 400px; */
 }
 
 /* Vertically Alligned CSS Ends */
@@ -94,4 +97,18 @@ a:hover {
 
 #copyright-text {
   background-color: rgba(0, 0, 0, 0.025);
+}
+#footer
+{
+  bottom: 0;
+}
+@media screen and (max-width: 800px) {
+  #home h1
+  {
+    font-size: 24px;
+  }
+  #home h5
+  {
+    font-size: 14px;
+  }
 }
