@@ -6,8 +6,18 @@ const Home = () => {
       <section id="home">
         <div className="row">
           <div className="col-sm">
-            <h1>Welcome To EduSys</h1>
-            <h4>The World's Best Digital Education System</h4>
+            <div className="outer">
+              <div className="middle">
+                <div className="inner">
+                  <h1>Welcome To EduSys</h1>
+                  <h5>
+                    The World's Best All In One Digital Education System Which
+                    Consists Of Almost All The Features Required By
+                    Teachers,Administrators And Students.
+                  </h5>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-sm">
             <img

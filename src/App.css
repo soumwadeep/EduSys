@@ -1,22 +1,53 @@
 body {
   font-family: Georgia;
 }
-.navbar 
-{
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+/* Vertically Align Centre */
+.outer {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+/* Vertically Alligned CSS Ends */
+.navbar {
   background-color: white;
 }
-#navbarNavDropdown
-{
+
+#navbarNavDropdown {
   text-align: center;
 }
+
 .imgfix {
   width: 100%;
   height: auto;
 }
-.text-reset
-{
+
+.text-reset {
   text-decoration: none;
 }
+
 #animateimg {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -56,11 +87,11 @@ body {
     transform: translateY(-10px);
   }
 }
-#footer
-{
+
+#footer {
   text-align: center;
 }
-#copyright-text
-{
+
+#copyright-text {
   background-color: rgba(0, 0, 0, 0.025);
 }
