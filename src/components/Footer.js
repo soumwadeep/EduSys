@@ -55,7 +55,7 @@ const Footer = () => {
 
         <section id="footer-contents">
           <div className="container text-center text-md-start mt-5">
-            <div className="row mt-3">
+            <div className="row ">
               <div className="col-sm">
                 <h6 className="text-uppercase fw-bold mb-4">
                   <i className="fas fa-gem me-3 text-secondary"></i>EduSys
@@ -68,7 +68,7 @@ const Footer = () => {
               </div>
 
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mt-4 mb-4">Features</h6>
+                <h6 className="text-uppercase fw-bold  mb-4">Features</h6>
                 <p>
                   <NavLink
                     to="/"
@@ -88,7 +88,7 @@ const Footer = () => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     }}
                   >
-                    Liva And Recorded Classes
+                    Live And Recorded Classes
                   </NavLink>
                 </p>
                 <p>
@@ -116,7 +116,7 @@ const Footer = () => {
               </div>
 
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mt-4 mb-4">Useful Links</h6>
+                <h6 className="text-uppercase fw-bold  mb-4">Useful Links</h6>
                 <p>
                   <NavLink
                     to="/Home"
@@ -163,7 +163,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="col-sm">
-                <h6 className="text-uppercase fw-bold mt-4 mb-4">Contact</h6>
+                <h6 className="text-uppercase fw-bold  mb-4">Contact</h6>
                 <p>
                   <a
                     href="https://goo.gl/maps/1sigdrwWr4vyMYFu7"

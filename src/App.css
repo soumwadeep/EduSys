@@ -1,6 +1,11 @@
 body {
-  font-family: Georgia;
+  font-family: 'Times New Roman', Times, serif;
   overflow-x: hidden;
+}
+
+span {
+  color: #F53803;
+  font-weight: bold;
 }
 
 a {
@@ -32,6 +37,7 @@ a:hover {
   width: 100%;
   /* max-width: 400px; */
 }
+
 /* Vertically Alligned CSS Ends */
 
 .navbar {
@@ -49,6 +55,45 @@ a:hover {
 
 #animateimg {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+#features {
+  text-align: center;
+}
+#features p
+{
+  text-align: justify;
+}
+.feature-cards {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border: 1px solid #F53803;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.feature-cards:hover {
+  box-shadow: 1px 0px 20px 8px rgba(245, 56, 3, 0.55);
+  -webkit-box-shadow: 1px 0px 20px 8px rgba(245, 56, 3, 0.55);
+  -moz-box-shadow: 1px 0px 20px 8px rgba(245, 56, 3, 0.55);
+  font-style: italic;
+  font-weight: bold;
+}
+
+#feature-icons {
+  text-align: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #F53803;
+  font-size: 60px;
+  color: white;
+  padding: 10px;
+  padding-top: 22px;
+  margin-bottom: 10px;
 }
 
 .menu_active {
@@ -94,17 +139,17 @@ a:hover {
 #copyright-text {
   background-color: rgba(0, 0, 0, 0.025);
 }
-#footer
-{
+
+#footer {
   bottom: 0;
 }
-@media screen and (max-width: 800px) {
-  #home h1
-  {
+
+@media screen and (max-width: 962px) {
+  #mobviewtextfix h1 {
     font-size: 24px;
   }
-  #home h5
-  {
+
+  #mobviewtextfix h5 {
     font-size: 14px;
   }
 }

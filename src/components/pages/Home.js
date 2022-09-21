@@ -8,8 +8,8 @@ const Home = () => {
           <div className="col-sm">
             <div className="outer">
               <div className="middle">
-                <div className="inner">
-                  <h1>Welcome To EduSys</h1>
+                <div className="inner" id="mobviewtextfix">
+                  <h1>Welcome To <span>EduSys</span></h1>
                   <h5>
                     The World's Best All In One Digital Education System Which
                     Consists Of Almost All The Features Required By

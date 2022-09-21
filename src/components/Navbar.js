@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg text-center">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/Home">
-            <img src={icon} alt="Logo" width="30" height="24" /> EduSys
+            <img src={icon} alt="Logo" width="30" height="24" /> <b>Edu</b><span>Sys</span>
           </NavLink>
           <button
             className="navbar-toggler"
