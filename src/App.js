@@ -8,6 +8,7 @@ import Features from "./components/pages/Features";
 import Pricing from "./components/pages/Pricing";
 import Login from "./components/pages/Login";
 import Contact from "./components/pages/Contact";
+import ThankYou from "./components/pages/ThankYou";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/Pricing" element={<Pricing/>} />
         <Route exact path="/About" element={<About/>} />
         <Route exact path="/Contact" element={<Contact/>} />
+        <Route exact path="/ThankYou" element={<ThankYou/>} />
         <Route exact path="/Login" element={<Login/>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
