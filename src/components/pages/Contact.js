@@ -5,25 +5,36 @@ const Contact = () => {
     <>
       <section id="contact">
         <div className="row">
-        <div className="col-sm">
+          <div className="col-sm">
             <div className="outer">
               <div className="middle">
                 <div className="inner" id="mobviewtextfix">
                   <h1>
-                    <span>Contact</span> Us
+                    Contact <span>Us</span>
                   </h1>
                   <h5>
                     "We Are Always Available To Help You. Feel Free To Contact
                     Us!"
                   </h5>
-                  <form action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862" method="POST">
+                  <form
+                    action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
+                    method="POST"
+                  >
                     {/* Email Preferences */}
                     <div>
-                    <input type="hidden" name="_subject" value="An User Has Just Send You A Message From EduSys's Contact Form.Please Have A Look!"/>
-                    <input type="hidden" name="_template" value="table"/>
-                    <input type="hidden" name="_captcha" value="false"/>
-                    <input type="hidden" name="_next" value="https://edusys.co.in/ThankYou"/>
-                  </div>
+                      <input
+                        type="hidden"
+                        name="_subject"
+                        value="An User Has Just Send You A Message From EduSys's Contact Form.Please Have A Look!"
+                      />
+                      <input type="hidden" name="_template" value="table" />
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input
+                        type="hidden"
+                        name="_next"
+                        value="https://edusys.co.in/ThankYou"
+                      />
+                    </div>
                     <div className="mb-3">
                       <label className="form-label">Your Name</label>
                       <input

@@ -8,8 +8,13 @@ const ThankYou = () => {
           <div className="outer">
             <div className="middle">
               <div className="inner" id="mobviewtextfix">
-                <h1><span>Thank</span>You</h1>
-                <h5>We Have Received Your Message!We Will Soon Contact You.Till Then Have A Look At Our Awesome Features That Might Help You!</h5>
+                <h1>
+                  <span>Thank</span> You
+                </h1>
+                <h5>
+                  We Have Received Your Message!We Will Soon Contact You.Till
+                  Then Have A Look At Our Awesome Features That Might Help You!
+                </h5>
               </div>
             </div>
           </div>

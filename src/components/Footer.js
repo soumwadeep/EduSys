@@ -14,40 +14,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-facebook-f"></i>
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-twitter"></i>
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-google"></i>
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-instagram"></i>
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-linkedin"></i>
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-4 link-secondary"
-            >
+            <NavLink to="/" className="me-4 link-secondary">
               <i className="fab fa-github"></i>
             </NavLink>
           </div>
@@ -61,7 +43,7 @@ const Footer = () => {
                   <i className="fas fa-gem me-3 text-secondary"></i>EduSys
                 </h6>
                 <p>
-                  The World's Best All In One Digital Education System Which
+                  India's Best All In One Digital Education System Which
                   Consists Of Almost All The Features Required By
                   Teachers,Administrators And Students.
                 </p>

@@ -4,10 +4,11 @@ import icon from "../img/icon.png";
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg text-center">
+      <nav className="navbar sticky-top navbar-expand-lg text-center">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/Home">
-            <img src={icon} alt="Logo" width="30" height="24" /> <b>Edu</b><span>Sys</span>
+            <img src={icon} alt="Logo" width="30" height="24" /> <b>Edu</b>
+            <span>Sys</span>
           </NavLink>
           <button
             className="navbar-toggler"

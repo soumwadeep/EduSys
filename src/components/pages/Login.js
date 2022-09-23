@@ -12,7 +12,9 @@ const Login = () => {
             <div className="outer">
               <div className="middle">
                 <div className="inner" id="mobviewtextfix">
-                  <h1>Sign <span>In</span></h1>
+                  <h1>
+                    Sign <span>In</span>
+                  </h1>
                   <form>
                     <div className="mb-3">
                       <label for="exampleInputEmail1" className="form-label">
@@ -38,8 +40,11 @@ const Login = () => {
                     <button type="submit" className="btn">
                       Login
                     </button>
-                  </form><br/>
-                  <p><b>New User? Register<span> Now.</span></b></p>
+                  </form>
+                  <br />
+                  <p>
+                    New User? Register<span> Now.</span>
+                  </p>
                 </div>
               </div>
             </div>
