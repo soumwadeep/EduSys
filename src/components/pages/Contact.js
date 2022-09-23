@@ -5,15 +5,7 @@ const Contact = () => {
     <>
       <section id="contact">
         <div className="row">
-          <div className="col-sm">
-            <img
-              src={contact1}
-              alt="Contact"
-              className="imgfix"
-              id="animateimg"
-            />
-          </div>
-          <div className="col-sm">
+        <div className="col-sm">
             <div className="outer">
               <div className="middle">
                 <div className="inner" id="mobviewtextfix">
@@ -75,6 +67,14 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="col-sm">
+            <img
+              src={contact1}
+              alt="Contact"
+              className="imgfix"
+              id="animateimg"
+            />
           </div>
         </div>
       </section>

@@ -181,7 +181,7 @@ const Footer = () => {
                     rel="noreferrer"
                   >
                     <i className="fas fa-envelope me-3 text-secondary"></i>
-                    support@edusys.com
+                    support@edusys.co.in
                   </a>
                 </p>
                 <p>
