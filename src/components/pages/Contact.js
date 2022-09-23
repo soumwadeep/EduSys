@@ -16,7 +16,7 @@ const Contact = () => {
                     "We Are Always Available To Help You. Feel Free To Contact
                     Us!"
                   </h5>
-                  <form action="https://formsubmit.co/soumwadeep@gmail.com" method="POST">
+                  <form action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862" method="POST">
                     {/* Email Preferences */}
                     <div>
                     <input type="hidden" name="_subject" value="An User Has Just Send You A Message From EduSys's Contact Form.Please Have A Look!"/>
