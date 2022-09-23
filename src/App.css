@@ -170,7 +170,6 @@ a:hover {
 
 .featureTable {
   background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
-  font-family: 'Poppins', sans-serif;
   padding: 40px 0 35px;
   border-radius: 50px;
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
@@ -247,7 +246,6 @@ a:hover {
   content: "\f00c";
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
-  font-family: "Font Awesome 5 free";
   font-size: 17px;
   font-weight: 900;
   text-align: center;
@@ -398,7 +396,7 @@ a:hover {
   bottom: 0;
 }
 
-@media screen and (max-width: 962px) {
+/* @media screen and (max-width: 962px) {
   #mobviewtextfix h1 {
     font-size: 24px;
   }
@@ -406,4 +404,4 @@ a:hover {
   #mobviewtextfix h5 {
     font-size: 14px;
   }
-}
+} */
