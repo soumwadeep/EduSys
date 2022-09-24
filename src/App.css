@@ -243,6 +243,7 @@ a:hover {
 }
 
 .featureTable .feature-content li:before {
+  font: var(--fa-font-solid);
   content: "\f00c";
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);

@@ -36,6 +36,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
+              
               <li className="nav-item">
                 <NavLink
                   className={(navData) =>

@@ -15,7 +15,6 @@ function App() {
       <div className="container">
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/Features" element={<Features />} />
           <Route exact path="/Pricing" element={<Pricing />} />
@@ -23,7 +22,7 @@ function App() {
           <Route exact path="/Contact" element={<Contact />} />
           <Route exact path="/ThankYou" element={<ThankYou />} />
           <Route exact path="/Login" element={<Login />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
         <Footer />
       </div>
