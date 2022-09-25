@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import login1 from "../../img/login1.svg";
 const Login = () => {
   return (
@@ -23,8 +24,6 @@ const Login = () => {
                       <input
                         type="email"
                         className="form-control"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
                       />
                     </div>
                     <div className="mb-3">
@@ -34,7 +33,6 @@ const Login = () => {
                       <input
                         type="password"
                         className="form-control"
-                        id="exampleInputPassword1"
                       />
                     </div>
                     <button type="submit" className="btn">
@@ -43,7 +41,11 @@ const Login = () => {
                   </form>
                   <br />
                   <p>
-                    New User? Register<span> Now.</span>
+                    New User? Register<NavLink to="/Register"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                    ><span> Now.</span></NavLink>
                   </p>
                 </div>
               </div>
