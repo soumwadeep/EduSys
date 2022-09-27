@@ -7,12 +7,18 @@ const Pricing = () => {
       <section id="pricing">
         <div className="row">
           <div className="col-sm">
-            <img
-              src={pricing1}
-              className="imgfix"
-              id="animateimg"
-              alt="education"
-            />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={pricing1}
+                    className="imgfix"
+                    id="animateimg"
+                    alt="education"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-sm">
             <div className="outer">

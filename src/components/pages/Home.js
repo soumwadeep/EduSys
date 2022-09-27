@@ -13,7 +13,7 @@ const Home = () => {
                     Welcome To <span>EduSys</span>
                   </h1>
                   <h5>
-                    The World's Best All In One Digital Education System Which
+                    India's Best All In One Digital Education System Which
                     Consists Of Almost All The Features Required By
                     Teachers,Administrators And Students.
                   </h5>
@@ -22,12 +22,18 @@ const Home = () => {
             </div>
           </div>
           <div className="col-sm">
-            <img
-              src={home1}
-              className="imgfix"
-              id="animateimg"
-              alt="education"
-            />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={home1}
+                    className="imgfix"
+                    id="animateimg"
+                    alt="education"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

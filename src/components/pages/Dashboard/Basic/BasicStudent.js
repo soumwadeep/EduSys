@@ -78,12 +78,18 @@ const BasicStudent = () => {
               </div>
             </div>
             <div className="col-sm">
-              <img
-                src={BasicDashboard1}
-                alt="BasicDashboard1"
-                className="imgfix"
-                id="animateimg"
-              />
+              <div className="outer">
+                <div className="middle">
+                  <div className="inner" id="mobviewtextfix">
+                    <img
+                      src={BasicDashboard1}
+                      alt="BasicDashboard1"
+                      className="imgfix"
+                      id="animateimg"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

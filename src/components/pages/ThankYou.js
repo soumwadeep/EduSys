@@ -20,12 +20,18 @@ const ThankYou = () => {
           </div>
         </div>
         <div className="col-sm">
-          <img
-            src={thankyou1}
-            className="imgfix"
-            id="animateimg"
-            alt="education"
-          />
+          <div className="outer">
+            <div className="middle">
+              <div className="inner" id="mobviewtextfix">
+                <img
+                  src={thankyou1}
+                  className="imgfix"
+                  id="animateimg"
+                  alt="education"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

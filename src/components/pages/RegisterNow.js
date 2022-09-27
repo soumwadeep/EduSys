@@ -1,9 +1,9 @@
-import React from 'react'
-import register1 from '../../img/register1.svg'
+import React from "react";
+import register1 from "../../img/register1.svg";
 const RegisterNow = () => {
   return (
     <>
-        <section id="register">
+      <section id="register">
         <div className="row">
           <div className="col-sm">
             <div className="outer">
@@ -13,7 +13,8 @@ const RegisterNow = () => {
                     Sign <span>Up</span>
                   </h1>
                   <h5>
-                   Register Now To Get Access To Our Free Courses And Resources.
+                    Register Now To Get Access To Our Free Courses And
+                    Resources.
                   </h5>
                   <form
                     action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
@@ -53,7 +54,9 @@ const RegisterNow = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Your University Roll No.</label>
+                      <label className="form-label">
+                        Your University Roll No.
+                      </label>
                       <input
                         type="number"
                         name="rollno"
@@ -62,7 +65,9 @@ const RegisterNow = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Your Present Semester</label>
+                      <label className="form-label">
+                        Your Present Semester
+                      </label>
                       <input
                         type="number"
                         name="sem"
@@ -71,7 +76,9 @@ const RegisterNow = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Your Student Email ID</label>
+                      <label className="form-label">
+                        Your Student Email ID
+                      </label>
                       <input
                         type="email"
                         name="email"
@@ -111,17 +118,23 @@ const RegisterNow = () => {
             </div>
           </div>
           <div className="col-sm">
-            <img
-              src={register1}
-              alt="Contact"
-              className="imgfix"
-              id="animateimg"
-            />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={register1}
+                    alt="Contact"
+                    className="imgfix"
+                    id="animateimg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default RegisterNow
+export default RegisterNow;

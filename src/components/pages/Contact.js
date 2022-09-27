@@ -80,12 +80,18 @@ const Contact = () => {
             </div>
           </div>
           <div className="col-sm">
-            <img
-              src={contact1}
-              alt="Contact"
-              className="imgfix"
-              id="animateimg"
-            />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={contact1}
+                    alt="Contact"
+                    className="imgfix"
+                    id="animateimg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -7,7 +7,18 @@ const Login = () => {
       <section id="login">
         <div className="row">
           <div className="col-sm">
-            <img className="imgfix" src={login1} alt="Login" id="animateimg" />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    className="imgfix"
+                    src={login1}
+                    alt="Login"
+                    id="animateimg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-sm">
             <div className="outer">
@@ -18,22 +29,12 @@ const Login = () => {
                   </h1>
                   <form>
                     <div className="mb-3">
-                      <label className="form-label">
-                        Email address
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control"
-                      />
+                      <label className="form-label">Email address</label>
+                      <input type="email" className="form-control" />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                      />
+                      <label className="form-label">Password</label>
+                      <input type="password" className="form-control" />
                     </div>
                     <button type="submit" className="btn">
                       Login
@@ -41,11 +42,19 @@ const Login = () => {
                   </form>
                   <br />
                   <p>
-                    New User? Register<NavLink to="/Register"
-                    onClick={() => {
-                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    }}
-                    ><span> Now.</span></NavLink>
+                    New User? Register
+                    <NavLink
+                      to="/Register"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      <span> Now.</span>
+                    </NavLink>
                   </p>
                 </div>
               </div>

@@ -6,12 +6,18 @@ const About = () => {
       <section id="about">
         <div className="row">
           <div className="col-sm">
-            <img
-              src={about1}
-              className="imgfix"
-              alt="about us"
-              id="animateimg"
-            ></img>
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={about1}
+                    className="imgfix"
+                    alt="about us"
+                    id="animateimg"
+                  ></img>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-sm">
             <div className="outer">

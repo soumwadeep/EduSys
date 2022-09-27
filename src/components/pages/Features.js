@@ -23,12 +23,18 @@ const Features = () => {
             </div>
           </div>
           <div className="col-sm">
-            <img
-              src={feature1}
-              className="imgfix"
-              alt="feature"
-              id="animateimg"
-            />
+            <div className="outer">
+              <div className="middle">
+                <div className="inner" id="mobviewtextfix">
+                  <img
+                    src={feature1}
+                    className="imgfix"
+                    alt="feature"
+                    id="animateimg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div id="demo">
