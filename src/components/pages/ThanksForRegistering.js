@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import thankyouregister1 from "../../img/thankyouregister1.svg";
 const ThanksForRegistering = () => {
+  useEffect(() => {
+    document.title = "Thanks For Registering | EduSys";
+  }, []);
   return (
     <section id="thankyou">
       <div className="row">

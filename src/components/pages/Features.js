@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import feature1 from "../../img/feature1.svg";
 const Features = () => {
+  useEffect(() => {
+    document.title = "Features | EduSys";
+  }, []);
   return (
     <>
       <section id="features">

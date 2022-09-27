@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import contact1 from "../../img/contact1.svg";
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact | EduSys";
+  }, []);
   return (
     <>
       <section id="contact">
