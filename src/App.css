@@ -18,7 +18,17 @@ a:hover {
   text-decoration: none;
   color: gray;
 }
-
+/* Font Awesome Icons Styling */
+#styleicon
+{
+  /* font-size: 1.5rem; */
+  color: #F53803;
+}
+#styleicon:hover
+{
+  color: white!important;
+  text-decoration: none;
+}
 /* Pricing Table */
 #demo span {
   color: white;
@@ -319,7 +329,7 @@ a:hover {
 .btn:hover {
   background-color: #F53803;
   border-color: #F53803;
-  color: white;
+  color: white!important;
 }
 
 .inner {
@@ -329,7 +339,13 @@ a:hover {
   width: 100%;
   /* max-width: 400px; */
 }
-
+/* Dashboard */
+#dashboard-sidebar
+{
+  text-align: center!important;
+  padding: 30px!important;
+  font-size: 20px!important;
+}
 /* Vertically Alligned CSS Ends */
 
 .navbar {

@@ -11,6 +11,7 @@ import Contact from "./components/pages/Contact";
 import ThankYou from "./components/pages/ThankYou";
 import RegisterNow from "./components/pages/RegisterNow";
 import ThanksForRegistering from "./components/pages/ThanksForRegistering";
+import BasicStudent from "./components/pages/Dashboard/Basic/BasicStudent";
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/ThanksForRegistering" element={<ThanksForRegistering />} />
           <Route exact path="/Login" element={<Login />} />
           <Route exact path="/Register" element={<RegisterNow />} />
+          <Route exact path="/BasicStudents" element={<BasicStudent />} />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
         <Footer />
