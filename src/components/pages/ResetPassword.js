@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/BasicStudent");
+    if (user) navigate("/BasicStudents");
   }, [user, loading]);
   return (
     <>

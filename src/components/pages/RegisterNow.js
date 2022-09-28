@@ -28,7 +28,7 @@ const RegisterNow = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/BasicStudent");
+    if (user) navigate("/BasicStudents");
   }, [user, loading]);
   return (
     <>
