@@ -45,72 +45,92 @@ const Pricing = () => {
             <h1>
               Our <span style={{ color: "#F53803" }}>Plans</span>
             </h1>
+            <br />
+            <br />
+            <div className="row">
+              <div className="col-sm">
+                <div className="pricingTable pink">
+                  <div className="pricingTable-header">
+                    <div className="price-value">
+                      <span className="amount">₹ 1000</span>
+                      <span className="duration">per month</span>
+                    </div>
+                    <h3 className="title">Basic</h3>
+                  </div>
+                  <ul className="pricing-content">
+                    <li>
+                      <i className="fa fa-check"></i> Live Classes
+                    </li>
+                    <li>
+                      <i className="fa fa-xmark"></i>&nbsp;&nbsp; Recorded
+                      Classes
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> 50 Students
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> 50 GB Storage
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Upload Files
+                    </li>
+                    <li>
+                      <i className="fa fa-xmark"></i>&nbsp;&nbsp; Virtual Lab
+                    </li>
+                    <li>
+                      <i className="fa fa-xmark"></i>&nbsp;&nbsp; Fees Payment
+                    </li>
+                    <li>
+                      <i className="fa fa-xmark"></i>&nbsp;&nbsp; Exam Portal
+                    </li>
+                  </ul>
+                  <div className="pricingTable-signup">
+                    <NavLink to="#">Sign Up</NavLink>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="pricingTable orange">
+                  <div className="pricingTable-header">
+                    <div className="price-value">
+                      <span className="amount">₹ 5000</span>
+                      <span className="duration">per month</span>
+                    </div>
+                    <h3 className="title">Pro</h3>
+                  </div>
+                  <ul className="pricing-content">
+                    <li>
+                      <i className="fa fa-check"></i> Live Classes
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Recorded Classes
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> 100 Students
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> 100 GB Storage
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Upload Files
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Virtual Lab
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Fees Payment
+                    </li>
+                    <li>
+                      <i className="fa fa-check"></i> Exam Portal
+                    </li>
+                  </ul>
+                  <div className="pricingTable-signup">
+                    <NavLink to="#">Sign Up</NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
           </center>
-          <div className="row">
-            <div className="col-md-4 col-sm-6">
-              <div className="pricingTable">
-                <div className="pricingTable-header">
-                  <div className="price-value">
-                    <span className="amount">$10</span>
-                    <span className="duration">per month</span>
-                  </div>
-                  <h3 className="title">Standard</h3>
-                </div>
-                <ul className="pricing-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li>Maintenance</li>
-                  <li>15 Subdomains</li>
-                </ul>
-                <div className="pricingTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="pricingTable pink">
-                <div className="pricingTable-header">
-                  <div className="price-value">
-                    <span className="amount">$20</span>
-                    <span className="duration">per month</span>
-                  </div>
-                  <h3 className="title">Business</h3>
-                </div>
-                <ul className="pricing-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li>Maintenance</li>
-                  <li>15 Subdomains</li>
-                </ul>
-                <div className="pricingTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="pricingTable orange">
-                <div className="pricingTable-header">
-                  <div className="price-value">
-                    <span className="amount">$30</span>
-                    <span className="duration">per month</span>
-                  </div>
-                  <h3 className="title">Premium</h3>
-                </div>
-                <ul className="pricing-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li>Maintenance</li>
-                  <li>15 Subdomains</li>
-                </ul>
-                <div className="pricingTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>

@@ -43,7 +43,11 @@ a:hover {
   text-align: center;
   padding: 0 20px 35px;
   position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
   z-index: 1;
+  /* font-family: 'Sansita', sans-serif; */
 }
 
 .pricingTable:before {
@@ -61,9 +65,9 @@ a:hover {
 
 .pricingTable .price-value {
   color: #fff;
-  height: 140px;
-  width: 140px;
-  padding: 35px 0 0;
+  height: 150px;
+  width: 150px;
+  /* padding: 35px 0 0; */
   margin: 0 auto 50px;
   position: relative;
 }
@@ -125,6 +129,8 @@ a:hover {
   text-transform: uppercase;
   margin: 0 0 20px;
   position: relative;
+  text-align: left;
+  padding: 0 0 0 35px;
 }
 
 .pricingTable .pricing-content li:last-child {

@@ -50,11 +50,7 @@ const Features = () => {
             <div className="col-md-4 col-sm-6">
               <div className="featureTable">
                 <div className="featureTable-header">
-                  <h3 className="title">Live Classes</h3>
-                  <div className="feature-value">
-                    <span className="amount">$9.99</span>
-                    <span className="duration">Per Month</span>
-                  </div>
+                  <h3 className="title"><i class="fa-regular fa-screen-users"></i>Live Classes</h3>
                 </div>
                 <ul className="feature-content">
                   <li>50GB Disk Space</li>
@@ -63,9 +59,6 @@ const Features = () => {
                   <li className="disable">Maintenance</li>
                   <li className="disable">15 Subdomains</li>
                 </ul>
-                <div className="featureTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
               </div>
             </div>
             <div className="col-md-4 col-sm-6">
