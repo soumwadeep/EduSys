@@ -15,6 +15,10 @@ import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan
 import BasicStudentSidebar from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentSidebar";
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherSidebar from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherSidebar";
+import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
+import ProStudentSidebar from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudentSidebar";
+import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
+import ProTeacherSidebar from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacherSidebar";
 function App() {
   return (
     <>
@@ -35,9 +39,29 @@ function App() {
           <Route exact path="/Login" element={<Login />} />
           <Route exact path="/Register" element={<RegisterNow />} />
           <Route exact path="/BasicStudents" element={<BasicStudent />} />
-          <Route exact path="/BasicStudentSidebar" element={<BasicStudentSidebar />} />
+          <Route
+            exact
+            path="/BasicStudentSidebar"
+            element={<BasicStudentSidebar />}
+          />
+          <Route exact path="/ProStudents" element={<ProStudent />} />
+          <Route
+            exact
+            path="/ProStudentSidebar"
+            element={<ProStudentSidebar />}
+          />
           <Route exact path="/BasicTeachers" element={<BasicTeacher />} />
-          <Route exact path="/BasicTeacherSidebar" element={<BasicTeacherSidebar />} />
+          <Route
+            exact
+            path="/BasicTeacherSidebar"
+            element={<BasicTeacherSidebar />}
+          />
+          <Route exact path="/ProTeachers" element={<ProTeacher />} />
+          <Route
+            exact
+            path="/ProTeacherSidebar"
+            element={<ProTeacherSidebar />}
+          />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
         <Footer />
