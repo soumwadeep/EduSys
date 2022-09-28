@@ -47,7 +47,7 @@ const Pricing = () => {
             </h1>
             <br />
             <br />
-            <div className="row">
+            <div className="row justify-content-md-center">
               <div className="col-sm">
                 <div className="pricingTable pink">
                   <div className="pricingTable-header">

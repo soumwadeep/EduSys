@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import feature1 from "../../img/feature1.svg";
 const Features = () => {
   useEffect(() => {
@@ -45,65 +44,101 @@ const Features = () => {
             <h1>
               Our <span style={{ color: "#F53803" }}>Services</span>
             </h1>
+            <br />
+            <div className="row">
+              <div className="col-sm">
+                <div className="featureTable">
+                  <div className="featureTable-header">
+                    <h3 className="title">
+                      <i class="fa-regular fa-screen-users"></i>Live Classes
+                    </h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>High Quality Recording</li>
+                    <li>Live Chat</li>
+                    <li>Screen Sharing</li>
+                    <li>Easy To Use UI</li>
+                    <li>Well Maintained</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="featureTable red">
+                  <div className="featureTable-header">
+                    <h3 className="title">Study Materials</h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>All Subject Books</li>
+                    <li>Sample Papers</li>
+                    <li>Best Notes</li>
+                    <li>Supports Every Format</li>
+                    <li>Best Support</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="featureTable blue">
+                  <div className="featureTable-header">
+                    <h3 className="title">Exam Portal</h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>Best Security</li>
+                    <li>Best Survillance</li>
+                    <li>Easy To Use UI</li>
+                    <li>Well Maintenance</li>
+                    <li>Real Time Monitoring</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <div className="row">
+              <div className="col-sm">
+                <div className="featureTable">
+                  <div className="featureTable-header">
+                    <h3 className="title">
+                      <i class="fa-regular fa-screen-users"></i>Fees Portal
+                    </h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>256-Bit Security</li>
+                    <li>Refund Facility</li>
+                    <li>Every Payment Methods</li>
+                    <li>International Payments</li>
+                    <li>Well Maintained</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="featureTable red">
+                  <div className="featureTable-header">
+                    <h3 className="title">Virtual Lab</h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>All Practical Subject's Lab</li>
+                    <li>IIT Digital Labs</li>
+                    <li>Lab Notes</li>
+                    <li>Live Digital Experimenting</li>
+                    <li>97.8% Accurate Results</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="featureTable blue">
+                  <div className="featureTable-header">
+                    <h3 className="title">Dashboard</h3>
+                  </div>
+                  <ul className="feature-content">
+                    <li>Has Every Contents</li>
+                    <li>Easy To Understand</li>
+                    <li>Important Direct Links</li>
+                    <li>Regularly Updated</li>
+                    <li>Best Security</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </center>
-          <div className="row">
-            <div className="col-md-4 col-sm-6">
-              <div className="featureTable">
-                <div className="featureTable-header">
-                  <h3 className="title"><i class="fa-regular fa-screen-users"></i>Live Classes</h3>
-                </div>
-                <ul className="feature-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li className="disable">Maintenance</li>
-                  <li className="disable">15 Subdomains</li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="featureTable red">
-                <div className="featureTable-header">
-                  <h3 className="title">Study Materials</h3>
-                  <div className="feature-value">
-                    <span className="amount">$19.99</span>
-                    <span className="duration">Per Month</span>
-                  </div>
-                </div>
-                <ul className="feature-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li>Maintenance</li>
-                  <li className="disable">15 Subdomains</li>
-                </ul>
-                <div className="featureTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="featureTable blue">
-                <div className="featureTable-header">
-                  <h3 className="title">Exam Portal</h3>
-                  <div className="feature-value">
-                    <span className="amount">$30.00</span>
-                    <span className="duration">Per Month</span>
-                  </div>
-                </div>
-                <ul className="feature-content">
-                  <li>50GB Disk Space</li>
-                  <li>50 Email Accounts</li>
-                  <li>50GB Bandwidth</li>
-                  <li>Maintenance</li>
-                  <li>15 Subdomains</li>
-                </ul>
-                <div className="featureTable-signup">
-                  <NavLink to="#">Sign Up</NavLink>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>

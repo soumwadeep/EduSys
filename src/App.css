@@ -188,6 +188,9 @@ a:hover {
   background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
   padding: 40px 0 35px;
   border-radius: 50px;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
 }
 
@@ -238,7 +241,7 @@ a:hover {
 .featureTable .feature-content {
   text-align: left;
   padding: 0 15px 0 35px;
-  margin: 0 0 25px;
+  margin: 0 0 15px;
   list-style: none;
   display: inline-block;
 }
@@ -278,31 +281,6 @@ a:hover {
 .featureTable .feature-content li.disable:before {
   content: "\f00d";
   color: rgba(255, 255, 255, 0.6);
-}
-
-.featureTable .featureTable-signup a {
-  color: var(--g-color2);
-  background-color: #fff;
-  font-size: 22px;
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-transform: capitalize;
-  padding: 5px 18px;
-  margin: 0 35px;
-  border-radius: 50px;
-  display: block;
-  transition: all 0.3s;
-}
-
-.featureTable .featureTable-signup a:hover {
-  color: var(--g-color1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.featureTable.green {
-  --g-color1: #98C944;
-  --g-color2: #E8CC88;
 }
 
 .featureTable.blue {
