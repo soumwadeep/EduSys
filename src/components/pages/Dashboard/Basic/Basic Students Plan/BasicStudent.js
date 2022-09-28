@@ -7,7 +7,7 @@ import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 const BasicStudent = () => {
   useEffect(() => {
-    document.title = "Welcome Student | EduSys";
+    document.title = `Welcome ${name} | EduSys`;
   }, []);
 
   const [user, loading, error] = useAuthState(auth);
@@ -44,10 +44,12 @@ const BasicStudent = () => {
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
                     <h1>
-                      Welcome To Our <span>DashBoard</span>
-                      {name}
+                      Welcome To Our DashBoard
+                      <span> {name}</span>
                     </h1>
-                    <p>Your Email Id:{user?.email}</p>
+                    <p>
+                      Your Email Id Is:<span> {user?.email}</span>
+                    </p>
                     <p>
                       We Are Currently Working On It.So Please Wait For Some
                       Time.We Will Update You Via Email After We Finish Setting

@@ -44,7 +44,7 @@ const Login = () => {
                   <h1>
                     Sign <span>In</span>
                   </h1>
-                  <form>
+                  <div>
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
                       <input
@@ -64,7 +64,6 @@ const Login = () => {
                       />
                     </div>
                     <button
-                      type="submit"
                       className="btn"
                       onClick={() => logInWithEmailAndPassword(email, password)}
                     >
@@ -78,7 +77,7 @@ const Login = () => {
                     >
                       Login With Google
                     </button>
-                  </form>
+                  </div>
                   <br />
                   <p>
                     Forgot Password? Reset It

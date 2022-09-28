@@ -40,7 +40,7 @@ const ResetPassword = () => {
                   <h1>
                     Reset <span>Password</span>
                   </h1>
-                  <form>
+                  <div>
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
                       <input
@@ -51,13 +51,12 @@ const ResetPassword = () => {
                       />
                     </div>
                     <button
-                      type="submit"
                       className="btn"
                       onClick={() => sendPasswordReset(email)}
                     >
                       Send Password Reset Email
                     </button>
-                  </form>
+                  </div>
                   <br />
                   <p>
                     New User? Register

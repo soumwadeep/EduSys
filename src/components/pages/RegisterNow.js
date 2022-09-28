@@ -45,12 +45,12 @@ const RegisterNow = () => {
                     Register Now To Get Access To Our Free Courses And
                     Resources.
                   </h5>
-                  <form
-                    action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
-                    method="POST"
-                  >
+                  <div>
+                    {" "}
+                    {/* action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
+                    method="POST" */}
                     {/* Email Preferences */}
-                    <div>
+                    {/* <div>
                       <input
                         type="hidden"
                         name="_subject"
@@ -63,7 +63,7 @@ const RegisterNow = () => {
                         name="_next"
                         value="https://edusys.co.in/ThanksForRegistering"
                       />
-                    </div>
+                    </div> */}
                     <div className="mb-3">
                       <label className="form-label">Your Name</label>
                       <input
@@ -150,10 +150,14 @@ const RegisterNow = () => {
                         className="form-control"
                       />
                     </div>
-                    <button type="submit" className="btn">
+                    <button className="btn" onClick={register}>
                       Register
                     </button>
-                  </form>
+                    &nbsp;&nbsp;
+                    <button className="btn" onClick={signInWithGoogle}>
+                      Register With Google
+                    </button>
+                  </div>
                   <br />
                   <p>
                     Already Our Member? Login
