@@ -19,6 +19,7 @@ import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProSt
 import ProStudentSidebar from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudentSidebar";
 import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
 import ProTeacherSidebar from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacherSidebar";
+import ResetPassword from "./components/pages/ResetPassword";
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
           />
           <Route exact path="/Login" element={<Login />} />
           <Route exact path="/Register" element={<RegisterNow />} />
+          <Route exact path="/ResetPassword" element={<ResetPassword />} />
           <Route exact path="/BasicStudents" element={<BasicStudent />} />
           <Route
             exact

@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import login1 from "../../img/login1.svg";
+import { auth, sendPasswordReset } from "../firebase";
+import reset1 from "../../img/reset1.svg";
 
-const Login = () => {
+const ResetPassword = () => {
   useEffect(() => {
-    document.title = "Login | EduSys";
+    document.title = "Reset Password | EduSys";
   }, []);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
-    if (user) navigate("/BasicStudents");
+    if (loading) return;
+    if (user) navigate("/BasicStudent");
   }, [user, loading]);
   return (
     <>
@@ -29,7 +25,7 @@ const Login = () => {
                 <div className="inner" id="mobviewtextfix">
                   <img
                     className="imgfix"
-                    src={login1}
+                    src={reset1}
                     alt="Login"
                     id="animateimg"
                   />
@@ -42,7 +38,7 @@ const Login = () => {
               <div className="middle">
                 <div className="inner" id="mobviewtextfix">
                   <h1>
-                    Sign <span>In</span>
+                    Reset <span>Password</span>
                   </h1>
                   <form>
                     <div className="mb-3">
@@ -54,47 +50,15 @@ const Login = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
-                    <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
                     <button
                       type="submit"
                       className="btn"
-                      onClick={() => logInWithEmailAndPassword(email, password)}
+                      onClick={() => sendPasswordReset(email)}
                     >
-                      Login
-                    </button>
-                    &nbsp;&nbsp;
-                    <button
-                      type="submit"
-                      className="btn"
-                      onClick={signInWithGoogle}
-                    >
-                      Login With Google
+                      Send Password Reset Email
                     </button>
                   </form>
                   <br />
-                  <p>
-                    Forgot Password? Reset It
-                    <NavLink
-                      to="/ResetPassword"
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      <span> Now.</span>
-                    </NavLink>
-                  </p>
                   <p>
                     New User? Register
                     <NavLink
@@ -120,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;
