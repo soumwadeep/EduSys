@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
+import swal from "sweetalert";
 import contact1 from "../../img/contact1.svg";
 const Contact = () => {
   useEffect(() => {
     document.title = "Contact | EduSys";
   }, []);
+  function successMessage()
+  {
+    swal("Your Message Has Been Sent!", "Our Team Will Soon Connect With You!", "success");
+  }
   return (
     <>
       <section id="contact">
@@ -74,7 +79,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    <button type="submit" className="btn">
+                    <button type="submit" className="btn" onClick={successMessage}>
                       Send
                     </button>
                   </form>

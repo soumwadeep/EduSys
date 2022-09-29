@@ -14,6 +14,7 @@ const RegisterNow = () => {
 
   const [name, setName] = useState("");
   const [dept, setDept] = useState("");
+  const [sec, setSec] = useState("");
   const [rollno, setRollno] = useState("");
   const [sem, setSem] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const RegisterNow = () => {
 
   const register = () => {
     if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+    registerWithEmailAndPassword(name, email, password, dept,sec, rollno, sem);
   };
 
   useEffect(() => {
@@ -45,12 +46,11 @@ const RegisterNow = () => {
                     Register Now To Get Access To Our Free Courses And
                     Resources.
                   </h5>
-                  <div>
+                  <div action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
+                    method="POST">
                     {" "}
-                    {/* action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
-                    method="POST" */}
                     {/* Email Preferences */}
-                    {/* <div>
+                    <div>
                       <input
                         type="hidden"
                         name="_subject"
@@ -61,9 +61,9 @@ const RegisterNow = () => {
                       <input
                         type="hidden"
                         name="_next"
-                        value="https://edusys.co.in/ThanksForRegistering"
+                        value="https://edusys.co.in/BasicStudents"
                       />
-                    </div> */}
+                    </div>
                     <div className="mb-3">
                       <label className="form-label">Your Name</label>
                       <input
@@ -79,9 +79,20 @@ const RegisterNow = () => {
                       <label className="form-label">Your Department</label>
                       <input
                         type="text"
-                        name="dept"
+                        name="sec"
                         value={dept}
                         onChange={(e) => setDept(e.target.value)}
+                        className="form-control"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Your Section</label>
+                      <input
+                        type="text"
+                        name="sec"
+                        value={sec}
+                        onChange={(e) => setSec(e.target.value)}
                         className="form-control"
                         required
                       />
@@ -141,14 +152,6 @@ const RegisterNow = () => {
                       <div id="userHelp" className="form-text">
                         This Will Be Your Login Password For Our Login Portal.
                       </div>
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Your Comments</label>
-                      <textarea
-                        type="text"
-                        name="comment"
-                        className="form-control"
-                      />
                     </div>
                     <button className="btn" onClick={register}>
                       Register

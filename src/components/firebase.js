@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import swal from "sweetalert";
+
 import {
   GoogleAuthProvider,
   getAuth,
@@ -34,54 +36,76 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const q = query(collection(db, "basicusers"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
     if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
+      await addDoc(collection(db, "basicusers"), {
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
         email: user.email,
       });
+      swal(
+        "You Are Logged In!",
+        `Welcome ${user.displayName} To Our Dashboard!`,
+        "success"
+      );
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error!", `${err.message}`, "error");
   }
 };
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    // swal("You Are Logged In!", `Welcome ${email}!`, "success");
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error!", `${err.message}`, "error");
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (
+  name,
+  email,
+  password,
+  dept,
+  sec,
+  rollno,
+  sem
+) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    await addDoc(collection(db, "users"), {
+    await addDoc(collection(db, "basicusers"), {
       uid: user.uid,
       name,
       authProvider: "local",
       email,
+      dept,
+      sec,
+      rollno,
+      sem
     });
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error!", `${err.message}`, "error");
   }
 };
 
 const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
-    alert("Password reset link sent!");
+    swal(
+      "We Have Sent You Your Password Reset Link!",
+      "Check Your Inbox Or Spam Folder Now To Change Your Password!",
+      "success"
+    );
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error!", `${err.message}`, "error");
   }
 };
 

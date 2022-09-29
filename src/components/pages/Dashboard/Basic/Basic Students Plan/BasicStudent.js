@@ -5,6 +5,7 @@ import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
+import swal from "sweetalert";
 const BasicStudent = () => {
   useEffect(() => {
     document.title = `Welcome ${name} | EduSys`;
@@ -16,14 +17,14 @@ const BasicStudent = () => {
 
   const fetchUserName = async () => {
     try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const q = query(collection(db, "basicusers"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
-
       setName(data.name);
+      swal("Welcome",`${data.name} To Our Dashboard!`, "success");
     } catch (err) {
       console.error(err);
-      alert("An error occured while fetching user data");
+      swal("Error!", "We Got An Error Fetching Your Data.", "error");
     }
   };
 
