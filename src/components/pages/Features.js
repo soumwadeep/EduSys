@@ -50,7 +50,7 @@ const Features = () => {
                 <div className="featureTable">
                   <div className="featureTable-header">
                     <h3 className="title">
-                      <i class="fa-regular fa-screen-users"></i>Live Classes
+                      <i className="fa-regular fa-screen-users"></i>Live Classes
                     </h3>
                   </div>
                   <ul className="feature-content">
@@ -97,7 +97,7 @@ const Features = () => {
                 <div className="featureTable">
                   <div className="featureTable-header">
                     <h3 className="title">
-                      <i class="fa-regular fa-screen-users"></i>Fees Portal
+                      <i className="fa-regular fa-screen-users"></i>Fees Portal
                     </h3>
                   </div>
                   <ul className="feature-content">
