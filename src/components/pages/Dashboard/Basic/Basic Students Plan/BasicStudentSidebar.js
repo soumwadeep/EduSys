@@ -19,7 +19,7 @@ const BasicStudentSidebar = () => {
     <>
       <button
         onClick={toggleNav}
-        className="sidebarbtn"
+        className="sidebarbtn sticky-top"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"
