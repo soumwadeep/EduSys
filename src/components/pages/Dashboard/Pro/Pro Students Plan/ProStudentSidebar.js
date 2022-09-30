@@ -5,7 +5,7 @@ const ProStudentSidebar = () => {
   return (
     <>
       <button
-        className="btn"
+        className="sidebarbtn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"

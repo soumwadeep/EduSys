@@ -1,11 +1,25 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate, NavLink } from "react-router-dom";
+import { auth, db, logout } from "../../../../firebase";
 
 const BasicStudentSidebar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/Login");
+  }, [user, loading]);
+  
+  const [navOpen, setNavOpen] = useState(false);
+  function toggleNav() {
+    setNavOpen((state) => !state);
+  }
   return (
     <>
       <button
-        className="btn"
+        onClick={toggleNav}
+        className="sidebarbtn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"
@@ -19,6 +33,7 @@ const BasicStudentSidebar = () => {
         tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
+        data-bs-dismiss={navOpen ? "offcanvas" : "none"}
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
@@ -32,28 +47,67 @@ const BasicStudentSidebar = () => {
           ></button>
         </div>
         <div className="offcanvas-body" id="dashboard-sidebar">
-          <NavLink to="#" className="nav-link">
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/Home"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
             Home
           </NavLink>
-          <NavLink to="#" className="nav-link">
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/Updates"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
             Updates
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Class
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/Classes"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            Classes
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Books
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/StudyMaterials"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            Study Materials
           </NavLink>
-          <NavLink to="#" className="nav-link">
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/Assignments"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
             Assignments
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Fees
-          </NavLink>
-          <NavLink to="#" className="nav-link">
-            Exam
-          </NavLink>
-          <NavLink to="#" className="nav-link">
+          <NavLink  onClick={() => logout()} className="nav-link">
             Log Out
           </NavLink>
         </div>

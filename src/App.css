@@ -18,6 +18,18 @@ a:hover {
   text-decoration: none;
   color: gray;
 }
+/* Sidebar Btn For Dashboard */
+.sidebarbtn
+{
+  margin: 10px;
+  border: 1px solid #F53803;
+  background-color: #F53803;
+  color: white!important;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
 /* Font Awesome Icons Styling */
 #styleicon
 {

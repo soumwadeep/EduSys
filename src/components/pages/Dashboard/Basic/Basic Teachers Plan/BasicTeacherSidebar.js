@@ -5,7 +5,7 @@ const BasicTeacherSidebar = () => {
   return (
     <>
       <button
-        class="btn"
+        class="sidebarbtn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"

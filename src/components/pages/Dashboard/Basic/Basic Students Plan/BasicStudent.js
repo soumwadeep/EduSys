@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
@@ -17,11 +17,14 @@ const BasicStudent = () => {
 
   const fetchUserName = async () => {
     try {
-      const q = query(collection(db, "basicusers"), where("uid", "==", user?.uid));
+      const q = query(
+        collection(db, "basicusers"),
+        where("uid", "==", user?.uid)
+      );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
-      swal("Welcome",`${data.name} To Our Dashboard!`, "success");
+      swal("Welcome", `${data.name} To Our Dashboard!`, "success");
     } catch (err) {
       console.error(err);
       swal("Error!", "We Got An Error Fetching Your Data.", "error");

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
@@ -11,20 +11,53 @@ import Contact from "./components/pages/Contact";
 import ThankYou from "./components/pages/ThankYou";
 import RegisterNow from "./components/pages/RegisterNow";
 import ThanksForRegistering from "./components/pages/ThanksForRegistering";
+// Basic Student All
 import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
-import BasicStudentSidebar from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentSidebar";
+import BasicStudentHome from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentHome";
+import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
+import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials";
+import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
+import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
+// Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
-import BasicTeacherSidebar from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherSidebar";
+// Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
-import ProStudentSidebar from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudentSidebar";
+// Pro Teacher All
 import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
-import ProTeacherSidebar from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacherSidebar";
 import ResetPassword from "./components/pages/ResetPassword";
+
 function App() {
+  const location = useLocation();
+  // Basic Students Plan
+  const isBasicStudentsRendering = location.pathname === "/BasicStudents";
+  const isBasicStudentsHomeRendering =
+    location.pathname === "/BasicStudents/Home";
+  const isBasicStudentsUpdatesRendering =
+    location.pathname === "/BasicStudents/Updates";
+  const isBasicStudentsStudyMaterialsRendering =
+    location.pathname === "/BasicStudents/StudyMaterials";
+  const isBasicStudentsClassesRendering =
+    location.pathname === "/BasicStudents/Classes";
+  const isBasicStudentsAssignmentsRendering =
+    location.pathname === "/BasicStudents/Assignments";
+  // Basic Teachers Plans
+  const isBasicTeachersRendering = location.pathname === "/BasicTeachers";
+  // Pro Students Plans
+  const isProStudentsRendering = location.pathname === "/ProStudents";
+  // Pro Teachers Plans
+  const isProTeachersRendering = location.pathname === "/ProTeachers";
   return (
     <>
       <div className="container">
-        <NavBar />
+        {!isBasicStudentsRendering &&
+          !isBasicStudentsHomeRendering &&
+          !isBasicStudentsUpdatesRendering &&
+          !isBasicStudentsStudyMaterialsRendering &&
+          !isBasicStudentsClassesRendering &&
+          !isBasicStudentsAssignmentsRendering &&
+          !isBasicTeachersRendering &&
+          !isProStudentsRendering &&
+          !isProTeachersRendering && <NavBar />}
         <Routes>
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/Features" element={<Features />} />
@@ -37,33 +70,42 @@ function App() {
             path="/ThanksForRegistering"
             element={<ThanksForRegistering />}
           />
+          {/* Basic User's Login And Register */}
           <Route exact path="/Login" element={<Login />} />
           <Route exact path="/Register" element={<RegisterNow />} />
           <Route exact path="/ResetPassword" element={<ResetPassword />} />
+          {/* Basic Students All */}
           <Route exact path="/BasicStudents" element={<BasicStudent />} />
           <Route
             exact
-            path="/BasicStudentSidebar"
-            element={<BasicStudentSidebar />}
+            path="/BasicStudents/Home"
+            element={<BasicStudentHome />}
           />
+          <Route
+            exact
+            path="/BasicStudents/Updates"
+            element={<BasicStudentUpdates />}
+          />
+          <Route
+            exact
+            path="/BasicStudents/StudyMaterials"
+            element={<BasicStudentStudyMaterials />}
+          />
+          <Route
+            exact
+            path="/BasicStudents/Classes"
+            element={<BasicStudentClasses />}
+          />
+          <Route
+            exact
+            path="/BasicStudents/Assignments"
+            element={<BasicStudentAssignments />}
+          />
+
+          {/* Pro Students All */}
           <Route exact path="/ProStudents" element={<ProStudent />} />
-          <Route
-            exact
-            path="/ProStudentSidebar"
-            element={<ProStudentSidebar />}
-          />
           <Route exact path="/BasicTeachers" element={<BasicTeacher />} />
-          <Route
-            exact
-            path="/BasicTeacherSidebar"
-            element={<BasicTeacherSidebar />}
-          />
           <Route exact path="/ProTeachers" element={<ProTeacher />} />
-          <Route
-            exact
-            path="/ProTeacherSidebar"
-            element={<ProTeacherSidebar />}
-          />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
         <Footer />
