@@ -5,10 +5,6 @@ const Contact = () => {
   useEffect(() => {
     document.title = "Contact | EduSys";
   }, []);
-  function successMessage()
-  {
-    swal("Your Message Has Been Sent!", "Our Team Will Soon Connect With You!", "success");
-  }
   return (
     <>
       <section id="contact">
@@ -79,7 +75,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    <button type="submit" className="btn" onClick={successMessage}>
+                    <button type="submit" className="btn">
                       Send
                     </button>
                   </form>

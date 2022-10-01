@@ -7,6 +7,7 @@ import {
   signInWithGoogle,
 } from "../firebase";
 import register1 from "../../img/register1.svg";
+import swal from "sweetalert";
 const RegisterNow = () => {
   useEffect(() => {
     document.title = "Register | EduSys";
@@ -23,8 +24,38 @@ const RegisterNow = () => {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password, dept,sec, rollno, sem);
+    if (!name)
+    {
+      swal("Error!", "Please Enter Your Name To Continue.", "error");
+    }
+    else if (!dept)
+    {
+      swal("Error!", "Please Enter Your Department To Continue.", "error");
+    }
+    else if (!sec)
+    {
+      swal("Error!", "Please Enter Your Section To Continue.", "error");
+    }
+    else if (!rollno)
+    {
+      swal("Error!", "Please Enter Your Roll Number To Continue.", "error");
+    }
+    else if (!sem)
+    {
+      swal("Error!", "Please Enter Your Semester To Continue.", "error");
+    }
+    else if (!email)
+    {
+      swal("Error!", "Please Enter Your Email To Continue.", "error");
+    }
+    else if (!password)
+    {
+      swal("Error!", "Please Enter Your Password To Continue.", "error");
+    }
+    else
+    {
+    registerWithEmailAndPassword(name, email, password, dept, sec, rollno, sem);
+    }
   };
 
   useEffect(() => {
@@ -46,29 +77,11 @@ const RegisterNow = () => {
                     Register Now To Get Access To Our Free Courses And
                     Resources.
                   </h5>
-                  <div action="https://formsubmit.co/e827bd8fd2a95d7e7576547bb1aad862"
-                    method="POST">
-                    {" "}
-                    {/* Email Preferences */}
-                    <div>
-                      <input
-                        type="hidden"
-                        name="_subject"
-                        value="An User Has Just Registered In EduSys Web App.Please Have A Look!"
-                      />
-                      <input type="hidden" name="_template" value="table" />
-                      <input type="hidden" name="_captcha" value="false" />
-                      <input
-                        type="hidden"
-                        name="_next"
-                        value="https://edusys.co.in/BasicStudents"
-                      />
-                    </div>
+                  <div>
                     <div className="mb-3">
                       <label className="form-label">Your Name</label>
                       <input
                         type="text"
-                        name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="form-control"
@@ -79,7 +92,6 @@ const RegisterNow = () => {
                       <label className="form-label">Your Department</label>
                       <input
                         type="text"
-                        name="sec"
                         value={dept}
                         onChange={(e) => setDept(e.target.value)}
                         className="form-control"
@@ -90,7 +102,6 @@ const RegisterNow = () => {
                       <label className="form-label">Your Section</label>
                       <input
                         type="text"
-                        name="sec"
                         value={sec}
                         onChange={(e) => setSec(e.target.value)}
                         className="form-control"
@@ -103,7 +114,6 @@ const RegisterNow = () => {
                       </label>
                       <input
                         type="number"
-                        name="rollno"
                         className="form-control"
                         value={rollno}
                         onChange={(e) => setRollno(e.target.value)}
@@ -116,7 +126,6 @@ const RegisterNow = () => {
                       </label>
                       <input
                         type="number"
-                        name="sem"
                         value={sem}
                         onChange={(e) => setSem(e.target.value)}
                         className="form-control"
@@ -129,7 +138,6 @@ const RegisterNow = () => {
                       </label>
                       <input
                         type="email"
-                        name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="form-control"
@@ -143,7 +151,6 @@ const RegisterNow = () => {
                       <label className="form-label">Your Password</label>
                       <input
                         type="password"
-                        name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         className="form-control"
@@ -156,10 +163,10 @@ const RegisterNow = () => {
                     <button className="btn" onClick={register}>
                       Register
                     </button>
-                    &nbsp;&nbsp;
+                    {/* &nbsp;&nbsp;
                     <button className="btn" onClick={signInWithGoogle}>
                       Register With Google
-                    </button>
+                    </button> */}
                   </div>
                   <br />
                   <p>

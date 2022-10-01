@@ -18,6 +18,7 @@ const BasicStudentUpdates = () => {
     <>
       <BasicStudentSidebar />
       <h1>Updates</h1>
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRr9SWeI9oHMf8amnUWyx8lEvOmUKUaw1GW8ErXrlXsJ4rTSaeedJZaqXBTmLv43XFyCcf-GhTK9cMm/pub?embedded=true" className="basiciframe"></iframe>
     </>
   );
 };

@@ -158,12 +158,12 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    href="mailto:soumwadeep@gmail.com"
+                    href="mailto:admin@edusys.co.in"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <i className="fas fa-envelope me-3 text-secondary"></i>
-                    support@edusys.co.in
+                    admin@edusys.co.in
                   </a>
                 </p>
                 <p>

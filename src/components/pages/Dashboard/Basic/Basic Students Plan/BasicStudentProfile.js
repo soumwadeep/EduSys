@@ -9,7 +9,7 @@ import swal from "sweetalert";
 
 const BasicStudentProfile = () => {
   useEffect(() => {
-    document.title = `Welcome ${name} | EduSys`;
+    document.title = "Your Profile | EduSys";
   }, []);
 
   const [user, loading, error] = useAuthState(auth);
@@ -62,6 +62,7 @@ const BasicStudentProfile = () => {
                       Your
                       <span> Profile</span>
                     </h1>
+                    <h4>Plan:<span> Basic Plan</span></h4>
                     <h4>
                       Name:<span> {name}</span>
                     </h4>

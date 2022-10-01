@@ -62,16 +62,38 @@ const BasicStudent = () => {
                       <span> {name}</span>
                     </h1>
                     <p>
-                      Your Email Id Is:<span> {user?.email}</span>
+                      Follow This <span>Instructions</span> To Access Your
+                      Dashboard:
                     </p>
                     <p>
-                      We Are Currently Working On It.So Please Wait For Some
-                      Time.We Will Update You Via Email After We Finish Setting
-                      Up Your Dashboard!
+                      <span>1.</span> Click On The <span>Menu Button</span>{" "}
+                      Which Is Present In Top Left Side Of Your Screen To Access
+                      The Menu Of All The Features.
                     </p>
-                    <button className="btn" onClick={() => logout()}>
-                      Log Out
-                    </button>
+                    <p>
+                      <span>2.</span> To Know The <span>Updates</span> Click On
+                      Updates Button.
+                    </p>
+                    <p>
+                      <span>3.</span> To Know About Your <span>Classes</span>{" "}
+                      Click On The Classes Button.
+                    </p>
+                    <p>
+                      <span>4.</span> To Get Your <span>Study Materials</span>{" "}
+                      Click On The Study Materials Button
+                    </p>
+                    <p>
+                      <span>5.</span> To Get Your <span>Assignments</span> Click
+                      On The Assignments Button.
+                    </p>
+                    <p>
+                      <span>6.</span> To Know The Details Of Your{" "}
+                      <span>Profile</span> Click On The Profile Button.
+                    </p>
+                    <p>
+                      <span>7.</span> To <span>Log Out</span> Just Click On The
+                      Log Out Button.
+                    </p>
                   </div>
                 </div>
               </div>

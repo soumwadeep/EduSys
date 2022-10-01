@@ -13,7 +13,6 @@ import RegisterNow from "./components/pages/RegisterNow";
 import ThanksForRegistering from "./components/pages/ThanksForRegistering";
 // Basic Student All
 import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
-import BasicStudentHome from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentHome";
 import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
 import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials";
 import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
@@ -31,8 +30,6 @@ function App() {
   const location = useLocation();
   // Basic Students Plan
   const isBasicStudentsRendering = location.pathname === "/BasicStudents";
-  const isBasicStudentsHomeRendering =
-    location.pathname === "/BasicStudents/Home";
   const isBasicStudentsUpdatesRendering =
     location.pathname === "/BasicStudents/Updates";
   const isBasicStudentsStudyMaterialsRendering =
@@ -53,7 +50,6 @@ function App() {
     <>
       <div className="container">
         {!isBasicStudentsRendering &&
-          !isBasicStudentsHomeRendering &&
           !isBasicStudentsUpdatesRendering &&
           !isBasicStudentsStudyMaterialsRendering &&
           !isBasicStudentsClassesRendering &&
@@ -80,11 +76,6 @@ function App() {
           <Route exact path="/ResetPassword" element={<ResetPassword />} />
           {/* Basic Students All */}
           <Route exact path="/BasicStudents" element={<BasicStudent />} />
-          <Route
-            exact
-            path="/BasicStudents/Home"
-            element={<BasicStudentHome />}
-          />
           <Route
             exact
             path="/BasicStudents/Updates"

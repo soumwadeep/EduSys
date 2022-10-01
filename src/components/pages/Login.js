@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import login1 from "../../img/login1.svg";
+import swal from "sweetalert";
 
 const Login = () => {
   useEffect(() => {
@@ -51,6 +52,7 @@ const Login = () => {
                         type="email"
                         className="form-control"
                         value={email}
+                        required
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
@@ -60,6 +62,7 @@ const Login = () => {
                         type="password"
                         className="form-control"
                         value={password}
+                        required
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
@@ -69,14 +72,14 @@ const Login = () => {
                     >
                       Login
                     </button>
-                    &nbsp;&nbsp;
+                    {/* &nbsp;&nbsp;
                     <button
                       type="submit"
                       className="btn"
                       onClick={signInWithGoogle}
                     >
                       Login With Google
-                    </button>
+                    </button> */}
                   </div>
                   <br />
                   <p>

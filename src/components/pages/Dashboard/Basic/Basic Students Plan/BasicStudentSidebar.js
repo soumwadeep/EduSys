@@ -72,18 +72,6 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/Home"
-            onClick={() => {
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-              toggleNav();
-            }}
-          >
-            <i className="fa-solid fa-house-user"></i>&nbsp;&nbsp;Home
-          </NavLink>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? "menu_active" : "nav-link"
-            }
             to="/BasicStudents/Updates"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

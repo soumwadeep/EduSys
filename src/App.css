@@ -399,7 +399,14 @@ a:hover {
     transform: translateY(-10px);
   }
 }
-
+/* Basic Users */
+.basiciframe
+{
+  width: 100%;
+  height: auto;
+  min-height: 60vh;
+  border: none;
+}
 #footer {
   text-align: center;
 }
