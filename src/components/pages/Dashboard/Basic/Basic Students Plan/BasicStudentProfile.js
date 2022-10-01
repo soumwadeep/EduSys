@@ -3,27 +3,23 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
+import BasicDashboardProfile from "../../../../../img/BasicDashboardProfile.svg";
 import swal from "sweetalert";
-const BasicStudent = () => {
+
+const BasicStudentProfile = () => {
   useEffect(() => {
     document.title = `Welcome ${name} | EduSys`;
   }, []);
 
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [dept, setDept] = useState("");
+  const [email, setEmail] = useState("");
+  const [sec, setSec] = useState("");
+  const [rollno, setRollno] = useState("");
+  const [sem, setSem] = useState("");
   const navigate = useNavigate();
-
-  var today = new Date();
-  var curHr = today.getHours();
-  if (curHr < 12) {
-    var greet = "Good Morning";
-  } else if (curHr < 18) {
-    var greet = "Good Afternoon";
-  } else {
-    var greet = "Good Evening";
-  }
 
   const fetchUserName = async () => {
     try {
@@ -34,7 +30,11 @@ const BasicStudent = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
-      swal(`${greet} ${data.name}`, "Welcome To Our Dashboard!", "success");
+      setDept(data.dept);
+      setEmail(data.email);
+      setSec(data.sec);
+      setRollno(data.rollno);
+      setSem(data.sem);
     } catch (err) {
       console.error(err);
       swal("Error!", "We Got An Error Fetching Your Data.", "error");
@@ -47,9 +47,10 @@ const BasicStudent = () => {
 
     fetchUserName();
   }, [user, loading]);
+
   return (
     <>
-      <section id="basicstudent">
+      <section id="basicuserprofile">
         <BasicStudentSidebar />
         <div className="container">
           <div className="row">
@@ -58,20 +59,27 @@ const BasicStudent = () => {
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
                     <h1>
-                      Welcome To Our DashBoard
-                      <span> {name}</span>
+                      Your
+                      <span> Profile</span>
                     </h1>
-                    <p>
-                      Your Email Id Is:<span> {user?.email}</span>
-                    </p>
-                    <p>
-                      We Are Currently Working On It.So Please Wait For Some
-                      Time.We Will Update You Via Email After We Finish Setting
-                      Up Your Dashboard!
-                    </p>
-                    <button className="btn" onClick={() => logout()}>
-                      Log Out
-                    </button>
+                    <h4>
+                      Name:<span> {name}</span>
+                    </h4>
+                    <h4>
+                      Department:<span> {dept}</span>
+                    </h4>
+                    <h4>
+                      Section:<span> {sec}</span>
+                    </h4>
+                    <h4>
+                      Roll No.:<span> {rollno}</span>
+                    </h4>
+                    <h4>
+                      Semester:<span> {sem}</span>
+                    </h4>
+                    <h4>
+                      Email:<span> {email}</span>
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -81,8 +89,8 @@ const BasicStudent = () => {
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
                     <img
-                      src={BasicDashboard1}
-                      alt="BasicDashboard1"
+                      src={BasicDashboardProfile}
+                      alt="BasicDashboardProfile"
                       className="imgfix"
                       id="animateimg"
                     />
@@ -97,4 +105,4 @@ const BasicStudent = () => {
   );
 };
 
-export default BasicStudent;
+export default BasicStudentProfile;

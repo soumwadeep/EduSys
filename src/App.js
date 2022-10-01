@@ -25,6 +25,7 @@ import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProSt
 // Pro Teacher All
 import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
 import ResetPassword from "./components/pages/ResetPassword";
+import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
 
 function App() {
   const location = useLocation();
@@ -40,6 +41,8 @@ function App() {
     location.pathname === "/BasicStudents/Classes";
   const isBasicStudentsAssignmentsRendering =
     location.pathname === "/BasicStudents/Assignments";
+  const isBasicStudentsProfileRendering =
+    location.pathname === "/BasicStudents/Profile";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeachers";
   // Pro Students Plans
@@ -100,6 +103,12 @@ function App() {
             exact
             path="/BasicStudents/Assignments"
             element={<BasicStudentAssignments />}
+          />
+
+          <Route
+            exact
+            path="/BasicStudents/Profile"
+            element={<BasicStudentProfile />}
           />
 
           {/* Pro Students All */}

@@ -38,6 +38,17 @@ const signInWithGoogle = async () => {
     const user = res.user;
     const q = query(collection(db, "basicusers"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
+
+    var today = new Date();
+  var curHr = today.getHours();
+  if (curHr < 12) {
+    var greet = "Good Morning";
+  } else if (curHr < 18) {
+    var greet = "Good Afternoon";
+  } else {
+    var greet = "Good Evening";
+  }
+
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "basicusers"), {
         uid: user.uid,
@@ -46,9 +57,7 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
       swal(
-        "You Are Logged In!",
-        `Welcome ${user.displayName} To Our Dashboard!`,
-        "success"
+        `${greet} ${user.displayName}`, "Welcome To Our Dashboard!", "success"
       );
     }
   } catch (err) {

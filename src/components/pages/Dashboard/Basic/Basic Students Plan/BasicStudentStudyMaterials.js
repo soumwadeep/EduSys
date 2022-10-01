@@ -5,6 +5,9 @@ import { auth } from "../../../../firebase";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 
 const BasicStudentStudyMaterials = () => {
+  useEffect(() => {
+    document.title = "Your Study Materials | EduSys";
+  }, []);
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {

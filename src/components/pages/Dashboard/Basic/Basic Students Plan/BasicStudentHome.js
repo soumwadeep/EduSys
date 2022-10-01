@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../../../firebase";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 const BasicStudentHome = () => {
+  useEffect(() => {
+    document.title = "Your Home | EduSys";
+  }, []);
+
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {

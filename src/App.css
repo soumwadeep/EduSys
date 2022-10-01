@@ -25,8 +25,11 @@ a:hover {
   border: 1px solid #F53803;
   background-color: #F53803;
   color: white!important;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  min-height: 40px;
+  padding: 10px;
   border-radius: 10px;
 }
 
@@ -338,7 +341,7 @@ a:hover {
 /* Dashboard */
 #dashboard-sidebar
 {
-  text-align: center!important;
+  text-align: justify!important;
   padding: 30px!important;
   font-size: 20px!important;
 }

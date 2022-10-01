@@ -2,15 +2,35 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, NavLink } from "react-router-dom";
 import { auth, db, logout } from "../../../../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
 
 const BasicStudentSidebar = () => {
   const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
   const navigate = useNavigate();
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(
+        collection(db, "basicusers"),
+        where("uid", "==", user?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.name);
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/Login");
+
+    fetchUserName();
   }, [user, loading]);
-  
+
   const [navOpen, setNavOpen] = useState(false);
   function toggleNav() {
     setNavOpen((state) => !state);
@@ -26,6 +46,7 @@ const BasicStudentSidebar = () => {
         aria-controls="offcanvasWithBothOptions"
       >
         <i className="fa-solid fa-bars"></i>
+        &nbsp;Menu
       </button>
       <div
         className="offcanvas offcanvas-start"
@@ -37,7 +58,7 @@ const BasicStudentSidebar = () => {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-            Edu<span>Sys</span>
+            Welcome <span>{name}</span> !
           </h5>
           <button
             type="button"
@@ -57,7 +78,7 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            Home
+            <i className="fa-solid fa-house-user"></i>&nbsp;&nbsp;Home
           </NavLink>
           <NavLink
             className={(navData) =>
@@ -69,7 +90,7 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            Updates
+            <i className="fa-solid fa-pen-to-square"></i>&nbsp;&nbsp;Updates
           </NavLink>
           <NavLink
             className={(navData) =>
@@ -81,7 +102,7 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            Classes
+            <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;Classes
           </NavLink>
           <NavLink
             className={(navData) =>
@@ -93,7 +114,8 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            Study Materials
+            <i className="fa-solid fa-book-open-reader"></i>&nbsp;&nbsp;Study
+            Materials
           </NavLink>
           <NavLink
             className={(navData) =>
@@ -105,10 +127,30 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            Assignments
+            <i className="fa-solid fa-file-contract"></i>&nbsp;&nbsp;Assignments
           </NavLink>
-          <NavLink  onClick={() => logout()} className="nav-link">
-            Log Out
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudents/Profile"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-user-tie"></i>&nbsp;&nbsp;Profile
+          </NavLink>
+          <NavLink
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              logout();
+              toggleNav();
+            }}
+            className="nav-link"
+          >
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Log
+            Out
           </NavLink>
         </div>
       </div>
