@@ -58,6 +58,7 @@ function App() {
           !isBasicStudentsStudyMaterialsRendering &&
           !isBasicStudentsClassesRendering &&
           !isBasicStudentsAssignmentsRendering &&
+          !isBasicStudentsProfileRendering &&
           !isBasicTeachersRendering &&
           !isProStudentsRendering &&
           !isProTeachersRendering && <NavBar />}
