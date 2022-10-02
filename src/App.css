@@ -400,11 +400,11 @@ a:hover {
   }
 }
 /* Basic Users */
-.basiciframe
+#basiciframe
 {
   width: 100%;
   height: auto;
-  min-height: 60vh;
+  min-height: 100vh;
   border: none;
 }
 #footer {

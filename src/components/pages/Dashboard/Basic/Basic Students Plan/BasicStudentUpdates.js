@@ -11,11 +11,11 @@ const BasicStudentUpdates = () => {
   useEffect(() => {
     document.title = "Your Updates | EduSys";
   }, []);
-  var BasicStudentUpdatesLink =
-    "2PACX-1vRr9SWeI9oHMf8amnUWyx8lEvOmUKUaw1GW8ErXrlXsJ4rTSaeedJZaqXBTmLv43XFyCcf-GhTK9cMm";
+  var BasicStudentUpdatesLink;
 
   const [user, loading, error] = useAuthState(auth);
   const [sem, setSem] = useState("");
+  const [dept, setDept] = useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -27,6 +27,7 @@ const BasicStudentUpdates = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setSem(data.sem);
+      setDept(data.dept);
     } catch (err) {
       console.error(err);
       swal("Error!", "We Got An Error Fetching Your Data.", "error");
@@ -41,26 +42,26 @@ const BasicStudentUpdates = () => {
   }, [user, loading]);
 
   // If Statements
-  if (sem === "1") {
-    <h3>No Updates For Now</h3>;
-  } else if (sem === "2") {
-    <h3>No Updates For Now</h3>;
-  } else if (sem === "3") {
-    <h3>No Updates For Now</h3>;
-  } else if (sem === "4") {
-    <h3>No Updates For Now</h3>;
-  } else if (sem === "5") {
+  if (sem === "1"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
+  } else if (sem === "2"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
+  } else if (sem === "3"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
+  } else if (sem === "4"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
+  } else if (sem === "5"  && dept==="CSE") {
     BasicStudentUpdatesLink =
       "2PACX-1vRr9SWeI9oHMf8amnUWyx8lEvOmUKUaw1GW8ErXrlXsJ4rTSaeedJZaqXBTmLv43XFyCcf-GhTK9cMm";
-  } else if (sem === "6") {
+  } else if (sem === "6"  && dept==="CSE") {
     BasicStudentUpdatesLink =
       "2PACX-1vT84dusZToUTGAXp2cgsEdRk4wyv_nAf82d2bhO7u6O-lhSLhb7lvMg24VfDnzi5QKKOz_K6wX3Bi_w";
-  } else if (sem === "7") {
-    <h3>No Updates For Now</h3>;
-  } else if (sem === "8") {
-    <h3>No Updates For Now</h3>;
+  } else if (sem === "7"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
+  } else if (sem === "8"  && dept==="CSE") {
+    swal("No Updates For Now", "Enjoy!", "info");
   } else {
-    <h3>No Updates For Now!</h3>;
+    swal("No Updates For Now", "Enjoy!", "info");
   }
   return (
     <>
@@ -101,7 +102,7 @@ const BasicStudentUpdates = () => {
           <h1><span>Latest Updates</span></h1>
           <iframe
             src={`https://docs.google.com/document/d/e/${BasicStudentUpdatesLink}/pub?embedded=true`}
-            className="basiciframe"
+            id="basiciframe"
           ></iframe>
         </center>
       </section>

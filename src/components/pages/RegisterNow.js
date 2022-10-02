@@ -92,6 +92,7 @@ const RegisterNow = () => {
                       <label className="form-label">Your Department</label>
                       <input
                         type="text"
+                        style={{textTransform: "uppercase"}}
                         value={dept}
                         onChange={(e) => setDept(e.target.value)}
                         className="form-control"

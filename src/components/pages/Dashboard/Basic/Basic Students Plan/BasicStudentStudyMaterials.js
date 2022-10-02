@@ -1,25 +1,110 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../../../firebase";
+import { auth, db } from "../../../../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import BasicStudentDashboardStudyMaterials from "../../../../../img/BasicDashboardStudyMaterials1.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
+import swal from "sweetalert";
 
 const BasicStudentStudyMaterials = () => {
   useEffect(() => {
     document.title = "Your Study Materials | EduSys";
   }, []);
+  var BasicStudentStudyMaterialsLink;
   const [user, loading, error] = useAuthState(auth);
+  const [sem, setSem] = useState("");
+  const [dept, setDept] = useState("");
   const navigate = useNavigate();
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(
+        collection(db, "basicusers"),
+        where("uid", "==", user?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setSem(data.sem);
+      setDept(data.dept);
+    } catch (err) {
+      console.error(err);
+      swal("Error!", "We Got An Error Fetching Your Data.", "error");
+    }
+  };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/Login");
+
+    fetchUserName();
   }, [user, loading]);
+
+  // If Statements
+  if (sem === "1" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else if (sem === "2" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else if (sem === "3" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else if (sem === "4" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else if (sem === "5" && dept==="CSE") {
+    BasicStudentStudyMaterialsLink =
+      "1m_GEqdGJqFSE5iR7qsRs8oZ18I_vSE6V";
+  } else if (sem === "6" && dept==="CSE") {
+    BasicStudentStudyMaterialsLink =
+      "1XMFirDa0Z9dQBguI29irzlJ1-n50JKr9";
+  } else if (sem === "7" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else if (sem === "8" && dept==="CSE") {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  } else {
+    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  }
   return (
     <>
-      <BasicStudentSidebar />
-      <h1>
-        Study <span>Materials</span>
-      </h1>
+      <section id="basicstudentupdates">
+        <BasicStudentSidebar />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              <div className="outer">
+                <div className="middle">
+                  <div className="inner" id="mobviewtextfix">
+                    <h1>Study Materials <span>Section</span></h1>
+                    <p>
+                      Here You Will Get All Your Study Materials Of Your College
+                      Which Is Published For Your Semester.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm">
+              <div className="outer">
+                <div className="middle">
+                  <div className="inner" id="mobviewtextfix">
+                    <img
+                      src={BasicStudentDashboardStudyMaterials}
+                      alt="BasicDashboard1"
+                      className="imgfix"
+                      id="animateimg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <center>
+          <h1><span>Latest Study Materials</span></h1>
+          <iframe
+            src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentStudyMaterialsLink}#grid`}
+            id="basiciframe"
+          ></iframe>
+        </center>
+      </section>
     </>
   );
 };
