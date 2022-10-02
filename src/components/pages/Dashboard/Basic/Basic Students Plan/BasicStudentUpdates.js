@@ -60,8 +60,6 @@ const BasicStudentUpdates = () => {
     swal("No Updates For Now", "Enjoy!", "info");
   } else if (sem === "8"  && dept==="CSE") {
     swal("No Updates For Now", "Enjoy!", "info");
-  } else {
-    swal("No Updates For Now", "Enjoy!", "info");
   }
   return (
     <>

@@ -59,12 +59,10 @@ const BasicStudentStudyMaterials = () => {
     swal("No Study Materials For Now", "We Will Update Soon", "info");
   } else if (sem === "8" && dept==="CSE") {
     swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
   }
   return (
     <>
-      <section id="basicstudentupdates">
+      <section id="basicstudentstudymaterials">
         <BasicStudentSidebar />
         <div className="container">
           <div className="row">
