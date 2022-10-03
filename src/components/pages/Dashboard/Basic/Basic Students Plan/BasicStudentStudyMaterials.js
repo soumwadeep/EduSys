@@ -36,29 +36,19 @@ const BasicStudentStudyMaterials = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/Login");
-
     fetchUserName();
   }, [user, loading]);
-
   // If Statements
-  if (sem === "1" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else if (sem === "2" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else if (sem === "3" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else if (sem === "4" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else if (sem === "5" && dept==="CSE") {
-    BasicStudentStudyMaterialsLink =
-      "1m_GEqdGJqFSE5iR7qsRs8oZ18I_vSE6V";
-  } else if (sem === "6" && dept==="CSE") {
-    BasicStudentStudyMaterialsLink =
-      "1XMFirDa0Z9dQBguI29irzlJ1-n50JKr9";
-  } else if (sem === "7" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
-  } else if (sem === "8" && dept==="CSE") {
-    swal("No Study Materials For Now", "We Will Update Soon", "info");
+  if (sem === "5" && dept === "CSE") {
+    BasicStudentStudyMaterialsLink = "1m_GEqdGJqFSE5iR7qsRs8oZ18I_vSE6V";
+  } else if (sem === "6" && dept === "CSE") {
+    BasicStudentStudyMaterialsLink = "1XMFirDa0Z9dQBguI29irzlJ1-n50JKr9";
+  } else {
+    swal(
+      "Fetching Your Study Materials!",
+      "We Found No Study Materials For You As Of Now.We Will Soon Update It When We Find Any!",
+      "info"
+    );
   }
   return (
     <>
@@ -70,7 +60,9 @@ const BasicStudentStudyMaterials = () => {
               <div className="outer">
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
-                    <h1>Study Materials <span>Section</span></h1>
+                    <h1>
+                      Study Materials <span>Section</span>
+                    </h1>
                     <p>
                       Here You Will Get All Your Study Materials Of Your College
                       Which Is Published For Your Semester.
@@ -96,7 +88,9 @@ const BasicStudentStudyMaterials = () => {
           </div>
         </div>
         <center>
-          <h1><span>Latest Study Materials</span></h1>
+          <h1>
+            <span>Latest Study Materials</span>
+          </h1>
           <iframe
             src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentStudyMaterialsLink}#grid`}
             id="basiciframe"

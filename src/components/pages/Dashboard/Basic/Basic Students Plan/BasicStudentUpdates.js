@@ -42,24 +42,18 @@ const BasicStudentUpdates = () => {
   }, [user, loading]);
 
   // If Statements
-  if (sem === "1"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
-  } else if (sem === "2"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
-  } else if (sem === "3"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
-  } else if (sem === "4"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
-  } else if (sem === "5"  && dept==="CSE") {
+  if (sem === "5" && dept === "CSE") {
     BasicStudentUpdatesLink =
       "2PACX-1vRr9SWeI9oHMf8amnUWyx8lEvOmUKUaw1GW8ErXrlXsJ4rTSaeedJZaqXBTmLv43XFyCcf-GhTK9cMm";
-  } else if (sem === "6"  && dept==="CSE") {
+  } else if (sem === "6" && dept === "CSE") {
     BasicStudentUpdatesLink =
       "2PACX-1vT84dusZToUTGAXp2cgsEdRk4wyv_nAf82d2bhO7u6O-lhSLhb7lvMg24VfDnzi5QKKOz_K6wX3Bi_w";
-  } else if (sem === "7"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
-  } else if (sem === "8"  && dept==="CSE") {
-    swal("No Updates For Now", "Enjoy!", "info");
+  } else {
+    swal(
+      "Fetching Your Updates!",
+      "We Found No New Updates As Of Now.We Will Soon Update It When We Find Any!",
+      "info"
+    );
   }
   return (
     <>
@@ -71,7 +65,9 @@ const BasicStudentUpdates = () => {
               <div className="outer">
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
-                    <h1>Updates <span>Section</span></h1>
+                    <h1>
+                      Updates <span>Section</span>
+                    </h1>
                     <p>
                       Here You Will Find All The Latest Notices Of Your College
                       Which Is Published For Your Semester.
@@ -97,7 +93,9 @@ const BasicStudentUpdates = () => {
           </div>
         </div>
         <center>
-          <h1><span>Latest Updates</span></h1>
+          <h1>
+            <span>Latest Updates</span>
+          </h1>
           <iframe
             src={`https://docs.google.com/document/d/e/${BasicStudentUpdatesLink}/pub?embedded=true`}
             id="basiciframe"

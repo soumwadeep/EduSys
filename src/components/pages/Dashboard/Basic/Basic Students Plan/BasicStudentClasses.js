@@ -41,24 +41,16 @@ const BasicStudentClasses = () => {
   }, [user, loading]);
 
   // If Statements
-  if (sem === "1" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
-  } else if (sem === "2" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
-  } else if (sem === "3" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
-  } else if (sem === "4" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
-  } else if (sem === "5" && dept==="CSE") {
-    BasicStudentClassesLink =
-      "uco-aoxx-mxp";
-  } else if (sem === "6" && dept==="CSE") {
-    BasicStudentClassesLink =
-      "pwx-qvqt-vkn";
-  } else if (sem === "7" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
-  } else if (sem === "8" && dept==="CSE") {
-    swal("No Classes For Now", "Enjoy Your Day", "info");
+  if (sem === "5" && dept === "CSE") {
+    BasicStudentClassesLink = "uco-aoxx-mxp";
+  } else if (sem === "6" && dept === "CSE") {
+    BasicStudentClassesLink = "pwx-qvqt-vkn";
+  } else {
+    swal(
+      "Fetching Your Live Classes Right Now!Check The Join Your Class Button.",
+      "We Found No Live Classes As Of Now.We Will Soon Update It When We Find Any!",
+      "info"
+    );
   }
   return (
     <>
@@ -70,9 +62,12 @@ const BasicStudentClasses = () => {
               <div className="outer">
                 <div className="middle">
                   <div className="inner" id="mobviewtextfix">
-                    <h1>Classes <span>Section</span></h1>
+                    <h1>
+                      Classes <span>Section</span>
+                    </h1>
                     <p>
-                      Here You Will Get Your Class's Live Link,Which You Can Join For Attending Your Classes.
+                      Here You Will Get Your Class's Live Link,Which You Can
+                      Join For Attending Your Classes.
                     </p>
                   </div>
                 </div>
@@ -95,10 +90,15 @@ const BasicStudentClasses = () => {
           </div>
         </div>
         <center>
-          <h1><span>Live Class</span></h1>
-          <a href={`https://meet.google.com/${BasicStudentClassesLink}`} target="_blank" rel="noreferrer">
+          <h1>
+            <span>Live Class</span>
+          </h1>
+          <form
+            action={`https://meet.google.com/${BasicStudentClassesLink}`}
+            target="_blank"
+          >
             <button className="btn">Join Your Class</button>
-          </a>
+          </form>
         </center>
       </section>
     </>
