@@ -404,7 +404,7 @@ a:hover {
 {
   width: 100%;
   height: auto;
-  min-height: 40vh;
+  min-height: 60vh;
   border: none;
 }
 #footer {
@@ -419,7 +419,7 @@ a:hover {
   bottom: 0;
 }
 
-/* @media screen and (max-width: 962px) {
+@media screen and (max-width: 962px) {
   #mobviewtextfix h1 {
     font-size: 24px;
   }
@@ -427,4 +427,4 @@ a:hover {
   #mobviewtextfix h5 {
     font-size: 14px;
   }
-} */
+}

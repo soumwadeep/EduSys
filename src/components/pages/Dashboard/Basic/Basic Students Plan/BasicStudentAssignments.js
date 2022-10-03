@@ -97,14 +97,8 @@ const BasicStudentAssignments = () => {
             src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentAssignmentsLink}#grid`}
             id="basiciframe"
           ></iframe>
-          {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdMeivDfP3a7vnzWHIyQdCLrLb_4c3Zi5K3w7gWMjzCg-GxzQ/viewform?embedded=true" width="640" height="793" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
-          {/* https://youtu.be/12YqNZtgM6o */}
           <br/>
-          <form action="">
-            <button className="btn">
-              Submit Your Assignment
-            </button>
-          </form>
+          <iframe src="https://script.google.com/macros/s/AKfycbzSWo86oV2osr8FFXVnpNabUmxUjb9lINs0ic3lu1Cm6RakRl4/exec" id="basiciframe"></iframe>
         </center>
       </section>
     </>
