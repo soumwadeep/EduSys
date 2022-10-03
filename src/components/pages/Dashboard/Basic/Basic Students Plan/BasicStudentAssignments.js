@@ -96,9 +96,12 @@ const BasicStudentAssignments = () => {
           <iframe
             src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentAssignmentsLink}#grid`}
             id="basiciframe"
+            title="viewassignments"
           ></iframe>
-          <br/>
-          <iframe src="https://script.google.com/macros/s/AKfycbzSWo86oV2osr8FFXVnpNabUmxUjb9lINs0ic3lu1Cm6RakRl4/exec" id="basiciframe"></iframe>
+          <h1>
+            <span>Submit Your Assignment Here</span>
+          </h1>
+          <iframe src="https://script.google.com/macros/s/AKfycbyNpgernRpCcVq43MYwHm52WwbcmU1LT5tt5mEHDnJXUN-QgJxfoYBQNNsaM7qdsi_S/exec" id="basiciframe" style={{minHeight:"100vh"}} title="submitassignment"></iframe>
         </center>
       </section>
     </>

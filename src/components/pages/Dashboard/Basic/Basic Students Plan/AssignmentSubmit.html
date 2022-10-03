@@ -24,6 +24,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom Styling -->
     <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Sansita&display=swap");
+      body {
+        font-family: "Sansita", sans-serif;
+        overflow-x: hidden;
+      }
       .outer {
         display: table;
         height: 100%;
@@ -171,34 +176,34 @@
         }
       </script>
     </div>
-  </body>
-  <script>
-    function doGet(e) {
-      return HtmlService.createHtmlOutputFromFile("form.html");
-    }
-
-    function uploadFiles(form) {
-      try {
-        var dropbox = "Assignment Submissions";
-        var folder,
-          folders = DriveApp.getFoldersByName(dropbox);
-
-        if (folders.hasNext()) {
-          folder = folders.next();
-        } else {
-          folder = DriveApp.createFolder(dropbox);
-        }
-
-        var blob = form.myFile;
-        var file = folder.createFile(blob);
-        file.setDescription("This File Is Uploaded By: " + form.myName);
-
-        return "Your Assignment Has Been Submitted Successfully.";
-        alert("Your Assignment Has Been Submitted Successfully.");
-      } catch (error) {
-        return error.toString();
-        alert(error.toString());
+    <script>
+      function doGet(e) {
+        return HtmlService.createHtmlOutputFromFile(
+          "form.html"
+        ).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
       }
-    }
-  </script>
+
+      function uploadFiles(form) {
+        try {
+          var dropbox = "Assignment Submissions";
+          var folder,
+            folders = DriveApp.getFoldersByName(dropbox);
+
+          if (folders.hasNext()) {
+            folder = folders.next();
+          } else {
+            folder = DriveApp.createFolder(dropbox);
+          }
+
+          var blob = form.myFile;
+          var file = folder.createFile(blob);
+          file.setDescription("This File Is Uploaded By: " + form.myName);
+
+          return "Your Assignment Has Been Submitted Successfully.";
+        } catch (error) {
+          return error.toString();
+        }
+      }
+    </script>
+  </body>
 </html>
