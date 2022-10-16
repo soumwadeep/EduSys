@@ -1,60 +1,144 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate, NavLink } from "react-router-dom";
+import { auth, db, logout } from "../../../../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
 
 const BasicTeacherSidebar = () => {
+  const [teacher, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(
+        collection(db, "Teachers"),
+        where("uid", "==", teacher?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.name);
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!teacher) return navigate("/TeacherLogin");
+
+    fetchUserName();
+  }, [teacher, loading]);
+
+  const [navOpen, setNavOpen] = useState(false);
+  function toggleNav() {
+    setNavOpen((state) => !state);
+  }
   return (
     <>
       <button
-        class="sidebarbtn"
+        onClick={toggleNav}
+        className="sidebarbtn sticky-top"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"
         aria-controls="offcanvasWithBothOptions"
       >
         <i className="fa-solid fa-bars"></i>
+        &nbsp;Menu
       </button>
       <div
-        class="offcanvas offcanvas-start"
+        className="offcanvas offcanvas-start"
         data-bs-scroll="true"
-        tabindex="-1"
+        tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
+        data-bs-dismiss={navOpen ? "offcanvas" : "none"}
       >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-            Edu<span>Sys</span>
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            Welcome <span>{name}</span> !
           </h5>
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body" id="dashboard-sidebar">
-          <NavLink to="#" className="nav-link">
-            Home
+        <div className="offcanvas-body" id="dashboard-sidebar">
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicTeacher/Updates"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-pen-to-square"></i>&nbsp;&nbsp;Updates
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Updates
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicTeacher/Classes"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;Classes
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Class
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicTeacher/StudyMaterials"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-book-open-reader"></i>&nbsp;&nbsp;Study
+            Materials
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Books
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicTeacher/Assignments"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-file-contract"></i>&nbsp;&nbsp;Assignments
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Assignments
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicTeacher/Profile"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-user-tie"></i>&nbsp;&nbsp;Profile
           </NavLink>
-          <NavLink to="#" className="nav-link">
-            Fees
-          </NavLink>
-          <NavLink to="#" className="nav-link">
-            Exam
-          </NavLink>
-          <NavLink to="#" className="nav-link">
-            Log Out
+          <NavLink
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              logout();
+              toggleNav();
+            }}
+            className="nav-link"
+          >
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Log
+            Out
           </NavLink>
         </div>
       </div>

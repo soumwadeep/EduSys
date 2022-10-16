@@ -431,3 +431,16 @@ a:hover {
     font-size: 14px;
   }
 }
+/* Login Page */
+.login-cards
+{
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  border: none;
+  /* border: 1px solid #F53803; */
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px -2px rgba(241, 135, 4, 0.2);
+}

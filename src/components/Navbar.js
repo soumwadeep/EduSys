@@ -120,73 +120,20 @@ const Navbar = () => {
                     Contact
                   </NavLink>
                 </li>
-                <div className="dropdown">
+                <li className="nav-item">
                   <NavLink
-                    className="nav-link dropdown-toggle"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    className={(navData) =>
+                      navData.isActive ? "menu_active" : "nav-link"
+                    }
+                    to="/Login"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                      toggleNav();
+                    }}
                   >
                     Login
                   </NavLink>
-
-                  <ul className="dropdown-menu">
-                    <li>
-                      <NavLink
-                        className={(navData) =>
-                          navData.isActive ? "menu_active" : "nav-link"
-                        }
-                        to="/Login"
-                        onClick={() => {
-                          window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth",
-                          });
-                          toggleNav();
-                        }}
-                      >
-                        Student's Login
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className={(navData) =>
-                          navData.isActive ? "menu_active" : "nav-link"
-                        }
-                        to="/TeacherLogin"
-                        onClick={() => {
-                          window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth",
-                          });
-                          toggleNav();
-                        }}
-                      >
-                        Teacher's Login
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className={(navData) =>
-                          navData.isActive ? "menu_active" : "nav-link"
-                        }
-                        to="/Register"
-                        onClick={() => {
-                          window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth",
-                          });
-                          toggleNav();
-                        }}
-                      >
-                        Register
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
+                </li>
               </ul>
             </div>
           </div>

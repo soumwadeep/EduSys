@@ -28,7 +28,7 @@ const BasicStudent = () => {
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, "basicusers"),
+        collection(db, "Students"),
         where("uid", "==", user?.uid)
       );
       const doc = await getDocs(q);
@@ -43,8 +43,7 @@ const BasicStudent = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate("/Login");
-
+    if (!user) return navigate("/StudentLogin");
     fetchUserName();
   }, [user, loading]);
   return (

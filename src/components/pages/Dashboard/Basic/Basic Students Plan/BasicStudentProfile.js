@@ -12,7 +12,7 @@ const BasicStudentProfile = () => {
     document.title = "Your Profile | EduSys";
   }, []);
 
-  const [user, loading, error] = useAuthState(auth);
+  const [student, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [dept, setDept] = useState("");
   const [email, setEmail] = useState("");
@@ -24,8 +24,8 @@ const BasicStudentProfile = () => {
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, "basicusers"),
-        where("uid", "==", user?.uid)
+        collection(db, "Students"),
+        where("uid", "==", student?.uid)
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
@@ -43,10 +43,10 @@ const BasicStudentProfile = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate("/Login");
+    if (!student) return navigate("/StudentLogin");
 
     fetchUserName();
-  }, [user, loading]);
+  }, [student, loading]);
 
   return (
     <>

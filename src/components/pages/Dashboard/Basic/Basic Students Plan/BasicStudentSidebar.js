@@ -5,15 +5,15 @@ import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 const BasicStudentSidebar = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [student, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, "basicusers"),
-        where("uid", "==", user?.uid)
+        collection(db, "Students"),
+        where("uid", "==", student?.uid)
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
@@ -26,10 +26,10 @@ const BasicStudentSidebar = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate("/Login");
+    if (!student) return navigate("/StudentLogin");
 
     fetchUserName();
-  }, [user, loading]);
+  }, [student, loading]);
 
   const [navOpen, setNavOpen] = useState(false);
   function toggleNav() {
@@ -72,7 +72,7 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/Updates"
+            to="/BasicStudent/Updates"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               toggleNav();
@@ -84,7 +84,7 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/Classes"
+            to="/BasicStudent/Classes"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               toggleNav();
@@ -96,7 +96,7 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/StudyMaterials"
+            to="/BasicStudent/StudyMaterials"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               toggleNav();
@@ -109,7 +109,7 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/Assignments"
+            to="/BasicStudent/Assignments"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               toggleNav();
@@ -121,7 +121,7 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
-            to="/BasicStudents/Profile"
+            to="/BasicStudent/Profile"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               toggleNav();

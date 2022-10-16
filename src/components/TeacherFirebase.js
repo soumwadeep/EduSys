@@ -36,7 +36,7 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "GoogleUsers"), where("uid", "==", user.uid));
+    const q = query(collection(db, "GoogleTeachers"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
 
     var today = new Date();
@@ -75,33 +75,6 @@ const logInWithEmailAndPassword = async (email, password) => {
     swal("Error!", `${err.message}`, "error");
   }
 };
-const registerStudentWithEmailAndPassword = async (
-  name,
-  email,
-  password,
-  dept,
-  sec,
-  rollno,
-  sem
-) => {
-  try {
-    const student = await createUserWithEmailAndPassword(auth, email, password);
-    const user = student.user;
-    await addDoc(collection(db, "Students"), {
-      uid: user.uid,
-      name,
-      authProvider: "local",
-      email,
-      dept,
-      sec,
-      rollno,
-      sem
-    });
-  } catch (err) {
-    console.error(err);
-    swal("Error!", `${err.message}`, "error");
-  }
-};
 
 const registerTeacherWithEmailAndPassword = async (
   name,
@@ -110,7 +83,7 @@ const registerTeacherWithEmailAndPassword = async (
   employeeid
 ) => {
   try {
-    const teacher = await createUserWithEmailAndPassword(auth, email, password);
+    const teacher = await createUserWithEmailAndPassword(auth,email, password);
     const user = teacher.user;
     await addDoc(collection(db,"Teachers"), {
       uid: user.uid,
@@ -148,7 +121,6 @@ export {
   db,
   signInWithGoogle,
   logInWithEmailAndPassword,
-  registerStudentWithEmailAndPassword,
   registerTeacherWithEmailAndPassword,
   sendPasswordReset,
   logout,

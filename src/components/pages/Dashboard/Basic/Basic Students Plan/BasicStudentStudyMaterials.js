@@ -12,7 +12,7 @@ const BasicStudentStudyMaterials = () => {
     document.title = "Your Study Materials | EduSys";
   }, []);
   var BasicStudentStudyMaterialsLink;
-  const [user, loading, error] = useAuthState(auth);
+  const [student, loading, error] = useAuthState(auth);
   const [sem, setSem] = useState("");
   const [dept, setDept] = useState("");
   const navigate = useNavigate();
@@ -20,8 +20,8 @@ const BasicStudentStudyMaterials = () => {
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, "basicusers"),
-        where("uid", "==", user?.uid)
+        collection(db, "Students"),
+        where("uid", "==", student?.uid)
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
@@ -35,9 +35,9 @@ const BasicStudentStudyMaterials = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate("/Login");
+    if (!student) return navigate("/StudentLogin");
     fetchUserName();
-  }, [user, loading]);
+  }, [student, loading]);
   // If Statements
   if (sem === "5" && dept === "CSE") {
     BasicStudentStudyMaterialsLink = "1m_GEqdGJqFSE5iR7qsRs8oZ18I_vSE6V";

@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, sendPasswordReset } from "../firebase";
-import reset1 from "../../img/reset1.svg";
+import login1 from "../../img/login1.svg";
+import swal from "sweetalert";
 
-const ResetPassword = () => {
+const StudentLogin = () => {
   useEffect(() => {
-    document.title = "Reset Password | EduSys";
+    document.title = "Student's Login | EduSys";
   }, []);
   const [email, setEmail] = useState("");
-  const [student,teacher, loading, error] = useAuthState(auth);
+  const [password, setPassword] = useState("");
+  const [student, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
-    if (loading) return;
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
     if (student) navigate("/BasicStudent");
   }, [student, loading]);
-  useEffect(() => {
-    if (loading) return;
-    if (teacher) navigate("/BasicTeacher");
-  }, [teacher, loading]);
   return (
     <>
       <section id="login">
@@ -29,7 +30,7 @@ const ResetPassword = () => {
                 <div className="inner" id="mobviewtextfix">
                   <img
                     className="imgfix"
-                    src={reset1}
+                    src={login1}
                     alt="Login"
                     id="animateimg"
                   />
@@ -42,7 +43,7 @@ const ResetPassword = () => {
               <div className="middle">
                 <div className="inner" id="mobviewtextfix">
                   <h1>
-                    Reset <span>Password</span>
+                    Sign <span>In</span>
                   </h1>
                   <div>
                     <div className="mb-3">
@@ -51,17 +52,51 @@ const ResetPassword = () => {
                         type="email"
                         className="form-control"
                         value={email}
+                        required
                         onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Password</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
                     <button
                       className="btn"
-                      onClick={() => sendPasswordReset(email)}
+                      onClick={() => logInWithEmailAndPassword(email, password)}
                     >
-                      Send Password Reset Email
+                      Login
                     </button>
+                    {/* &nbsp;&nbsp;
+                    <button
+                      type="submit"
+                      className="btn"
+                      onClick={signInWithGoogle}
+                    >
+                      Login With Google
+                    </button> */}
                   </div>
                   <br />
+                  <p>
+                    Forgot Password? Reset It
+                    <NavLink
+                      to="/ResetPassword"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      <span> Now.</span>
+                    </NavLink>
+                  </p>
                   <p>
                     New User? Register
                     <NavLink
@@ -87,4 +122,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default StudentLogin;

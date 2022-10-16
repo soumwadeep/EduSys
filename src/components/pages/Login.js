@@ -1,125 +1,89 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import login1 from "../../img/login1.svg";
-import swal from "sweetalert";
-
-const Login = () => {
+import studentimg from "../../img/student.jpg";
+import teacherimg from "../../img/teacher.jpg";
+const Pricing = () => {
   useEffect(() => {
     document.title = "Login | EduSys";
   }, []);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
-    if (user) navigate("/BasicStudents");
-  }, [user, loading]);
   return (
     <>
       <section id="login">
-        <div className="row">
-          <div className="col-sm">
-            <div className="outer">
-              <div className="middle">
-                <div className="inner" id="mobviewtextfix">
-                  <img
-                    className="imgfix"
-                    src={login1}
-                    alt="Login"
-                    id="animateimg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className="outer">
-              <div className="middle">
-                <div className="inner" id="mobviewtextfix">
-                  <h1>
-                    Sign <span>In</span>
-                  </h1>
-                  <div>
-                    <div className="mb-3">
-                      <label className="form-label">Email address</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        value={email}
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        value={password}
-                        required
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                    <button
-                      className="btn"
-                      onClick={() => logInWithEmailAndPassword(email, password)}
-                    >
-                      Login
-                    </button>
-                    {/* &nbsp;&nbsp;
-                    <button
-                      type="submit"
-                      className="btn"
-                      onClick={signInWithGoogle}
-                    >
-                      Login With Google
-                    </button> */}
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              <div className="outer">
+                <div className="middle">
+                  <div className="inner" id="mobviewtextfix">
+                    <img
+                      src={login1}
+                      className="imgfix"
+                      id="animateimg"
+                      alt="education"
+                    />
                   </div>
-                  <br />
-                  <p>
-                    Forgot Password? Reset It
-                    <NavLink
-                      to="/ResetPassword"
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      <span> Now.</span>
-                    </NavLink>
-                  </p>
-                  <p>
-                    New User? Register
-                    <NavLink
-                      to="/Register"
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      <span> Now.</span>
-                    </NavLink>
-                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm">
+              <div className="outer">
+                <div className="middle">
+                  <div className="inner" id="mobviewtextfix">
+                    <h1>
+                      <span>Sign</span> In
+                    </h1>
+                    <h5>
+                      Get The Best Features Available For You By Just Signing In
+                      To Our Dashboard!
+                    </h5>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <center>
+            <div className="row">
+              <div className="col-sm">
+                <div className="card login-cards">
+                  <img src={studentimg} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      Student's <span>Login</span>
+                    </h5>
+                    <p className="card-text">
+                      If You Are A Student Then Click On The Given Button And Go
+                      To Your Respective Login Page.
+                    </p>
+                    <NavLink to="/StudentLogin" className="btn">
+                      Student's Login Portal
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm">
+                <div className="card login-cards">
+                  <img src={teacherimg} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      Teacher's <span>Login</span>
+                    </h5>
+                    <p className="card-text">
+                      If You Are A Teacher Then Click On The Given Button And Go
+                      To Your Respective Login Page.
+                    </p>
+                    <NavLink to="/TeacherLogin" className="btn">
+                      Teacher's Login Portal
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
         </div>
       </section>
     </>
   );
 };
 
-export default Login;
+export default Pricing;

@@ -3,14 +3,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   auth,
-  registerWithEmailAndPassword,
+  registerStudentWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase";
 import register1 from "../../img/register1.svg";
 import swal from "sweetalert";
-const RegisterNow = () => {
+const StudentRegistration = () => {
   useEffect(() => {
-    document.title = "Register | EduSys";
+    document.title = "Student's Registration | EduSys";
   }, []);
 
   const [name, setName] = useState("");
@@ -20,7 +20,7 @@ const RegisterNow = () => {
   const [sem, setSem] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [student, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {
@@ -54,14 +54,14 @@ const RegisterNow = () => {
     }
     else
     {
-    registerWithEmailAndPassword(name, email, password, dept, sec, rollno, sem);
+    registerStudentWithEmailAndPassword(name, email, password, dept, sec, rollno, sem);
     }
   };
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/BasicStudents");
-  }, [user, loading]);
+    if (student) navigate("/BasicStudent");
+  }, [student, loading]);
   return (
     <>
       <section id="register">
@@ -173,7 +173,7 @@ const RegisterNow = () => {
                   <p>
                     Already Our Member? Login
                     <NavLink
-                      to="/Login"
+                      to="/StudentLogin"
                       onClick={() => {
                         window.scrollTo({
                           top: 0,
@@ -209,4 +209,4 @@ const RegisterNow = () => {
   );
 };
 
-export default RegisterNow;
+export default StudentRegistration;
