@@ -11,14 +11,14 @@ const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [student,teacher, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  useEffect(() => {
-    if (loading) return;
-    if (student) navigate("/BasicStudent");
-  }, [student, loading]);
-  useEffect(() => {
-    if (loading) return;
-    if (teacher) navigate("/BasicTeacher");
-  }, [teacher, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (student) navigate("/BasicStudent");
+  // }, [student, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (teacher) navigate("/BasicTeacher");
+  // }, [teacher, loading]);
   return (
     <>
       <section id="login">
@@ -46,7 +46,7 @@ const ResetPassword = () => {
                   </h1>
                   <div>
                     <div className="mb-3">
-                      <label className="form-label">Email address</label>
+                      <label className="form-label">Email Address</label>
                       <input
                         type="email"
                         className="form-control"
