@@ -6,6 +6,14 @@ import teacherloginimg from "../../img/TeacherLogin.svg";
 import swal from "sweetalert";
 
 const TeacherLogin = () => {
+  function formValidation() {
+    let x = document.getElementById("facultyno").value;
+    if (!x) {
+      // swal("Error!", "Please Enter Your Faculty Number!", "error");
+      alert("Please Enter Your Faculty Number To Continue!");
+      return window.location.reload();
+    }
+  }
   useEffect(() => {
     document.title = "Teacher's Login | EduSys";
   }, []);
@@ -47,11 +55,12 @@ const TeacherLogin = () => {
                     Sign <span>In</span>
                   </h1>
                   <div>
-                  <div className="mb-3">
+                    <div className="mb-3">
                       <label className="form-label">Faculty Number</label>
                       <input
                         type="text"
                         className="form-control"
+                        id="facultyno"
                         value={facultynum}
                         onChange={(e) => setFacultynum(e.target.value)}
                         required
@@ -79,7 +88,10 @@ const TeacherLogin = () => {
                     </div>
                     <button
                       className="btn"
-                      onClick={() => logInWithEmailAndPassword(email, password)}
+                      onClick={() =>
+                        logInWithEmailAndPassword(email, password) &
+                        formValidation()
+                      }
                     >
                       Login
                     </button>
