@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, db } from "../../../../firebase";
+import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
 import BasicTeacherSidebar from "./BasicTeacherSidebar";
@@ -19,7 +19,7 @@ const BasicTeacher = () => {
   var curHr = today.getHours();
   if (curHr < 12) {
     var greet = "Good Morning";
-  } else if (curHr < 18) {
+  } else if (curHr < 16) {
     var greet = "Good Afternoon";
   } else {
     var greet = "Good Evening";
@@ -36,8 +36,9 @@ const BasicTeacher = () => {
       setName(data.name);
       swal(`${greet} ${data.name}`, "Welcome To Our Dashboard!", "success");
     } catch (err) {
-      console.error(err);
-      swal("Error!", "We Got An Error Fetching Your Data.", "error");
+      logout();
+      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      return navigate("/TeacherLogin");
     }
   };
 

@@ -75,6 +75,7 @@ const logInWithEmailAndPassword = async (email, password) => {
     swal("Error!", `${err.message}`, "error");
   }
 };
+
 const registerStudentWithEmailAndPassword = async (
   name,
   email,
@@ -107,17 +108,21 @@ const registerTeacherWithEmailAndPassword = async (
   name,
   email,
   password,
-  employeeid
+  dept,
+  facultynum,
+  position
 ) => {
   try {
     const teacher = await createUserWithEmailAndPassword(auth, email, password);
     const user = teacher.user;
-    await addDoc(collection(db,"Teachers"), {
+    await addDoc(collection(db, "Teachers"), {
       uid: user.uid,
       name,
       authProvider: "local",
       email,
-      employeeid
+      dept,
+      facultynum,
+      position,
     });
   } catch (err) {
     console.error(err);

@@ -14,23 +14,42 @@ const TeacherRegistration = () => {
   }, []);
 
   const [name, setName] = useState("");
-  const [employeeid, setEmployeeid] = useState("");
+  const [dept, setDept] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [facultynum, setFacultynum] = useState("");
+  const [position, setPosition] = useState("");
   const [teacher, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {
-    if (!employeeid) {
-      swal("Error!", "Please Enter Your Employee ID To Continue.", "error");
-    } else if (!name) {
+    if (!name)
+    {
       swal("Error!", "Please Enter Your Name To Continue.", "error");
-    } else if (!email) {
+    }
+    else if(!facultynum)
+    {
+      swal("Error!", "Please Enter Your Faculty Number To Continue.", "error");
+    }
+    else if(!position)
+    {
+      swal("Error!", "Please Enter Your Position To Continue.", "error");
+    }
+    else if (!dept)
+    {
+      swal("Error!", "Please Enter Your Department To Continue.", "error");
+    }
+    else if (!email)
+    {
       swal("Error!", "Please Enter Your Email To Continue.", "error");
-    } else if (!password) {
+    }
+    else if (!password)
+    {
       swal("Error!", "Please Enter Your Password To Continue.", "error");
-    } else {
-      registerTeacherWithEmailAndPassword(employeeid, name, email, password);
+    }
+    else
+    {
+    registerTeacherWithEmailAndPassword(name, email, password, dept, facultynum, position);
     }
   };
 
@@ -49,7 +68,10 @@ const TeacherRegistration = () => {
                   <h1>
                     Sign <span>Up</span>
                   </h1>
-                  <h5>Register Now To Get Your Teacher Account's Benefit.</h5>
+                  <h5>
+                    Register Now To Get Access To Our Free Courses And
+                    Resources.
+                  </h5>
                   <div>
                     <div className="mb-3">
                       <label className="form-label">Your Name</label>
@@ -62,12 +84,35 @@ const TeacherRegistration = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Your Employee ID</label>
+                      <label className="form-label">Your Department</label>
+                      <input
+                        type="text"
+                        style={{textTransform: "uppercase"}}
+                        value={dept}
+                        onChange={(e) => setDept(e.target.value)}
+                        className="form-control"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Your Position</label>
+                      <input
+                        type="text"
+                        value={position}
+                        onChange={(e) => setPosition(e.target.value)}
+                        className="form-control"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">
+                        Your Faculty Number
+                      </label>
                       <input
                         type="number"
-                        value={employeeid}
-                        onChange={(e) => setEmployeeid(e.target.value)}
                         className="form-control"
+                        value={facultynum}
+                        onChange={(e) => setFacultynum(e.target.value)}
                         required
                       />
                     </div>

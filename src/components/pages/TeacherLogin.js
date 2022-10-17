@@ -9,7 +9,7 @@ const TeacherLogin = () => {
   useEffect(() => {
     document.title = "Teacher's Login | EduSys";
   }, []);
-  const [employeeid, setEmployeeid] = useState("");
+  const [facultynum, setFacultynum] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [teacher, loading, error] = useAuthState(auth);
@@ -48,12 +48,12 @@ const TeacherLogin = () => {
                   </h1>
                   <div>
                   <div className="mb-3">
-                      <label className="form-label">Employee ID</label>
+                      <label className="form-label">Faculty Number</label>
                       <input
                         type="text"
                         className="form-control"
-                        value={employeeid}
-                        onChange={(e) => setEmployeeid(e.target.value)}
+                        value={facultynum}
+                        onChange={(e) => setFacultynum(e.target.value)}
                         required
                       />
                     </div>

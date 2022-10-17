@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, useNavigate } from "react-router-dom";
-import { auth, db } from "../../../../firebase";
+import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicClasses from "../../../../../img/BasicClasses.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
@@ -28,8 +28,9 @@ const BasicStudentClasses = () => {
       setSem(data.sem);
       setDept(data.dept);
     } catch (err) {
-      console.error(err);
-      swal("Error!", "We Got An Error Fetching Your Data.", "error");
+      logout();
+      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      return navigate("/StudentLogin");
     }
   };
 

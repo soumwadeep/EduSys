@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, NavLink } from "react-router-dom";
 import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-
+import swal from "sweetalert";
 const BasicTeacherSidebar = () => {
   const [teacher, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -20,7 +20,9 @@ const BasicTeacherSidebar = () => {
       setName(data.name);
       console.log(data);
     } catch (err) {
-      console.error(err);
+      logout();
+      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      return navigate("/TeacherLogin");
     }
   };
 

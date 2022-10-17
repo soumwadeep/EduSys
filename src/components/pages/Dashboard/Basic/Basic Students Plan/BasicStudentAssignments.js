@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, db } from "../../../../firebase";
+import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicAssignment from "../../../../../img/BasicAssignment.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
@@ -11,7 +11,7 @@ const BasicStudentAssignments = () => {
   useEffect(() => {
     document.title = "Your Assignments | EduSys";
   }, []);
-  var BasicStudentAssignmentsLink;
+  var BasicStudentAssignmentsLink, BasicStudentSubmitAssignmentsLink;
   const [student, loading, error] = useAuthState(auth);
   const [sem, setSem] = useState("");
   const [dept, setDept] = useState("");
@@ -28,8 +28,9 @@ const BasicStudentAssignments = () => {
       setSem(data.sem);
       setDept(data.dept);
     } catch (err) {
-      console.error(err);
-      swal("Error!", "We Got An Error Fetching Your Data.", "error");
+      logout();
+      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      return navigate("/StudentLogin");
     }
   };
 
@@ -43,8 +44,10 @@ const BasicStudentAssignments = () => {
   // If Statements
   if (sem === "5" && dept === "CSE") {
     BasicStudentAssignmentsLink = "1UpTks76n3_A-rQ25R4exFqQSqOgpNuvd";
+    BasicStudentSubmitAssignmentsLink = "1DUDJLOxHr0-DUd736oQWdm_ODyxHBMYT";
   } else if (sem === "6" && dept === "CSE") {
     BasicStudentAssignmentsLink = "15pcGqUKKwRTxZbxuXIkbnKwl42onFLjn";
+    BasicStudentSubmitAssignmentsLink = "1IsWMQ1q36xi2OPvjLUSZIvyWU0CsaSoG";
   } else {
     swal(
       "Fetching Your Assignments!",
@@ -101,7 +104,11 @@ const BasicStudentAssignments = () => {
           <h1>
             <span>Submit Your Assignment Here</span>
           </h1>
-          <iframe src="https://script.google.com/macros/s/AKfycbyNpgernRpCcVq43MYwHm52WwbcmU1LT5tt5mEHDnJXUN-QgJxfoYBQNNsaM7qdsi_S/exec" id="basiciframe" style={{minHeight:"100vh"}} title="submitassignment"></iframe>
+          <iframe
+            src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentSubmitAssignmentsLink}#grid`}
+            id="basiciframe"
+            title="submitassignments"
+          ></iframe>
         </center>
       </section>
     </>

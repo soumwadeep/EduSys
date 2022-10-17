@@ -36,8 +36,9 @@ const BasicStudentProfile = () => {
       setRollno(data.rollno);
       setSem(data.sem);
     } catch (err) {
-      console.error(err);
-      swal("Error!", "We Got An Error Fetching Your Data.", "error");
+      logout();
+      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      return navigate("/StudentLogin");
     }
   };
 
