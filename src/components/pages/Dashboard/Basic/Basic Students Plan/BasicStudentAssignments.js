@@ -44,10 +44,10 @@ const BasicStudentAssignments = () => {
   // If Statements
   if (sem === "5" && dept === "CSE") {
     BasicStudentAssignmentsLink = "1UpTks76n3_A-rQ25R4exFqQSqOgpNuvd";
-    BasicStudentSubmitAssignmentsLink = "1DUDJLOxHr0-DUd736oQWdm_ODyxHBMYT";
+    BasicStudentSubmitAssignmentsLink = "1tzWyDOk6fifYCkXajWk2Gs1pfwCSkzzf";
   } else if (sem === "6" && dept === "CSE") {
     BasicStudentAssignmentsLink = "15pcGqUKKwRTxZbxuXIkbnKwl42onFLjn";
-    BasicStudentSubmitAssignmentsLink = "1IsWMQ1q36xi2OPvjLUSZIvyWU0CsaSoG";
+    BasicStudentSubmitAssignmentsLink = "1o6kvPyhGCblX0IjuxhRF_cFUzZmhm6Yj";
   } else {
     swal(
       "Fetching Your Assignments!",
@@ -104,11 +104,14 @@ const BasicStudentAssignments = () => {
           <h1>
             <span>Submit Your Assignment Here</span>
           </h1>
-          <iframe
-            src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentSubmitAssignmentsLink}#grid`}
-            id="basiciframe"
-            title="submitassignments"
-          ></iframe>
+          <h4>Instructions:</h4>
+          <p><span>1.</span> Create A Folder With Your <span>Name And Roll Number</span> (<span>Format: </span>RollNo_Name)</p>
+          <p><span>2.</span> Now, Create A Folder Of The Particular Subject Inside The Present Folder.</p>
+          <p><span>3.</span> Now, Upload Your Assignment Inside The Subject Folder Of That Respective Subject.</p>
+          <h6><span>Note*: If You Don't Follow The Above Mentioned Instructions Then Your Submitted Assignment Will Be Taken As Invalid And Hence, Your Assignment Will Not Be Checked!</span></h6>
+          <form action={`https://drive.google.com/drive/folders/${BasicStudentSubmitAssignmentsLink}?usp=sharing`}target="_blank">
+            <button type="submit" className="btn" id="basicbtn">Submit Your Assignment</button>
+          </form>
         </center>
       </section>
     </>

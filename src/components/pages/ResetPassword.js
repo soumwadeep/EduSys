@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, sendPasswordReset } from "../firebase";
 import reset1 from "../../img/reset1.svg";
@@ -9,16 +9,6 @@ const ResetPassword = () => {
     document.title = "Reset Password | EduSys";
   }, []);
   const [email, setEmail] = useState("");
-  const [student,teacher, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (student) navigate("/BasicStudent");
-  // }, [student, loading]);
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (teacher) navigate("/BasicTeacher");
-  // }, [teacher, loading]);
   return (
     <>
       <section id="login">
