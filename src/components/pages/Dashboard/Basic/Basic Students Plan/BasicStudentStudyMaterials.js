@@ -27,6 +27,11 @@ const BasicStudentStudyMaterials = () => {
       const data = doc.docs[0].data();
       setSem(data.sem);
       setDept(data.dept);
+      if(data.sem <5 || data.sem>6){
+        document.getElementById("showstudymaterialheading").innerHTML ="No Study Materials As Of Now!";
+        var z = document.getElementById("showstudymaterialdata");
+        z.style.display = "none";
+      }
     } catch (err) {
       logout();
       swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
@@ -44,12 +49,6 @@ const BasicStudentStudyMaterials = () => {
     BasicStudentStudyMaterialsLink = "1m_GEqdGJqFSE5iR7qsRs8oZ18I_vSE6V";
   } else if (sem === "6" && dept === "CSE") {
     BasicStudentStudyMaterialsLink = "1XMFirDa0Z9dQBguI29irzlJ1-n50JKr9";
-  } else {
-    swal(
-      "Fetching Your Study Materials!",
-      "We Found No Study Materials For You As Of Now.We Will Soon Update It When We Find Any!",
-      "info"
-    );
   }
   return (
     <>
@@ -90,12 +89,14 @@ const BasicStudentStudyMaterials = () => {
         </div>
         <center>
           <h1>
-            <span>Latest Study Materials</span>
+            <span id="showstudymaterialheading">Latest Study Materials</span>
           </h1>
+          <div id="showstudymaterialdata">
           <iframe
             src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentStudyMaterialsLink}#grid`}
             id="basiciframe"
-          ></iframe>
+            title="studymaterials"
+          ></iframe></div>
         </center>
       </section>
     </>

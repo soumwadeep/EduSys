@@ -27,6 +27,10 @@ const BasicStudentClasses = () => {
       const data = doc.docs[0].data();
       setSem(data.sem);
       setDept(data.dept);
+      if(data.sem <5 || data.sem>6){
+        document.getElementById("liveclassheading").innerHTML ="No Classes As Of Now!";
+        document.getElementById("liveclassdata").style.display = "none";
+      }
     } catch (err) {
       logout();
       swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
@@ -46,12 +50,6 @@ const BasicStudentClasses = () => {
     BasicStudentClassesLink = "uco-aoxx-mxp";
   } else if (sem === "6" && dept === "CSE") {
     BasicStudentClassesLink = "pwx-qvqt-vkn";
-  } else {
-    swal(
-      "Fetching Your Live Classes Right Now!Check The Join Your Class Button.",
-      "We Found No Live Classes As Of Now.We Will Soon Update It When We Find Any!",
-      "info"
-    );
   }
   return (
     <>
@@ -92,14 +90,15 @@ const BasicStudentClasses = () => {
         </div>
         <center>
           <h1>
-            <span>Live Class</span>
+            <span id="liveclassheading">Live Class</span>
           </h1>
+          <div id="liveclassdata">
           <form
             action={`https://meet.google.com/${BasicStudentClassesLink}`}
             target="_blank"
           >
             <button className="btn">Join Your Class</button>
-          </form>
+          </form></div>
         </center>
       </section>
     </>

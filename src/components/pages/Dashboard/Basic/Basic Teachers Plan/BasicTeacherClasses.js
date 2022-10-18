@@ -12,7 +12,7 @@ const BasicTeacherClasses = () => {
     document.title = "Your Live Classes | EduSys";
   }, []);
   const [teacher, loading, error] = useAuthState(auth);
-  const [dept, setDept] = useState("");
+  // const [dept, setDept] = useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -23,7 +23,16 @@ const BasicTeacherClasses = () => {
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
-      setDept(data.dept);
+      // setDept(data.dept);
+      var y = document.getElementById("showLinks");
+      if (data.dept === "CSE") {
+        document.getElementById("showclasses").innerHTML = "All Classes";
+        y.style.display = "block";
+      } else {
+        document.getElementById("showclasses").innerHTML =
+          "No Classes Scheduled As Of Now!";
+        y.style.display = "none";
+      }
     } catch (err) {
       logout();
       swal(
@@ -34,21 +43,6 @@ const BasicTeacherClasses = () => {
       return navigate("/StudentLogin");
     }
     // If Conditions
-    var y = document.getElementById("showLinks");
-    console.log(dept);
-    if (dept === "CSE") {
-      document.getElementById("showclasses").innerHTML = "All Classes";
-      y.style.display = "block";
-    } else {
-      // swal(
-      //   "Fetching Your Scheduled Classes Right Now!Check The Join Your Class Button.",
-      //   "We Found No Scheduled Classes As Of Now.We Will Soon Update It When We Find Any!",
-      //   "info"
-      // );
-      document.getElementById("showclasses").innerHTML =
-        "No Classes Scheduled As Of Now!";
-      y.style.display = "none";
-    }
   };
 
   useEffect(() => {

@@ -50,11 +50,6 @@ const BasicStudentUpdates = () => {
     BasicStudentUpdatesLink =
       "2PACX-1vT84dusZToUTGAXp2cgsEdRk4wyv_nAf82d2bhO7u6O-lhSLhb7lvMg24VfDnzi5QKKOz_K6wX3Bi_w";
   } else {
-    swal(
-      "Fetching Your Updates!",
-      "We Found No New Updates As Of Now.We Will Soon Update It When We Find Any!",
-      "info"
-    );
     BasicStudentUpdatesLink ="2PACX-1vRhjG4oLbm0LDvB_nKsoIpaG9D1kSDRhTlk4jrXVk2X5mxypJ1AGIFH6C2-8kkzXbRUDNuhEPyOsGyu";
   }
   return (

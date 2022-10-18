@@ -27,6 +27,13 @@ const BasicStudentAssignments = () => {
       const data = doc.docs[0].data();
       setSem(data.sem);
       setDept(data.dept);
+      
+      // Temporary Fix
+      var z = document.getElementById("showassignmentdata");
+      if(data.sem <5 || data.sem>6){
+        document.getElementById("showpresentheading").innerHTML ="No Assignments As Of Now!";
+        z.style.display = "none";
+      }
     } catch (err) {
       logout();
       swal(
@@ -41,24 +48,20 @@ const BasicStudentAssignments = () => {
   useEffect(() => {
     if (loading) return;
     if (!student) return navigate("/StudentLogin");
-
     fetchUserName();
   }, [student, loading]);
-
-  // If Statements
   if (sem === "5" && dept === "CSE") {
     BasicStudentAssignmentsLink = "1UpTks76n3_A-rQ25R4exFqQSqOgpNuvd";
     BasicStudentSubmitAssignmentsLink = "1tzWyDOk6fifYCkXajWk2Gs1pfwCSkzzf";
   } else if (sem === "6" && dept === "CSE") {
     BasicStudentAssignmentsLink = "15pcGqUKKwRTxZbxuXIkbnKwl42onFLjn";
     BasicStudentSubmitAssignmentsLink = "1o6kvPyhGCblX0IjuxhRF_cFUzZmhm6Yj";
-  } else {
-    swal(
-      "Fetching Your Assignments!",
-      "We Found No Assignments As Of Now.We Will Soon Update It When We Find Any!",
-      "info"
-    );
   }
+  // var z = document.getElementById("showassignmentdata");
+  // else {
+  //   document.getElementById("showpresentheading").innerHTML ="No Assignments As Of Now!";
+  //   z.style.display = "none";
+  // }
   return (
     <>
       <section id="basicstudentAssignments">
@@ -98,44 +101,47 @@ const BasicStudentAssignments = () => {
         </div>
         <center>
           <h1>
-            <span>Latest Assignments</span>
+            <span id="showpresentheading">Latest Assignments</span>
           </h1>
-          <iframe
-            src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentAssignmentsLink}#grid`}
-            id="basiciframe"
-            title="viewassignments"
-          ></iframe>
-          <h1>
-            <span>Submit Your Assignment Here</span>
-          </h1>
-          <h4>Instructions:</h4>
-          <p>
-            <span>1.</span> Create A Folder With Your{" "}
-            <span>Name And Roll Number</span> (<span>Format: </span>RollNo_Name)
-          </p>
-          <p>
-            <span>2.</span> Now, Create A Folder Of The Particular Subject
-            Inside The Present Folder.
-          </p>
-          <p>
-            <span>3.</span> Now, Upload Your Assignment Inside The Subject
-            Folder Of That Respective Subject.
-          </p>
-          <h6>
-            <span>
-              Note*: If You Don't Follow The Above Mentioned Instructions Then
-              Your Submitted Assignment Will Be Taken As Invalid And Hence, Your
-              Assignment Will Not Be Checked!
-            </span>
-          </h6>
-          <form
-            action={`https://drive.google.com/drive/folders/${BasicStudentSubmitAssignmentsLink}?usp=sharing`}
-            target="_blank"
-          >
-            <button type="submit" className="btn" id="basicbtn">
-              Submit Your Assignment
-            </button>
-          </form>
+          <div id="showassignmentdata">
+            <iframe
+              src={`https://drive.google.com/embeddedfolderview?id=${BasicStudentAssignmentsLink}#grid`}
+              id="basiciframe"
+              title="viewassignments"
+            ></iframe>
+            <h1>
+              <span>Submit Your Assignment Here</span>
+            </h1>
+            <h4>Instructions:</h4>
+            <p>
+              <span>1.</span> Create A Folder With Your{" "}
+              <span>Name And Roll Number</span> (<span>Format: </span>
+              RollNo_Name)
+            </p>
+            <p>
+              <span>2.</span> Now, Create A Folder Of The Particular Subject
+              Inside The Present Folder.
+            </p>
+            <p>
+              <span>3.</span> Now, Upload Your Assignment Inside The Subject
+              Folder Of That Respective Subject.
+            </p>
+            <h6>
+              <span>
+                Note*: If You Don't Follow The Above Mentioned Instructions Then
+                Your Submitted Assignment Will Be Taken As Invalid And Hence,
+                Your Assignment Will Not Be Checked!
+              </span>
+            </h6>
+            <form
+              action={`https://drive.google.com/drive/folders/${BasicStudentSubmitAssignmentsLink}?usp=sharing`}
+              target="_blank"
+            >
+              <button type="submit" className="btn" id="basicbtn">
+                Submit Your Assignment
+              </button>
+            </form>
+          </div>
         </center>
       </section>
     </>
