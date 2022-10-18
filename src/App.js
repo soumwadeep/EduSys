@@ -22,6 +22,7 @@ import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Studen
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
+import BasicTeacherClasses from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses";
 // Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
@@ -45,6 +46,8 @@ function App() {
     location.pathname === "/BasicStudent/Profile";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
+  const isBasicTeachersClassesRendering =
+  location.pathname === "/BasicTeacher/Classes";
   // Pro Students Plans
   const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
@@ -59,8 +62,10 @@ function App() {
           !isBasicStudentsAssignmentsRendering &&
           !isBasicStudentsProfileRendering &&
           !isBasicTeachersRendering &&
+          !isBasicTeachersClassesRendering &&
           !isProStudentsRendering &&
-          !isProTeachersRendering && <NavBar />}
+          !isProTeachersRendering && 
+          <NavBar />}
         <Routes>
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/Features" element={<Features />} />
@@ -109,10 +114,13 @@ function App() {
             path="/BasicStudent/Profile"
             element={<BasicStudentProfile />}
           />
-
-          {/* Pro Students All */}
-          <Route exact path="/ProStudent" element={<ProStudent />} />
+          
+          {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
+          <Route exact path="/BasicTeacher/Classes" element={<BasicTeacherClasses />} />
+
+          {/* Pro Users All */}
+          <Route exact path="/ProStudent" element={<ProStudent />} />
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>

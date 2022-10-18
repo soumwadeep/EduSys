@@ -7,6 +7,7 @@ import swal from "sweetalert";
 const BasicTeacherSidebar = () => {
   const [teacher, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  // const [dept,setDept]=useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -18,6 +19,7 @@ const BasicTeacherSidebar = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
+      // setDept(data.dept);
       console.log(data);
     } catch (err) {
       logout();

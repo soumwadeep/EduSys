@@ -80,7 +80,7 @@ const BasicTeacher = () => {
                     </p>
                     <p>
                       <span>4.</span> To Get Your <span>Study Materials</span>{" "}
-                      Click On The Study Materials Button
+                      Click On The Study Materials Button.
                     </p>
                     <p>
                       <span>5.</span> To Get Your <span>Assignments</span> Click

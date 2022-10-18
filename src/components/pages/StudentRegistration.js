@@ -24,38 +24,34 @@ const StudentRegistration = () => {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name)
-    {
+    if (!name) {
       swal("Error!", "Please Enter Your Name To Continue.", "error");
-    }
-    else if (!dept)
-    {
+    } else if (!dept) {
       swal("Error!", "Please Enter Your Department To Continue.", "error");
-    }
-    else if (!sec)
-    {
+    } else if (!sec) {
       swal("Error!", "Please Enter Your Section To Continue.", "error");
-    }
-    else if (!rollno)
-    {
+    } else if (!rollno) {
       swal("Error!", "Please Enter Your Roll Number To Continue.", "error");
-    }
-    else if (!sem)
-    {
+    } else if (!sem) {
       swal("Error!", "Please Enter Your Semester To Continue.", "error");
-    }
-    else if (!email)
-    {
+    } else if (!email) {
       swal("Error!", "Please Enter Your Email To Continue.", "error");
-    }
-    else if (!password)
-    {
+    } else if (!password) {
       swal("Error!", "Please Enter Your Password To Continue.", "error");
+    } else {
+      registerStudentWithEmailAndPassword(
+        name,
+        email,
+        password,
+        dept,
+        sec,
+        rollno,
+        sem
+      );
     }
-    else
-    {
-    registerStudentWithEmailAndPassword(name, email, password, dept, sec, rollno, sem);
-    }
+  };
+  const toInputUppercase = (e) => {
+    e.target.value = ("" + e.target.value).toUpperCase();
   };
 
   useEffect(() => {
@@ -92,8 +88,9 @@ const StudentRegistration = () => {
                       <label className="form-label">Your Department</label>
                       <input
                         type="text"
-                        style={{textTransform: "uppercase"}}
+                        style={{ textTransform: "uppercase" }}
                         value={dept}
+                        onInput={toInputUppercase}
                         onChange={(e) => setDept(e.target.value)}
                         className="form-control"
                         required
@@ -104,6 +101,8 @@ const StudentRegistration = () => {
                       <input
                         type="text"
                         value={sec}
+                        style={{ textTransform: "uppercase" }}
+                        onInput={toInputUppercase}
                         onChange={(e) => setSec(e.target.value)}
                         className="form-control"
                         required

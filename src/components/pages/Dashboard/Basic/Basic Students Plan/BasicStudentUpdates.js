@@ -55,6 +55,7 @@ const BasicStudentUpdates = () => {
       "We Found No New Updates As Of Now.We Will Soon Update It When We Find Any!",
       "info"
     );
+    BasicStudentUpdatesLink ="2PACX-1vRhjG4oLbm0LDvB_nKsoIpaG9D1kSDRhTlk4jrXVk2X5mxypJ1AGIFH6C2-8kkzXbRUDNuhEPyOsGyu";
   }
   return (
     <>
@@ -99,7 +100,7 @@ const BasicStudentUpdates = () => {
           </h1>
           <iframe
             src={`https://docs.google.com/document/d/e/${BasicStudentUpdatesLink}/pub?embedded=true`}
-            id="basiciframe"
+            id="basiciframe" title="Basic Student Updates"
           ></iframe>
         </center>
       </section>

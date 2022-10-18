@@ -29,7 +29,11 @@ const BasicStudentAssignments = () => {
       setDept(data.dept);
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/StudentLogin");
     }
   };
@@ -105,12 +109,32 @@ const BasicStudentAssignments = () => {
             <span>Submit Your Assignment Here</span>
           </h1>
           <h4>Instructions:</h4>
-          <p><span>1.</span> Create A Folder With Your <span>Name And Roll Number</span> (<span>Format: </span>RollNo_Name)</p>
-          <p><span>2.</span> Now, Create A Folder Of The Particular Subject Inside The Present Folder.</p>
-          <p><span>3.</span> Now, Upload Your Assignment Inside The Subject Folder Of That Respective Subject.</p>
-          <h6><span>Note*: If You Don't Follow The Above Mentioned Instructions Then Your Submitted Assignment Will Be Taken As Invalid And Hence, Your Assignment Will Not Be Checked!</span></h6>
-          <form action={`https://drive.google.com/drive/folders/${BasicStudentSubmitAssignmentsLink}?usp=sharing`}target="_blank">
-            <button type="submit" className="btn" id="basicbtn">Submit Your Assignment</button>
+          <p>
+            <span>1.</span> Create A Folder With Your{" "}
+            <span>Name And Roll Number</span> (<span>Format: </span>RollNo_Name)
+          </p>
+          <p>
+            <span>2.</span> Now, Create A Folder Of The Particular Subject
+            Inside The Present Folder.
+          </p>
+          <p>
+            <span>3.</span> Now, Upload Your Assignment Inside The Subject
+            Folder Of That Respective Subject.
+          </p>
+          <h6>
+            <span>
+              Note*: If You Don't Follow The Above Mentioned Instructions Then
+              Your Submitted Assignment Will Be Taken As Invalid And Hence, Your
+              Assignment Will Not Be Checked!
+            </span>
+          </h6>
+          <form
+            action={`https://drive.google.com/drive/folders/${BasicStudentSubmitAssignmentsLink}?usp=sharing`}
+            target="_blank"
+          >
+            <button type="submit" className="btn" id="basicbtn">
+              Submit Your Assignment
+            </button>
           </form>
         </center>
       </section>

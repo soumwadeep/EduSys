@@ -23,36 +23,32 @@ const TeacherRegistration = () => {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name)
-    {
+    if (!name) {
       swal("Error!", "Please Enter Your Name To Continue.", "error");
-    }
-    else if(!facultynum)
-    {
+    } else if (!facultynum) {
       swal("Error!", "Please Enter Your Faculty Number To Continue.", "error");
-    }
-    else if(!position)
-    {
+    } else if (!position) {
       swal("Error!", "Please Enter Your Position To Continue.", "error");
-    }
-    else if (!dept)
-    {
+    } else if (!dept) {
       swal("Error!", "Please Enter Your Department To Continue.", "error");
-    }
-    else if (!email)
-    {
+    } else if (!email) {
       swal("Error!", "Please Enter Your Email To Continue.", "error");
-    }
-    else if (!password)
-    {
+    } else if (!password) {
       swal("Error!", "Please Enter Your Password To Continue.", "error");
-    }
-    else
-    {
-    registerTeacherWithEmailAndPassword(name, email, password, dept, facultynum, position);
+    } else {
+      registerTeacherWithEmailAndPassword(
+        name,
+        email,
+        password,
+        dept,
+        facultynum,
+        position
+      );
     }
   };
-
+  const toInputUppercase = (e) => {
+    e.target.value = ("" + e.target.value).toUpperCase();
+  };
   useEffect(() => {
     if (loading) return;
     if (teacher) navigate("/BasicTeacher");
@@ -87,7 +83,8 @@ const TeacherRegistration = () => {
                       <label className="form-label">Your Department</label>
                       <input
                         type="text"
-                        style={{textTransform: "uppercase"}}
+                        style={{ textTransform: "uppercase" }}
+                        onInput={toInputUppercase}
                         value={dept}
                         onChange={(e) => setDept(e.target.value)}
                         className="form-control"
@@ -99,15 +96,14 @@ const TeacherRegistration = () => {
                       <input
                         type="text"
                         value={position}
+                        placeholder="Maths Professor, Associate Professor, Assistant Professor, Lecturer, etc."
                         onChange={(e) => setPosition(e.target.value)}
                         className="form-control"
                         required
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">
-                        Your Faculty Number
-                      </label>
+                      <label className="form-label">Your Faculty Number</label>
                       <input
                         type="number"
                         className="form-control"
