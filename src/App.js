@@ -22,6 +22,7 @@ import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Studen
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
+import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
 import BasicTeacherClasses from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses";
 // Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
@@ -46,6 +47,7 @@ function App() {
     location.pathname === "/BasicStudent/Profile";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
+  const isBasicTeachersUpdatesRendering = location.pathname === "/BasicTeacher/Updates";
   const isBasicTeachersClassesRendering =
   location.pathname === "/BasicTeacher/Classes";
   // Pro Students Plans
@@ -62,6 +64,7 @@ function App() {
           !isBasicStudentsAssignmentsRendering &&
           !isBasicStudentsProfileRendering &&
           !isBasicTeachersRendering &&
+          !isBasicTeachersUpdatesRendering &&
           !isBasicTeachersClassesRendering &&
           !isProStudentsRendering &&
           !isProTeachersRendering && 
@@ -117,6 +120,7 @@ function App() {
           
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
+          <Route exact path="/BasicTeacher/Updates" element={<BasicTeacherUpdates />} />
           <Route exact path="/BasicTeacher/Classes" element={<BasicTeacherClasses />} />
 
           {/* Pro Users All */}
@@ -124,7 +128,17 @@ function App() {
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
-        <Footer />
+        {!isBasicStudentsRendering &&
+          !isBasicStudentsUpdatesRendering &&
+          !isBasicStudentsStudyMaterialsRendering &&
+          !isBasicStudentsClassesRendering &&
+          !isBasicStudentsAssignmentsRendering &&
+          !isBasicStudentsProfileRendering &&
+          !isBasicTeachersRendering &&
+          !isBasicTeachersUpdatesRendering &&
+          !isBasicTeachersClassesRendering &&
+          !isProStudentsRendering &&
+          !isProTeachersRendering && <Footer />}
       </div>
     </>
   );
