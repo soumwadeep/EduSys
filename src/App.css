@@ -48,6 +48,16 @@ a:hover {
   text-decoration: none;
 }
 /* Pricing Table */
+.pricing-marquee
+{
+  background-color: #F53803;
+  color: white;
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
 #demo span {
   color: white;
 }

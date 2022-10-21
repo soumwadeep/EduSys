@@ -46,6 +46,9 @@ const Pricing = () => {
               Our <span style={{ color: "#F53803" }}>Plans</span>
             </h1>
             <br />
+            <marquee direction="left" className="pricing-marquee">
+              We Are Providing Our Exclusive Virtual-Lab Feature For Free In Our Basic Plan For Limited Time.Enjoy!
+            </marquee>
             <br />
             <div className="row justify-content-md-center">
               <div className="col-sm">

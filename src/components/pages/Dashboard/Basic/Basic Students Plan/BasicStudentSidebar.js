@@ -21,7 +21,11 @@ const BasicStudentSidebar = () => {
       console.log(data);
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/StudentLogin");
     }
   };
@@ -111,6 +115,18 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
+            to="/BasicStudent/VirtualLabs"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-flask"></i>&nbsp;&nbsp;Virtual Labs
+          </NavLink>
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
             to="/BasicStudent/Assignments"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -139,8 +155,8 @@ const BasicStudentSidebar = () => {
             }}
             className="nav-link"
           >
-            <i className="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Log
-            Out
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            &nbsp;&nbsp;Log Out
           </NavLink>
         </div>
       </div>

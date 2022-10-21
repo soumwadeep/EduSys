@@ -113,6 +113,18 @@ const BasicTeacherSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
+            to="/BasicTeacher/VirtualLabs"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-flask"></i>&nbsp;&nbsp;Virtual Labs
+          </NavLink>
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
             to="/BasicTeacher/Assignments"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

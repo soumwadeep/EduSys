@@ -18,6 +18,7 @@ import ThanksForRegistering from "./components/pages/ThanksForRegistering";
 import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
 import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
 import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials";
+import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs";
 import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
 // Basic Teacher All
@@ -25,7 +26,9 @@ import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
 import BasicTeacherClasses from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses";
 import BasicTeacherStudyMaterials from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherStudyMaterials";
+import BasicTeacherVirtualLabs from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherVirtualLabs";
 import BasicTeacherAssignments from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherAssignments";
+import BasicTeacherProfile from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherProfile";
 // Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
@@ -48,6 +51,8 @@ function App() {
     location.pathname === "/BasicStudent/Updates";
   const isBasicStudentsStudyMaterialsRendering =
     location.pathname === "/BasicStudent/StudyMaterials";
+  const isBasicStudentsVirtualLabsRendering =
+    location.pathname === "/BasicStudent/VirtualLabs";
   const isBasicStudentsClassesRendering =
     location.pathname === "/BasicStudent/Classes";
   const isBasicStudentsAssignmentsRendering =
@@ -62,8 +67,12 @@ function App() {
     location.pathname === "/BasicTeacher/Classes";
   const isBasicTeachersStudyMaterialsRendering =
     location.pathname === "/BasicTeacher/StudyMaterials";
+  const isBasicTeachersVirtualLabsRendering =
+    location.pathname === "/BasicTeacher/VirtualLabs";
   const isBasicTeachersAssignmentsRendering =
     location.pathname === "/BasicTeacher/Assignments";
+  const isBasicTeachersProfileRendering =
+    location.pathname === "/BasicTeacher/Profile";
   // Pro Students Plans
   const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
@@ -74,6 +83,7 @@ function App() {
         {!isBasicStudentsRendering &&
           !isBasicStudentsUpdatesRendering &&
           !isBasicStudentsStudyMaterialsRendering &&
+          !isBasicStudentsVirtualLabsRendering &&
           !isBasicStudentsClassesRendering &&
           !isBasicStudentsAssignmentsRendering &&
           !isBasicStudentsProfileRendering &&
@@ -81,7 +91,9 @@ function App() {
           !isBasicTeachersUpdatesRendering &&
           !isBasicTeachersClassesRendering &&
           !isBasicTeachersStudyMaterialsRendering &&
+          !isBasicTeachersVirtualLabsRendering &&
           !isBasicTeachersAssignmentsRendering &&
+          !isBasicTeachersProfileRendering &&
           !isProStudentsRendering &&
           !isProTeachersRendering && <NavBar />}
         <Routes>
@@ -124,6 +136,7 @@ function App() {
             path="/BasicStudent/StudyMaterials"
             element={<BasicStudentStudyMaterials />}
           />
+          <Route exact path="/BasicStudent/VirtualLabs" element={<BasicStudentVirtualLabs />} />
           <Route
             exact
             path="/BasicStudent/Classes"
@@ -154,7 +167,9 @@ function App() {
             element={<BasicTeacherClasses />}
           />
           <Route exact path="/BasicTeacher/StudyMaterials" element={<BasicTeacherStudyMaterials />} />
+          <Route exact path="/BasicTeacher/VirtualLabs" element={<BasicTeacherVirtualLabs />} />
           <Route exact path="/BasicTeacher/Assignments" element={<BasicTeacherAssignments />} />
+          <Route exact path="/BasicTeacher/Profile" element={<BasicTeacherProfile />} />
 
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
@@ -164,6 +179,7 @@ function App() {
         {!isBasicStudentsRendering &&
           !isBasicStudentsUpdatesRendering &&
           !isBasicStudentsStudyMaterialsRendering &&
+          !isBasicStudentsVirtualLabsRendering &&
           !isBasicStudentsClassesRendering &&
           !isBasicStudentsAssignmentsRendering &&
           !isBasicStudentsProfileRendering &&
@@ -171,7 +187,9 @@ function App() {
           !isBasicTeachersUpdatesRendering &&
           !isBasicTeachersClassesRendering &&
           !isBasicTeachersStudyMaterialsRendering &&
+          !isBasicTeachersVirtualLabsRendering &&
           !isBasicTeachersAssignmentsRendering &&
+          !isBasicTeachersProfileRendering &&
           !isProStudentsRendering &&
           !isProTeachersRendering && <Footer />}
 

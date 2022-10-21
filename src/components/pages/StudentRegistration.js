@@ -93,6 +93,7 @@ const StudentRegistration = () => {
                         onInput={toInputUppercase}
                         onChange={(e) => setDept(e.target.value)}
                         className="form-control"
+                        placeholder="eg. CSE,EE,ECE,IT,CE etc."
                         required
                       />
                     </div>
