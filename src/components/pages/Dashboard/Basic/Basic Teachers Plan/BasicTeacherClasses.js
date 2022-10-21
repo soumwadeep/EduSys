@@ -102,10 +102,85 @@ const BasicTeacherClasses = () => {
           </form> */}
         </center>
         <div className="presentclasses" id="showLinks">
-          <h4>Semester-5:</h4>
-          <form action="https://meet.google.com/uco-aoxx-mxp" target="_blank">
-            <button className="btn">Join Your Class</button>
-          </form>
+          <center>
+            {/* Need To Change The Links! */}
+            <div className="row">
+              <div className="col-sm">
+                <h4>Semester-1:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-2:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-3:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-4:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm">
+                <h4>Semester-5:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-6:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-7:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+              <div className="col-sm">
+                <h4>Semester-8:</h4>
+                <form
+                  action="https://meet.google.com/uco-aoxx-mxp"
+                  target="_blank"
+                >
+                  <button className="btn">Join Your Class</button>
+                </form>
+              </div>
+            </div>
+          </center>
         </div>
       </section>
     </>

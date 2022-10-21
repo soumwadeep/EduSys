@@ -98,7 +98,7 @@ const BasicStudentClasses = () => {
             target="_blank"
           >
             <button className="btn">Join Your Class</button>
-          </form></div>
+          </form></div><br/>
         </center>
       </section>
     </>

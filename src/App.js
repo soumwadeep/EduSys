@@ -24,15 +24,24 @@ import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic St
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
 import BasicTeacherClasses from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses";
+import BasicTeacherStudyMaterials from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherStudyMaterials";
+import BasicTeacherAssignments from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherAssignments";
 // Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
 import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
 import ResetPassword from "./components/pages/ResetPassword";
 import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
+import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 
 function App() {
   const location = useLocation();
+  //Main Files
+  const isHomeRendering = location.pathname === "/Home";
+  const isAboutRendering = location.pathname === "/About";
+  const isFeaturesRendering = location.pathname === "/Features";
+  const isPricingRendering = location.pathname === "/Pricing";
+  const isLoginRendering = location.pathname === "/Login";
   // Basic Students Plan
   const isBasicStudentsRendering = location.pathname === "/BasicStudent";
   const isBasicStudentsUpdatesRendering =
@@ -47,9 +56,14 @@ function App() {
     location.pathname === "/BasicStudent/Profile";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
-  const isBasicTeachersUpdatesRendering = location.pathname === "/BasicTeacher/Updates";
+  const isBasicTeachersUpdatesRendering =
+    location.pathname === "/BasicTeacher/Updates";
   const isBasicTeachersClassesRendering =
-  location.pathname === "/BasicTeacher/Classes";
+    location.pathname === "/BasicTeacher/Classes";
+  const isBasicTeachersStudyMaterialsRendering =
+    location.pathname === "/BasicTeacher/StudyMaterials";
+  const isBasicTeachersAssignmentsRendering =
+    location.pathname === "/BasicTeacher/Assignments";
   // Pro Students Plans
   const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
@@ -66,9 +80,10 @@ function App() {
           !isBasicTeachersRendering &&
           !isBasicTeachersUpdatesRendering &&
           !isBasicTeachersClassesRendering &&
+          !isBasicTeachersStudyMaterialsRendering &&
+          !isBasicTeachersAssignmentsRendering &&
           !isProStudentsRendering &&
-          !isProTeachersRendering && 
-          <NavBar />}
+          !isProTeachersRendering && <NavBar />}
         <Routes>
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/Features" element={<Features />} />
@@ -84,10 +99,18 @@ function App() {
           <Route exact path="/Login" element={<Login />} />
           {/* Basic Student's Login And Register */}
           <Route exact path="/StudentLogin" element={<StudentLogin />} />
-          <Route exact path="/StudentRegistration" element={<StudentRegistration />} />
+          <Route
+            exact
+            path="/StudentRegistration"
+            element={<StudentRegistration />}
+          />
           {/* Basic Teacher's Login And Register */}
           <Route exact path="/TeacherLogin" element={<TeacherLogin />} />
-          <Route exact path="/TeacherRegistration" element={<TeacherRegistration />} />
+          <Route
+            exact
+            path="/TeacherRegistration"
+            element={<TeacherRegistration />}
+          />
           <Route exact path="/ResetPassword" element={<ResetPassword />} />
           {/* Basic Students All */}
           <Route exact path="/BasicStudent" element={<BasicStudent />} />
@@ -117,11 +140,21 @@ function App() {
             path="/BasicStudent/Profile"
             element={<BasicStudentProfile />}
           />
-          
+
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
-          <Route exact path="/BasicTeacher/Updates" element={<BasicTeacherUpdates />} />
-          <Route exact path="/BasicTeacher/Classes" element={<BasicTeacherClasses />} />
+          <Route
+            exact
+            path="/BasicTeacher/Updates"
+            element={<BasicTeacherUpdates />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Classes"
+            element={<BasicTeacherClasses />}
+          />
+          <Route exact path="/BasicTeacher/StudyMaterials" element={<BasicTeacherStudyMaterials />} />
+          <Route exact path="/BasicTeacher/Assignments" element={<BasicTeacherAssignments />} />
 
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
@@ -137,8 +170,16 @@ function App() {
           !isBasicTeachersRendering &&
           !isBasicTeachersUpdatesRendering &&
           !isBasicTeachersClassesRendering &&
+          !isBasicTeachersStudyMaterialsRendering &&
+          !isBasicTeachersAssignmentsRendering &&
           !isProStudentsRendering &&
           !isProTeachersRendering && <Footer />}
+
+        {!isHomeRendering &&
+          !isAboutRendering &&
+          !isFeaturesRendering &&
+          !isPricingRendering &&
+          !isLoginRendering && <DashboardFooter />}
       </div>
     </>
   );

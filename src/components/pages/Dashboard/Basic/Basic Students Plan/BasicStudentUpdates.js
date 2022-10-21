@@ -97,6 +97,7 @@ const BasicStudentUpdates = () => {
             src={`https://docs.google.com/document/d/e/${BasicStudentUpdatesLink}/pub?embedded=true`}
             id="basiciframe" title="Basic Student Updates"
           ></iframe>
+          <br/>
         </center>
       </section>
     </>

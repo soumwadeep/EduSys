@@ -141,6 +141,7 @@ const BasicStudentAssignments = () => {
                 Submit Your Assignment
               </button>
             </form>
+            <br/>
           </div>
         </center>
       </section>

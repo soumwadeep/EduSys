@@ -444,3 +444,8 @@ a:hover {
   border-radius: 10px;
   box-shadow: 0 0 15px -2px rgba(241, 135, 4, 0.2);
 }
+/* Teacher Classes */
+#showLinks .col-sm
+{
+  margin-bottom: 20px;
+}
