@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
-import swal from "sweetalert";
 import contact1 from "../../img/contact1.svg";
 const Contact = () => {
   useEffect(() => {
     document.title = "Contact | EduSys";
   }, []);
+  function ShowHideDiv() {
+    var selectedChoice = document.getElementById("selectedChoice");
+    var selectedPlan = document.getElementById("selectedPlan");
+    selectedPlan.style.display = selectedChoice.value === "Yes" ? "block" : "none";
+}
   return (
     <>
       <section id="contact">
@@ -43,7 +47,7 @@ const Contact = () => {
                       <label className="form-label">Your Name</label>
                       <input
                         type="text"
-                        name="name"
+                        name="Name"
                         className="form-control"
                         id="exampleInputText1"
                         aria-describedby="TextHelp"
@@ -51,10 +55,24 @@ const Contact = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Your Email</label>
+                      <label className="form-label">Your Mobile Number</label>
+                      <input
+                        type="text"
+                        name="Mobile-Number"
+                        className="form-control"
+                        id="exampleInputText1"
+                        aria-describedby="TextHelp"
+                        required
+                      />
+                      <div id="phoneHelp" className="form-text">
+                        We'll Never Share Your Mobile Number With Anyone Else.
+                      </div>
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Your Email Id</label>
                       <input
                         type="email"
-                        name="email"
+                        name="Email"
                         className="form-control"
                         id="exampleInputEmail1"
                         aria-describedby="emailHelp"
@@ -65,10 +83,40 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="mb-3">
+                      <label className="form-label">
+                        Discuss About Our Plans?
+                      </label>
+                      <select
+                      id="selectedChoice"
+                      name="About-Plans"
+                        className="form-select"
+                        onChange={ShowHideDiv}
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select Your Choice</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div id="selectedPlan" style={{display:"none"}} className="mb-3">
+                      <label className="form-label">
+                        If Yes, Which One?
+                      </label>
+                      <select
+                        name="Selected-Plan"
+                        className="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select Your Plan</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Pro">Pro</option>
+                      </select>
+                    </div>
+                    <div className="mb-3">
                       <label className="form-label">Your Message</label>
                       <textarea
                         type="text"
-                        name="message"
+                        name="Message"
                         className="form-control"
                         id="exampleInputText1"
                         aria-describedby="TextHelp"

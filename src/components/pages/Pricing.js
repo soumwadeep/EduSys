@@ -88,7 +88,7 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="#">Sign Up</NavLink>
+                    <NavLink to="/Contact">Sign Up</NavLink>
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="#">Sign Up</NavLink>
+                    <NavLink to="/Contact">Sign Up</NavLink>
                   </div>
                 </div>
               </div>
