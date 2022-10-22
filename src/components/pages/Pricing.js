@@ -88,7 +88,11 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="/Contact">Sign Up</NavLink>
+                    <NavLink to="/Contact"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                    >Sign Up</NavLink>
                   </div>
                 </div>
               </div>
@@ -128,7 +132,11 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="/Contact">Sign Up</NavLink>
+                    <NavLink to="/Contact"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                    >Sign Up</NavLink>
                   </div>
                 </div>
               </div>
