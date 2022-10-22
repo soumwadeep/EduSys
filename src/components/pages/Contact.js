@@ -91,11 +91,10 @@ const Contact = () => {
                       name="About-Plans"
                         className="form-select"
                         onChange={ShowHideDiv}
-                        aria-label="Default select example"
+                        required
                       >
-                        <option selected>Select Your Choice</option>
                         <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="No" selected>No</option>
                       </select>
                     </div>
                     <div id="selectedPlan" style={{display:"none"}} className="mb-3">
@@ -105,9 +104,9 @@ const Contact = () => {
                       <select
                         name="Selected-Plan"
                         className="form-select"
-                        aria-label="Default select example"
+                        required
                       >
-                        <option selected>Select Your Plan</option>
+                        <option value="None">Select Your Plan</option>
                         <option value="Basic">Basic</option>
                         <option value="Pro">Pro</option>
                       </select>
