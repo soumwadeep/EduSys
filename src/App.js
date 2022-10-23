@@ -45,6 +45,8 @@ function App() {
   const isFeaturesRendering = location.pathname === "/Features";
   const isPricingRendering = location.pathname === "/Pricing";
   const isLoginRendering = location.pathname === "/Login";
+  // Sub Files
+  const isThankYouRendering = location.pathname === "/ThankYou";
   // Basic Students Plan
   const isBasicStudentsRendering = location.pathname === "/BasicStudent";
   const isBasicStudentsUpdatesRendering =
@@ -197,7 +199,8 @@ function App() {
           !isAboutRendering &&
           !isFeaturesRendering &&
           !isPricingRendering &&
-          !isLoginRendering && <DashboardFooter />}
+          !isLoginRendering && 
+          !isThankYouRendering && <DashboardFooter />}
       </div>
     </>
   );
