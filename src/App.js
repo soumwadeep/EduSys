@@ -13,7 +13,6 @@ import Contact from "./components/pages/Contact";
 import ThankYou from "./components/pages/ThankYou";
 import StudentRegistration from "./components/pages/StudentRegistration";
 import TeacherRegistration from "./components/pages/TeacherRegistration";
-import ThanksForRegistering from "./components/pages/ThanksForRegistering";
 // Basic Student All
 import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
 import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
@@ -105,11 +104,6 @@ function App() {
           <Route exact path="/About" element={<About />} />
           <Route exact path="/Contact" element={<Contact />} />
           <Route exact path="/ThankYou" element={<ThankYou />} />
-          <Route
-            exact
-            path="/ThanksForRegistering"
-            element={<ThanksForRegistering />}
-          />
           <Route exact path="/Login" element={<Login />} />
           {/* Basic Student's Login And Register */}
           <Route exact path="/StudentLogin" element={<StudentLogin />} />
