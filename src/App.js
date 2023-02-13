@@ -35,6 +35,7 @@ import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTe
 import ResetPassword from "./components/pages/ResetPassword";
 import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 function App() {
   const location = useLocation();
@@ -78,25 +79,36 @@ function App() {
   const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
   const isProTeachersRendering = location.pathname === "/ProTeacher";
+  //Login Part
+  const isStudentLoginRendering = location.pathname === "/StudentLogin";
+  const isTeacherLoginRendering = location.pathname === "/TeacherLogin";
+  //Contact
+  const isContactRendering = location.pathname === "/Contact";
+  //Registration Part
+  const isStudentRegistrationRendering =
+    location.pathname === "/StudentRegistration";
+  const isTeacherRegistrationRendering =
+    location.pathname === "/TeacherRegistration";
+
   return (
     <>
+      {!isBasicStudentsRendering &&
+        !isBasicStudentsUpdatesRendering &&
+        !isBasicStudentsStudyMaterialsRendering &&
+        !isBasicStudentsVirtualLabsRendering &&
+        !isBasicStudentsClassesRendering &&
+        !isBasicStudentsAssignmentsRendering &&
+        !isBasicStudentsProfileRendering &&
+        !isBasicTeachersRendering &&
+        !isBasicTeachersUpdatesRendering &&
+        !isBasicTeachersClassesRendering &&
+        !isBasicTeachersStudyMaterialsRendering &&
+        !isBasicTeachersVirtualLabsRendering &&
+        !isBasicTeachersAssignmentsRendering &&
+        !isBasicTeachersProfileRendering &&
+        !isProStudentsRendering &&
+        !isProTeachersRendering && <NavBar />}
       <div className="container">
-        {!isBasicStudentsRendering &&
-          !isBasicStudentsUpdatesRendering &&
-          !isBasicStudentsStudyMaterialsRendering &&
-          !isBasicStudentsVirtualLabsRendering &&
-          !isBasicStudentsClassesRendering &&
-          !isBasicStudentsAssignmentsRendering &&
-          !isBasicStudentsProfileRendering &&
-          !isBasicTeachersRendering &&
-          !isBasicTeachersUpdatesRendering &&
-          !isBasicTeachersClassesRendering &&
-          !isBasicTeachersStudyMaterialsRendering &&
-          !isBasicTeachersVirtualLabsRendering &&
-          !isBasicTeachersAssignmentsRendering &&
-          !isBasicTeachersProfileRendering &&
-          !isProStudentsRendering &&
-          !isProTeachersRendering && <NavBar />}
         <Routes>
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/Features" element={<Features />} />
@@ -104,6 +116,7 @@ function App() {
           <Route exact path="/About" element={<About />} />
           <Route exact path="/Contact" element={<Contact />} />
           <Route exact path="/ThankYou" element={<ThankYou />} />
+          <Route exact path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route exact path="/Login" element={<Login />} />
           {/* Basic Student's Login And Register */}
           <Route exact path="/StudentLogin" element={<StudentLogin />} />
@@ -132,7 +145,11 @@ function App() {
             path="/BasicStudent/StudyMaterials"
             element={<BasicStudentStudyMaterials />}
           />
-          <Route exact path="/BasicStudent/VirtualLabs" element={<BasicStudentVirtualLabs />} />
+          <Route
+            exact
+            path="/BasicStudent/VirtualLabs"
+            element={<BasicStudentVirtualLabs />}
+          />
           <Route
             exact
             path="/BasicStudent/Classes"
@@ -162,40 +179,61 @@ function App() {
             path="/BasicTeacher/Classes"
             element={<BasicTeacherClasses />}
           />
-          <Route exact path="/BasicTeacher/StudyMaterials" element={<BasicTeacherStudyMaterials />} />
-          <Route exact path="/BasicTeacher/VirtualLabs" element={<BasicTeacherVirtualLabs />} />
-          <Route exact path="/BasicTeacher/Assignments" element={<BasicTeacherAssignments />} />
-          <Route exact path="/BasicTeacher/Profile" element={<BasicTeacherProfile />} />
+          <Route
+            exact
+            path="/BasicTeacher/StudyMaterials"
+            element={<BasicTeacherStudyMaterials />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/VirtualLabs"
+            element={<BasicTeacherVirtualLabs />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Assignments"
+            element={<BasicTeacherAssignments />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Profile"
+            element={<BasicTeacherProfile />}
+          />
 
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
-        {!isBasicStudentsRendering &&
-          !isBasicStudentsUpdatesRendering &&
-          !isBasicStudentsStudyMaterialsRendering &&
-          !isBasicStudentsVirtualLabsRendering &&
-          !isBasicStudentsClassesRendering &&
-          !isBasicStudentsAssignmentsRendering &&
-          !isBasicStudentsProfileRendering &&
-          !isBasicTeachersRendering &&
-          !isBasicTeachersUpdatesRendering &&
-          !isBasicTeachersClassesRendering &&
-          !isBasicTeachersStudyMaterialsRendering &&
-          !isBasicTeachersVirtualLabsRendering &&
-          !isBasicTeachersAssignmentsRendering &&
-          !isBasicTeachersProfileRendering &&
-          !isProStudentsRendering &&
-          !isProTeachersRendering && <Footer />}
-
-        {!isHomeRendering &&
-          !isAboutRendering &&
-          !isFeaturesRendering &&
-          !isPricingRendering &&
-          !isLoginRendering && 
-          !isThankYouRendering && <DashboardFooter />}
       </div>
+      {!isBasicStudentsRendering &&
+        !isBasicStudentsUpdatesRendering &&
+        !isBasicStudentsStudyMaterialsRendering &&
+        !isBasicStudentsVirtualLabsRendering &&
+        !isBasicStudentsClassesRendering &&
+        !isBasicStudentsAssignmentsRendering &&
+        !isBasicStudentsProfileRendering &&
+        !isBasicTeachersRendering &&
+        !isBasicTeachersUpdatesRendering &&
+        !isBasicTeachersClassesRendering &&
+        !isBasicTeachersStudyMaterialsRendering &&
+        !isBasicTeachersVirtualLabsRendering &&
+        !isBasicTeachersAssignmentsRendering &&
+        !isBasicTeachersProfileRendering &&
+        !isProStudentsRendering &&
+        !isProTeachersRendering && <Footer />}
+
+      {!isHomeRendering &&
+        !isAboutRendering &&
+        !isFeaturesRendering &&
+        !isPricingRendering &&
+        !isLoginRendering &&
+        !isThankYouRendering &&
+        !isStudentLoginRendering &&
+        !isTeacherLoginRendering &&
+        !isStudentRegistrationRendering &&
+        !isTeacherRegistrationRendering &&
+        !isContactRendering && <DashboardFooter />}
     </>
   );
 }

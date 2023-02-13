@@ -86,6 +86,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-pen-to-square"></i>&nbsp;&nbsp;Updates
           </NavLink>
+          <br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -98,6 +99,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;Classes
           </NavLink>
+          <br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -111,6 +113,7 @@ const BasicStudentSidebar = () => {
             <i className="fa-solid fa-book-open-reader"></i>&nbsp;&nbsp;Study
             Materials
           </NavLink>
+          <br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -123,6 +126,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-flask"></i>&nbsp;&nbsp;Virtual Labs
           </NavLink>
+          <br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -135,6 +139,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-file-contract"></i>&nbsp;&nbsp;Assignments
           </NavLink>
+          <br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -147,6 +152,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-user-tie"></i>&nbsp;&nbsp;Profile
           </NavLink>
+          <br/>
           <NavLink
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -158,6 +164,7 @@ const BasicStudentSidebar = () => {
             <i className="fa-solid fa-arrow-right-from-bracket"></i>
             &nbsp;&nbsp;Log Out
           </NavLink>
+          <br/>
         </div>
       </div>
     </>

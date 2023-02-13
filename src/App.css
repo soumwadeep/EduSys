@@ -1,33 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sansita&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 body {
-  font-family: 'Sansita', sans-serif;
+  /* font-family: 'Sansita', sans-serif; */
+  font-family: "Itim", cursive;
+  /* font-family: 'Rubik', sans-serif; */
   overflow-x: hidden;
+  background: radial-gradient(circle at 10% 20%,
+      rgba(216, 241, 230, 0.46) 0.1%,
+      rgba(233, 226, 226, 0.28) 90.1%);
 }
 
 span {
-  color: #F53803;
+  color: #f53803;
+}
+
+#privacypolicy {
+  text-align: justify;
 }
 
 a {
   text-decoration: none;
   color: gray;
 }
+
 .dropdown:hover .dropdown-menu {
   display: block;
-  margin-top:0;
+  margin-top: 0;
 }
+
 a:hover {
   text-decoration: none;
   color: gray;
 }
+
 /* Sidebar Btn For Dashboard */
-.sidebarbtn
-{
+.sidebarbtn {
   margin: 10px;
-  border: 1px solid #F53803;
-  background-color: #F53803;
-  color: white!important;
+  border: 1px solid #f53803;
+  background-color: #f53803;
+  color: white !important;
   width: 100%;
   max-width: fit-content;
   height: auto;
@@ -37,20 +50,19 @@ a:hover {
 }
 
 /* Font Awesome Icons Styling */
-#styleicon
-{
+#styleicon {
   /* font-size: 1.5rem; */
-  color: #F53803;
+  color: #f53803;
 }
-#styleicon:hover
-{
-  color: white!important;
+
+#styleicon:hover {
+  color: white !important;
   text-decoration: none;
 }
+
 /* Pricing Table */
-.pricing-marquee
-{
-  background-color: #F53803;
+.pricing-marquee {
+  background-color: #f53803;
   color: white;
   width: 80%;
   padding: 10px;
@@ -58,6 +70,7 @@ a:hover {
   margin: 10px;
   font-size: 20px;
 }
+
 #demo span {
   color: white;
 }
@@ -101,8 +114,8 @@ a:hover {
 }
 
 .pricingTable .price-value:before {
-  content: '';
-  background: linear-gradient(to top right, #974AB8, #3B3BBC);
+  content: "";
+  background: linear-gradient(to top right, #974ab8, #3b3bbc);
   height: 100%;
   width: 100%;
   border-radius: 50% 50% 0 50%;
@@ -135,8 +148,8 @@ a:hover {
 }
 
 .pricingTable .title:after {
-  content: '';
-  background: linear-gradient(to top right, #974AB8, #3B3BBC);
+  content: "";
+  background: linear-gradient(to top right, #974ab8, #3b3bbc);
   height: 3px;
   width: 40%;
   margin: 10px auto 30px;
@@ -167,7 +180,7 @@ a:hover {
 
 .pricingTable .pricingTable-signup a {
   color: #fff;
-  background: linear-gradient(to top right, #974AB8, #3B3BBC);
+  background: linear-gradient(to top right, #974ab8, #3b3bbc);
   font-size: 20px;
   font-weight: 600;
   line-height: 25px;
@@ -186,13 +199,13 @@ a:hover {
 .pricingTable.pink .price-value:before,
 .pricingTable.pink .title:after,
 .pricingTable.pink .pricingTable-signup a {
-  background: linear-gradient(to top right, #BB2CA6, #C4334C);
+  background: linear-gradient(to top right, #bb2ca6, #c4334c);
 }
 
 .pricingTable.orange .price-value:before,
 .pricingTable.orange .title:after,
 .pricingTable.orange .pricingTable-signup a {
-  background: linear-gradient(to top right, #F3482B, #E3B331);
+  background: linear-gradient(to top right, #f3482b, #e3b331);
 }
 
 @media only screen and (max-width: 990px) {
@@ -208,8 +221,8 @@ a:hover {
 }
 
 :root {
-  --g-color1: #F87BA3;
-  --g-color2: #FFCC68;
+  --g-color1: #f87ba3;
+  --g-color2: #ffcc68;
 }
 
 .featureTable {
@@ -312,8 +325,8 @@ a:hover {
 }
 
 .featureTable.blue {
-  --g-color1: #54B2E5;
-  --g-color2: #F67AA6;
+  --g-color1: #54b2e5;
+  --g-color2: #f67aa6;
 }
 
 @media only screen and (max-width: 990px) {
@@ -335,13 +348,13 @@ a:hover {
 }
 
 .btn {
-  border: 1px solid #F53803;
+  border: 1px solid #f53803;
 }
 
 .btn:hover {
-  background-color: #F53803;
-  border-color: #F53803;
-  color: white!important;
+  background-color: #f53803;
+  border-color: #f53803;
+  color: white !important;
 }
 
 .inner {
@@ -351,18 +364,36 @@ a:hover {
   width: 100%;
   /* max-width: 400px; */
 }
+
 /* Dashboard */
-#dashboard-sidebar
-{
-  text-align: justify!important;
-  padding: 30px!important;
-  font-size: 20px!important;
+#dashboard-sidebar {
+  text-align: justify !important;
+  /* padding: 30px !important; */
+  font-size: 25px !important;
 }
+
+@media screen and (max-width: 768px) {
+  #dashboard-sidebar {
+    text-align: center !important;
+    padding: 0px !important;
+    font-size: 25px !important;
+  }
+
+  .navbar {
+    margin-bottom: 20px;
+  }
+}
+
 /* Vertically Alligned CSS Ends */
 
 .navbar {
   background-color: white;
+  /* border-bottom: 3px solid #f53803; */
+  -webkit-box-shadow: 0px 7px 10px -2px rgba(245, 56, 3, 1);
+  -moz-box-shadow: 0px 7px 10px -2px rgba(245, 56, 3, 1);
+  box-shadow: 0px 7px 10px -2px rgba(245, 56, 3, 1);
 }
+
 
 .imgfix {
   width: 100%;
@@ -379,14 +410,14 @@ a:hover {
 
 .menu_active {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: bold;
   text-decoration: none;
-  color: #F53803;
+  color: #f53803;
 }
 
 .menu_active:hover {
-  color: #F53803;
+  color: #f53803;
 }
 
 .nav-link {
@@ -412,24 +443,23 @@ a:hover {
     transform: translateY(-10px);
   }
 }
+
 /* Basic Users */
-#basiciframe
-{
+#basiciframe {
   width: 100%;
   height: auto;
   min-height: 80vh;
   border: none;
 }
+
 #footer {
   text-align: center;
+  bottom: 0;
+  background-color: transparent !important;
 }
 
 #copyright-text {
   background-color: rgba(0, 0, 0, 0.025);
-}
-
-#footer {
-  bottom: 0;
 }
 
 @media screen and (max-width: 962px) {
@@ -440,10 +470,16 @@ a:hover {
   #mobviewtextfix h5 {
     font-size: 14px;
   }
+
+  .offcanvas {
+    -webkit-box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);
+    -moz-box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);
+    box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);
+  }
 }
+
 /* Login Page */
-.login-cards
-{
+.login-cards {
   width: 100%;
   height: auto;
   max-width: 300px;
@@ -454,8 +490,8 @@ a:hover {
   border-radius: 10px;
   box-shadow: 0 0 15px -2px rgba(241, 135, 4, 0.2);
 }
+
 /* Teacher Classes */
-#showLinks .col-sm
-{
+#showLinks .col-sm {
   margin-bottom: 20px;
 }
