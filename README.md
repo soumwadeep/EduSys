@@ -2,6 +2,17 @@
 
 An All In One Education Web App Built Using React And Basic HTML,CSS And JavaScript.
 
+To Host It On Firebase Follow The Steps Below:
+ Run npm i firebase (To Install Firebase)
+ Run npm i firebase-tools (To Install Firebase Tools)
+ Run npm run build (To Build The App)
+ Run firebase deploy (To Deploy The App To Firebase)
+//Thats It!
+
+//First Time Only
+ Run firebase login (To Login To Firebase)
+ Run firebase init (To Initialize Firebase)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
