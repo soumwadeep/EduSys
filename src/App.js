@@ -47,6 +47,7 @@ function App() {
   const isLoginRendering = location.pathname === "/Login";
   // Sub Files
   const isThankYouRendering = location.pathname === "/ThankYou";
+  const isResetPasswordRendering = location.pathname === "/ResetPassword";
   // Basic Students Plan
   const isBasicStudentsRendering = location.pathname === "/BasicStudent";
   const isBasicStudentsUpdatesRendering =
@@ -233,7 +234,8 @@ function App() {
         !isTeacherLoginRendering &&
         !isStudentRegistrationRendering &&
         !isTeacherRegistrationRendering &&
-        !isContactRendering && <DashboardFooter />}
+        !isContactRendering && 
+        !isResetPasswordRendering && <DashboardFooter />}
     </>
   );
 }
