@@ -209,6 +209,7 @@ function App() {
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
+          <Route exact path="/" element={<Navigate to="/Home" replace />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </div>
