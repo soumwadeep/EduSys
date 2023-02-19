@@ -14,22 +14,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-facebook-f"></i>
             </NavLink>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-twitter"></i>
             </NavLink>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-google"></i>
             </NavLink>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-instagram"></i>
             </NavLink>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-linkedin"></i>
             </NavLink>
-            <NavLink to="/" className="me-4 link-secondary">
+            <NavLink to="/Home" className="me-4 link-secondary">
               <i className="fab fa-github"></i>
             </NavLink>
           </div>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <h6 className="text-uppercase fw-bold  mb-4">Features</h6>
                 <p>
                   <NavLink
-                    to="/"
+                    to="/Home"
                     className="text-reset"
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -64,7 +64,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <NavLink
-                    to="/"
+                    to="/Home"
                     className="text-reset"
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -75,7 +75,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <NavLink
-                    to="/"
+                    to="/Home"
                     className="text-reset"
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -86,7 +86,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <NavLink
-                    to="/"
+                    to="/Home"
                     className="text-reset"
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -167,10 +167,17 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a href="tel:+919883505330">
-                    <i className="fas fa-phone me-3 text-secondary"></i> + 91
-                    9883505330
-                  </a>
+                  <i class="fa-brands fa-rocketchat"></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <NavLink
+                    to="/Contact"
+                    className="text-reset"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                  >
+                    Chat With Us
+                  </NavLink>
                 </p>
               </div>
             </div>
@@ -178,16 +185,27 @@ const Footer = () => {
         </section>
 
         <div className="text-center p-4" id="copyright-text">
-          © 2022 Copyright:
+          © 2023
           <NavLink
             className="text-reset fw-bold"
-            to="/"
+            to="/Home"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
           >
             {" "}
-            EduSys
+            <span>EduSys </span>
+          </NavLink>
+          | All Rights Reserved |
+          <NavLink
+            className="text-reset fw-bold"
+            to="/PrivacyPolicy"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+          >
+            {" "}
+            Terms & Conditions
           </NavLink>
         </div>
       </footer>

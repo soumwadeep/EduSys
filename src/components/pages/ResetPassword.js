@@ -51,22 +51,6 @@ const ResetPassword = () => {
                       Send Password Reset Email
                     </button>
                   </div>
-                  <br />
-                  <p>
-                    New User? Register
-                    <NavLink
-                      to="/StudentRegistration"
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      <span> Now.</span>
-                    </NavLink>
-                  </p>
                 </div>
               </div>
             </div>

@@ -83,7 +83,7 @@ const BasicTeacherSidebar = () => {
             }}
           >
             <i className="fa-solid fa-pen-to-square"></i>&nbsp;&nbsp;Updates
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -95,7 +95,7 @@ const BasicTeacherSidebar = () => {
             }}
           >
             <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;Classes
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -108,7 +108,7 @@ const BasicTeacherSidebar = () => {
           >
             <i className="fa-solid fa-book-open-reader"></i>&nbsp;&nbsp;Study
             Materials
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -120,7 +120,7 @@ const BasicTeacherSidebar = () => {
             }}
           >
             <i className="fa-solid fa-flask"></i>&nbsp;&nbsp;Virtual Labs
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -132,7 +132,7 @@ const BasicTeacherSidebar = () => {
             }}
           >
             <i className="fa-solid fa-file-contract"></i>&nbsp;&nbsp;Assignments
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -144,7 +144,7 @@ const BasicTeacherSidebar = () => {
             }}
           >
             <i className="fa-solid fa-user-tie"></i>&nbsp;&nbsp;Profile
-          </NavLink>
+          </NavLink><br/>
           <NavLink
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

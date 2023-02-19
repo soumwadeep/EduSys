@@ -7,8 +7,9 @@ const Contact = () => {
   function ShowHideDiv() {
     var selectedChoice = document.getElementById("selectedChoice");
     var selectedPlan = document.getElementById("selectedPlan");
-    selectedPlan.style.display = selectedChoice.value === "Yes" ? "block" : "none";
-}
+    selectedPlan.style.display =
+      selectedChoice.value === "Yes" ? "block" : "none";
+  }
   return (
     <>
       <section id="contact">
@@ -87,20 +88,24 @@ const Contact = () => {
                         Discuss About Our Plans?
                       </label>
                       <select
-                      id="selectedChoice"
-                      name="About-Plans"
+                        id="selectedChoice"
+                        name="About-Plans"
                         className="form-select"
                         onChange={ShowHideDiv}
                         required
                       >
                         <option value="Yes">Yes</option>
-                        <option value="No" selected>No</option>
+                        <option value="No" selected>
+                          No
+                        </option>
                       </select>
                     </div>
-                    <div id="selectedPlan" style={{display:"none"}} className="mb-3">
-                      <label className="form-label">
-                        If Yes, Which One?
-                      </label>
+                    <div
+                      id="selectedPlan"
+                      style={{ display: "none" }}
+                      className="mb-3"
+                    >
+                      <label className="form-label">If Yes, Which One?</label>
                       <select
                         name="Selected-Plan"
                         className="form-select"

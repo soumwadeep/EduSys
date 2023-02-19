@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <section id="privacypolicy">
-        <h1>Privacy Policy</h1>
+        <h1>Privacy <span>Policy</span></h1>
         <p>Last updated: February 09, 2023</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the

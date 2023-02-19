@@ -36,6 +36,7 @@ import ResetPassword from "./components/pages/ResetPassword";
 import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import Error from "./components/pages/Error";
 
 function App() {
   const location = useLocation();
@@ -48,6 +49,9 @@ function App() {
   // Sub Files
   const isThankYouRendering = location.pathname === "/ThankYou";
   const isResetPasswordRendering = location.pathname === "/ResetPassword";
+  const isPrivacyPolicyRendering = location.pathname === "/PrivacyPolicy";
+  const isErrorRendering = location.pathname === "/404";
+
   // Basic Students Plan
   const isBasicStudentsRendering = location.pathname === "/BasicStudent";
   const isBasicStudentsUpdatesRendering =
@@ -118,6 +122,7 @@ function App() {
           <Route exact path="/Contact" element={<Contact />} />
           <Route exact path="/ThankYou" element={<ThankYou />} />
           <Route exact path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route exact path="/404" element={<Error />} />
           <Route exact path="/Login" element={<Login />} />
           {/* Basic Student's Login And Register */}
           <Route exact path="/StudentLogin" element={<StudentLogin />} />
@@ -204,7 +209,7 @@ function App() {
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
-          <Route path="*" element={<Navigate to="/Home" replace />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </div>
       {!isBasicStudentsRendering &&
@@ -234,8 +239,10 @@ function App() {
         !isTeacherLoginRendering &&
         !isStudentRegistrationRendering &&
         !isTeacherRegistrationRendering &&
-        !isContactRendering && 
-        !isResetPasswordRendering && <DashboardFooter />}
+        !isContactRendering &&
+        !isResetPasswordRendering &&
+        !isPrivacyPolicyRendering &&
+        !isErrorRendering && <DashboardFooter />}
     </>
   );
 }
