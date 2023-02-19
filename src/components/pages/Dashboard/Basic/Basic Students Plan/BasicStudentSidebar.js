@@ -18,7 +18,7 @@ const BasicStudentSidebar = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       logout();
       swal(
@@ -86,7 +86,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-pen-to-square"></i>&nbsp;&nbsp;Updates
           </NavLink>
-          <br/>
+          <br />
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -99,7 +99,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;Classes
           </NavLink>
-          <br/>
+          <br />
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -113,7 +113,7 @@ const BasicStudentSidebar = () => {
             <i className="fa-solid fa-book-open-reader"></i>&nbsp;&nbsp;Study
             Materials
           </NavLink>
-          <br/>
+          <br />
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -126,7 +126,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-flask"></i>&nbsp;&nbsp;Virtual Labs
           </NavLink>
-          <br/>
+          <br />
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -139,7 +139,20 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-file-contract"></i>&nbsp;&nbsp;Assignments
           </NavLink>
-          <br/>
+          <br />
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
+            to="/BasicStudent/Extras"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-brands fa-gripfire"></i>&nbsp;&nbsp;Extras
+          </NavLink>
+          <br />
           <NavLink
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
@@ -152,7 +165,7 @@ const BasicStudentSidebar = () => {
           >
             <i className="fa-solid fa-user-tie"></i>&nbsp;&nbsp;Profile
           </NavLink>
-          <br/>
+          <br />
           <NavLink
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -164,7 +177,7 @@ const BasicStudentSidebar = () => {
             <i className="fa-solid fa-arrow-right-from-bracket"></i>
             &nbsp;&nbsp;Log Out
           </NavLink>
-          <br/>
+          <br />
         </div>
       </div>
     </>

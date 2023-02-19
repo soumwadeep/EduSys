@@ -27,13 +27,18 @@ const BasicStudentClasses = () => {
       const data = doc.docs[0].data();
       setSem(data.sem);
       setDept(data.dept);
-      if(data.sem <5 || data.sem>6){
-        document.getElementById("liveclassheading").innerHTML ="No Classes As Of Now!";
+      if (data.sem < 5 || data.sem > 6) {
+        document.getElementById("liveclassheading").innerHTML =
+          "No Classes As Of Now!";
         document.getElementById("liveclassdata").style.display = "none";
       }
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/StudentLogin");
     }
   };
@@ -93,12 +98,14 @@ const BasicStudentClasses = () => {
             <span id="liveclassheading">Live Class</span>
           </h1>
           <div id="liveclassdata">
-          <form
-            action={`https://meet.google.com/${BasicStudentClassesLink}`}
-            target="_blank"
-          >
-            <button className="btn">Join Your Class</button>
-          </form></div><br/>
+            <form
+              action={`https://meet.google.com/${BasicStudentClassesLink}`}
+              target="_blank"
+            >
+              <button className="btn">Join Your Class</button>
+            </form>
+          </div>
+          <br />
         </center>
       </section>
     </>

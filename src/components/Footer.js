@@ -167,7 +167,7 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <i class="fa-brands fa-rocketchat"></i>
+                  <i className="fa-brands fa-rocketchat"></i>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <NavLink
                     to="/Contact"

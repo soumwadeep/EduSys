@@ -45,6 +45,39 @@ a:hover {
   color: gray;
 }
 
+/* Extras */
+#LargeIcon
+{
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+}
+#extras-btn
+{
+  background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
+  color: white;
+  border: 1px solid wheat;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  min-height: 40px;
+}
+#extras-btn:hover
+{
+  background: wheat!important;
+  color: black;
+  /* border: 1px solid #f53803; */
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  min-height: 40px;
+}
 /* Sidebar Btn For Dashboard */
 .sidebarbtn {
   margin: 10px;
@@ -58,7 +91,15 @@ a:hover {
   padding: 10px;
   border-radius: 10px;
 }
-
+#extras-text
+{
+  color: white;
+  text-align: center;
+}
+#extras-headings
+{
+  text-align: right;
+}
 /* Font Awesome Icons Styling */
 #styleicon {
   /* font-size: 1.5rem; */

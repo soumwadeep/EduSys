@@ -20,6 +20,7 @@ import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic
 import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs";
 import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
+import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras";
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
@@ -66,6 +67,8 @@ function App() {
     location.pathname === "/BasicStudent/Assignments";
   const isBasicStudentsProfileRendering =
     location.pathname === "/BasicStudent/Profile";
+  const isBasicStudentsExtrasRendering =
+    location.pathname === "/BasicStudent/Extras";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
   const isBasicTeachersUpdatesRendering =
@@ -104,6 +107,7 @@ function App() {
         !isBasicStudentsClassesRendering &&
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
+        !isBasicStudentsExtrasRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
@@ -172,6 +176,11 @@ function App() {
             path="/BasicStudent/Profile"
             element={<BasicStudentProfile />}
           />
+          <Route
+            exact
+            path="/BasicStudent/Extras"
+            element={<BasicStudentExtras />}
+          />
 
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
@@ -220,6 +229,7 @@ function App() {
         !isBasicStudentsClassesRendering &&
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
+        !isBasicStudentsExtrasRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
