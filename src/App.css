@@ -26,6 +26,50 @@ span {
   color: #f53803;
 }
 
+/* Todos */
+#TodoApp 
+.li
+{
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #f53803;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+.licomplete
+{
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid green;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+.completed
+{
+  text-decoration: line-through;
+  color: green;
+}
+#TodoApp input[type="checkbox"]
+{
+  margin-right: 10px;
+}
+.todo-input
+{
+  background: transparent;
+  border: 1px solid #f53803;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  min-height: 40px;
+}
+
 #privacypolicy {
   text-align: justify;
 }

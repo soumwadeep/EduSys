@@ -15,6 +15,7 @@ import StudentRegistration from "./components/pages/StudentRegistration";
 import TeacherRegistration from "./components/pages/TeacherRegistration";
 // Basic Student All
 import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
+import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
 import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
 import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials";
 import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs";
@@ -33,11 +34,15 @@ import BasicTeacherProfile from "./components/pages/Dashboard/Basic/Basic Teache
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
 import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
+// All Common Pages
 import ResetPassword from "./components/pages/ResetPassword";
-import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import Error from "./components/pages/Error";
+// Dashboard Extras Components
+import Calculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
+import Todo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
+import TakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes";
 
 function App() {
   const location = useLocation();
@@ -69,6 +74,12 @@ function App() {
     location.pathname === "/BasicStudent/Profile";
   const isBasicStudentsExtrasRendering =
     location.pathname === "/BasicStudent/Extras";
+  // Basic Students Plan Extras
+  const isCalculatorRendering =
+    location.pathname === "/BasicStudent/Extras/Calculator";
+  const isTodoRendering = location.pathname === "/BasicStudent/Extras/Todo";
+  const isTakeNotesRendering =
+    location.pathname === "/BasicStudent/Extras/TakeNotes";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
   const isBasicTeachersUpdatesRendering =
@@ -108,6 +119,9 @@ function App() {
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
         !isBasicStudentsExtrasRendering &&
+        !isCalculatorRendering &&
+        !isTodoRendering &&
+        !isTakeNotesRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
@@ -181,7 +195,17 @@ function App() {
             path="/BasicStudent/Extras"
             element={<BasicStudentExtras />}
           />
-
+          <Route exact path="/BasicStudent/Extras/Todo" element={<Todo />} />
+          <Route
+            exact
+            path="/BasicStudent/Extras/Calculator"
+            element={<Calculator />}
+          />
+          <Route
+            exact
+            path="/BasicStudent/Extras/TakeNotes"
+            element={<TakeNotes />}
+          />
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
           <Route
@@ -238,7 +262,10 @@ function App() {
         !isBasicTeachersAssignmentsRendering &&
         !isBasicTeachersProfileRendering &&
         !isProStudentsRendering &&
-        !isProTeachersRendering && <Footer />}
+        !isProTeachersRendering &&
+        !isCalculatorRendering &&
+        !isTodoRendering &&
+        !isTakeNotesRendering && <Footer />}
 
       {!isHomeRendering &&
         !isAboutRendering &&
