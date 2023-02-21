@@ -36,18 +36,21 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "GoogleUsers"), where("uid", "==", user.uid));
+    const q = query(
+      collection(db, "GoogleUsers"),
+      where("uid", "==", user.uid)
+    );
     const docs = await getDocs(q);
 
     var today = new Date();
-  var curHr = today.getHours();
-  if (curHr < 12) {
-    var greet = "Good Morning";
-  } else if (curHr < 18) {
-    greet = "Good Afternoon";
-  } else {
-    greet = "Good Evening";
-  }
+    var curHr = today.getHours();
+    if (curHr < 12) {
+      var greet = "Good Morning";
+    } else if (curHr < 18) {
+      greet = "Good Afternoon";
+    } else {
+      greet = "Good Evening";
+    }
 
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "GoogleUsers"), {
@@ -57,7 +60,9 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
       swal(
-        `${greet} ${user.displayName}`, "Welcome To Our Dashboard!", "success"
+        `${greet} ${user.displayName}`,
+        "Welcome To Our Dashboard!",
+        "success"
       );
     }
   } catch (err) {
@@ -96,7 +101,7 @@ const registerStudentWithEmailAndPassword = async (
       dept,
       sec,
       rollno,
-      sem
+      sem,
     });
   } catch (err) {
     console.error(err);

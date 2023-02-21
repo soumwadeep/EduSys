@@ -48,10 +48,14 @@ span {
   color: white;
   font-weight: bold;
 }
-.completed
+.textcompleted
 {
   text-decoration: line-through;
   color: green;
+}
+.text
+{
+  color: #f3482b;
 }
 #TodoApp input[type="checkbox"]
 {

@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../../../../../../firebase";
+import Todo from "./TodosData";
 import {
   query,
   collection,
-  getDocs,
-  where,
   onSnapshot,
   updateDoc,
   doc,
+  getDocs,
   addDoc,
   deleteDoc,
+  where,
 } from "firebase/firestore";
 import BasicStudentSidebar from "../../BasicStudentSidebar";
 import swal from "sweetalert";
 
-const Todo = () => {
+const Todos = () => {
   useEffect(() => {
     document.title = "Your Todos | EduSys";
   }, []);
@@ -29,8 +30,8 @@ const Todo = () => {
         collection(db, "Students"),
         where("uid", "==", student?.uid)
       );
-      // const doc = await getDocs(q);
-      // const data = doc.docs[0].data();
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
     } catch (err) {
       logout();
       swal(
@@ -46,19 +47,23 @@ const Todo = () => {
     if (!student) return navigate("/StudentLogin");
     fetchUserName();
   }, [student, loading]);
-
   // Todo App
+
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
   // Create todo
   const createTodo = async (e) => {
     e.preventDefault(e);
-    if (input === "") {
-      alert("Please Enter A Valid Todo");
+    if (input === " ") {
+      alert("Please enter a valid todo");
       return;
     }
-    await addDoc(collection(db, "Student"), {
+    // await addDoc(collection(db, "Todos Of"), {
+    //   text: input,
+    //   completed: false,
+    // });
+    await addDoc(collection(db, "Students", "Todos", student.email), {
       text: input,
       completed: false,
     });
@@ -67,7 +72,8 @@ const Todo = () => {
 
   // Read todo from firebase
   useEffect(() => {
-    const q = query(collection(db, "Student"));
+    // const q = query(collection(db, "todos"));
+    const q = query(collection(db, "Students", "Todos", student.email));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = [];
       querySnapshot.forEach((doc) => {
@@ -80,14 +86,15 @@ const Todo = () => {
 
   // Update todo in firebase
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "Student", todo.id), {
+    await updateDoc(doc(db, "Students", "Todos", student.email, todo.id), {
       completed: !todo.completed,
     });
   };
 
   // Delete todo
   const deleteTodo = async (id) => {
-    await deleteDoc(doc(db, "Student", id));
+    // await deleteDoc(doc(db, "todos", id));
+    await deleteDoc(doc(db, "Students", "Todos", student.email, id));
   };
 
   return (
@@ -97,42 +104,32 @@ const Todo = () => {
         Your <span>Todos</span>
       </h1>
       <form onSubmit={createTodo} className="todo-list">
-        <input type="text" placeholder="Add Todo" className="todo-input" />
+        <input
+          type="text"
+          placeholder="Add Todo"
+          className="todo-input"
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+        />
         <button id="extras-btn">
           <i className="fa-regular fa-square-plus"></i>Add
         </button>
       </form>
       <ul>
-        {todos.map((todos, index) => (
-          <li
-            className="li"
+        {todos.map((todo, index) => (
+          <Todo
             key={index}
-            todo={todos}
+            todo={todo}
             toggleComplete={toggleComplete}
             deleteTodo={deleteTodo}
-          >
-            <input
-              type="checkbox"
-              className="checkbox-design"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-            &nbsp;
-            <span className="">{todos}</span>
-            <button id="extras-btn">
-              <i className="fa-regular fa-trash-can"></i>
-              &nbsp;Delete
-            </button>
-          </li>
+          />
         ))}
       </ul>
       {todos.length < 1 ? null : (
-        <p className="text-center">
-          You Have <span>{`${todos.length}`}</span> Todos Now.
-        </p>
+        <p className="text-center">{`You have ${todos.length} todos`}</p>
       )}
     </section>
   );
 };
 
-export default Todo;
+export default Todos;
