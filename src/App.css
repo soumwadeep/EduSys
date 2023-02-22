@@ -27,9 +27,7 @@ span {
 }
 
 /* Todos */
-#TodoApp 
-.li
-{
+#TodoApp .li {
   list-style: none;
   padding: 10px;
   margin-bottom: 10px;
@@ -38,8 +36,8 @@ span {
   color: white;
   font-weight: bold;
 }
-.licomplete
-{
+
+.licomplete {
   list-style: none;
   padding: 10px;
   margin-bottom: 10px;
@@ -48,21 +46,26 @@ span {
   color: white;
   font-weight: bold;
 }
-.textcompleted
-{
+
+.textcompleted {
   text-decoration: line-through;
   color: green;
 }
-.text
-{
+
+.text {
   color: #f3482b;
 }
-#TodoApp input[type="checkbox"]
-{
+
+#TodoApp input[type="checkbox"] {
   margin-right: 10px;
+  float: left;
 }
-.todo-input
-{
+
+#align-right-btn {
+  text-align: right;
+}
+
+.todo-input {
   background: transparent;
   border: 1px solid #f53803;
   border-radius: 10px;
@@ -94,14 +97,13 @@ a:hover {
 }
 
 /* Extras */
-#LargeIcon
-{
+#LargeIcon {
   color: white;
   font-size: 4rem;
   text-align: center;
 }
-#extras-btn
-{
+
+#extras-btn {
   background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
   color: white;
   border: 1px solid wheat;
@@ -113,9 +115,9 @@ a:hover {
   height: auto;
   min-height: 40px;
 }
-#extras-btn:hover
-{
-  background: wheat!important;
+
+#extras-btn:hover {
+  background: wheat !important;
   color: black;
   /* border: 1px solid #f53803; */
   border-radius: 10px;
@@ -126,6 +128,7 @@ a:hover {
   height: auto;
   min-height: 40px;
 }
+
 /* Sidebar Btn For Dashboard */
 .sidebarbtn {
   margin: 10px;
@@ -139,15 +142,16 @@ a:hover {
   padding: 10px;
   border-radius: 10px;
 }
-#extras-text
-{
+
+#extras-text {
   color: white;
   text-align: center;
 }
-#extras-headings
-{
+
+#extras-headings {
   text-align: right;
 }
+
 /* Font Awesome Icons Styling */
 #styleicon {
   /* font-size: 1.5rem; */
@@ -474,7 +478,7 @@ a:hover {
   #dashboard-sidebar {
     text-align: center !important;
     padding: 0px !important;
-    font-size: 18px !important;
+    font-size: 22px !important;
   }
 
   .navbar {
@@ -560,13 +564,13 @@ a:hover {
 }
 
 @media screen and (max-width: 962px) {
-  #mobviewtextfix h1 {
+  /* #mobviewtextfix h1 {
     font-size: 24px;
-  }
+  } */
 
-  #mobviewtextfix h5 {
+  /* #mobviewtextfix h5 {
     font-size: 14px;
-  }
+  } */
 
   .offcanvas {
     -webkit-box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);

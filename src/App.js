@@ -22,6 +22,9 @@ import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic St
 import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
 import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras";
+import BasicStudentCalculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
+import BasicStudentTodo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
+import BasicStudentTakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes";
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
@@ -30,6 +33,10 @@ import BasicTeacherStudyMaterials from "./components/pages/Dashboard/Basic/Basic
 import BasicTeacherVirtualLabs from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherVirtualLabs";
 import BasicTeacherAssignments from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherAssignments";
 import BasicTeacherProfile from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherProfile";
+import BasicTeacherExtras from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherExtras";
+import BasicTeacherCalculator from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Calculator/Calculator";
+import BasicTeacherTodo from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Todo/Todo";
+import BasicTeacherTakeNotes from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/TakeNotes/TakeNotes";
 // Pro Student All
 import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
@@ -39,10 +46,6 @@ import ResetPassword from "./components/pages/ResetPassword";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import Error from "./components/pages/Error";
-// Dashboard Extras Components
-import Calculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
-import Todo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
-import TakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes";
 
 function App() {
   const location = useLocation();
@@ -75,10 +78,11 @@ function App() {
   const isBasicStudentsExtrasRendering =
     location.pathname === "/BasicStudent/Extras";
   // Basic Students Plan Extras
-  const isCalculatorRendering =
+  const isBasicStudentsCalculatorRendering =
     location.pathname === "/BasicStudent/Extras/Calculator";
-  const isTodoRendering = location.pathname === "/BasicStudent/Extras/Todo";
-  const isTakeNotesRendering =
+  const isBasicStudentsTodoRendering =
+    location.pathname === "/BasicStudent/Extras/Todo";
+  const isBasicStudentsTakeNotesRendering =
     location.pathname === "/BasicStudent/Extras/TakeNotes";
   // Basic Teachers Plans
   const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
@@ -94,6 +98,16 @@ function App() {
     location.pathname === "/BasicTeacher/Assignments";
   const isBasicTeachersProfileRendering =
     location.pathname === "/BasicTeacher/Profile";
+  // Basic Teachers Plan Extras
+  const isBasicTeachersExtrasRendering =
+    location.pathname === "/BasicTeacher/Extras";
+  const isBasicTeachersCalculatorRendering =
+    location.pathname === "/BasicTeacher/Extras/Calculator";
+  const isBasicTeachersTodoRendering =
+    location.pathname === "/BasicTeacher/Extras/Todo";
+  const isBasicTeachersTakeNotesRendering =
+    location.pathname === "/BasicTeacher/Extras/TakeNotes";
+
   // Pro Students Plans
   const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
@@ -119,9 +133,9 @@ function App() {
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
         !isBasicStudentsExtrasRendering &&
-        !isCalculatorRendering &&
-        !isTodoRendering &&
-        !isTakeNotesRendering &&
+        !isBasicStudentsCalculatorRendering &&
+        !isBasicStudentsTodoRendering &&
+        !isBasicStudentsTakeNotesRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
@@ -129,6 +143,10 @@ function App() {
         !isBasicTeachersVirtualLabsRendering &&
         !isBasicTeachersAssignmentsRendering &&
         !isBasicTeachersProfileRendering &&
+        !isBasicTeachersExtrasRendering &&
+        !isBasicTeachersCalculatorRendering &&
+        !isBasicTeachersTodoRendering &&
+        !isBasicTeachersTakeNotesRendering &&
         !isProStudentsRendering &&
         !isProTeachersRendering && <NavBar />}
       <div className="container">
@@ -195,16 +213,20 @@ function App() {
             path="/BasicStudent/Extras"
             element={<BasicStudentExtras />}
           />
-          <Route exact path="/BasicStudent/Extras/Todo" element={<Todo />} />
+          <Route
+            exact
+            path="/BasicStudent/Extras/Todo"
+            element={<BasicStudentTodo />}
+          />
           <Route
             exact
             path="/BasicStudent/Extras/Calculator"
-            element={<Calculator />}
+            element={<BasicStudentCalculator />}
           />
           <Route
             exact
             path="/BasicStudent/Extras/TakeNotes"
-            element={<TakeNotes />}
+            element={<BasicStudentTakeNotes />}
           />
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
@@ -238,7 +260,26 @@ function App() {
             path="/BasicTeacher/Profile"
             element={<BasicTeacherProfile />}
           />
-
+          <Route
+            exact
+            path="/BasicTeacher/Extras"
+            element={<BasicTeacherExtras />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Extras/Calculator"
+            element={<BasicTeacherCalculator />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Extras/Todo"
+            element={<BasicTeacherTodo />}
+          />
+          <Route
+            exact
+            path="/BasicTeacher/Extras/TakeNotes"
+            element={<BasicTeacherTakeNotes />}
+          />
           {/* Pro Users All */}
           <Route exact path="/ProStudent" element={<ProStudent />} />
           <Route exact path="/ProTeacher" element={<ProTeacher />} />
@@ -254,6 +295,9 @@ function App() {
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
         !isBasicStudentsExtrasRendering &&
+        !isBasicStudentsCalculatorRendering &&
+        !isBasicStudentsTodoRendering &&
+        !isBasicStudentsTakeNotesRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
@@ -261,11 +305,12 @@ function App() {
         !isBasicTeachersVirtualLabsRendering &&
         !isBasicTeachersAssignmentsRendering &&
         !isBasicTeachersProfileRendering &&
+        !isBasicTeachersExtrasRendering &&
+        !isBasicTeachersCalculatorRendering &&
+        !isBasicTeachersTodoRendering &&
+        !isBasicTeachersTakeNotesRendering &&
         !isProStudentsRendering &&
-        !isProTeachersRendering &&
-        !isCalculatorRendering &&
-        !isTodoRendering &&
-        !isTakeNotesRendering && <Footer />}
+        !isProTeachersRendering && <Footer />}
 
       {!isHomeRendering &&
         !isAboutRendering &&

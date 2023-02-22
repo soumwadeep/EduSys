@@ -14,7 +14,7 @@ import {
   deleteDoc,
   where,
 } from "firebase/firestore";
-import BasicStudentSidebar from "../../BasicStudentSidebar";
+import BasicTeacherSidebar from "../../BasicTeacherSidebar";
 import swal from "sweetalert";
 
 const Todos = () => {
@@ -22,13 +22,13 @@ const Todos = () => {
     document.title = "Your Todos | EduSys";
   }, []);
   // Security
-  const [student, loading, err] = useAuthState(auth);
+  const [teacher, loading, err] = useAuthState(auth);
   const navigate = useNavigate();
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, "Students"),
-        where("uid", "==", student?.uid)
+        collection(db, "Teachers"),
+        where("uid", "==", teacher?.uid)
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
@@ -39,14 +39,14 @@ const Todos = () => {
         "We Got An Error Fetching Your Data.Please Login Again!",
         "error"
       );
-      return navigate("/StudentLogin");
+      return navigate("/TeacherLogin");
     }
   };
   useEffect(() => {
     if (loading) return;
-    if (!student) return navigate("/StudentLogin");
+    if (!teacher) return navigate("/TeacherLogin");
     fetchUserName();
-  }, [student, loading]);
+  }, [teacher, loading]);
   // Todo App
 
   const [todos, setTodos] = useState([]);
@@ -59,7 +59,7 @@ const Todos = () => {
       swal("Error", "Please Enter A Valid Todo!", "error");
       return;
     }
-    await addDoc(collection(db, "Students", "Todos", student.email), {
+    await addDoc(collection(db, "Teachers", "Todos", teacher.email), {
       text: input,
       completed: false,
     });
@@ -68,7 +68,7 @@ const Todos = () => {
 
   // Read todo from firebase
   useEffect(() => {
-    const q = query(collection(db, "Students", "Todos", student.email));
+    const q = query(collection(db, "Teachers", "Todos", teacher.email));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = [];
       querySnapshot.forEach((doc) => {
@@ -81,19 +81,19 @@ const Todos = () => {
 
   // Update todo in firebase
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "Students", "Todos", student.email, todo.id), {
+    await updateDoc(doc(db, "Teachers", "Todos", teacher.email, todo.id), {
       completed: !todo.completed,
     });
   };
 
   // Delete todo
   const deleteTodo = async (id) => {
-    await deleteDoc(doc(db, "Students", "Todos", student.email, id));
+    await deleteDoc(doc(db, "Teachers", "Todos", teacher.email, id));
   };
 
   return (
     <section id="TodoApp">
-      <BasicStudentSidebar />
+      <BasicTeacherSidebar />
       <h1>
         Your <span>Todos</span>
       </h1>
