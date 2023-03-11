@@ -8,7 +8,6 @@ import {
   collection,
   getDocs,
   where,
-  getFirestore,
   onSnapshot,
   addDoc,
   deleteDoc,
@@ -22,9 +21,10 @@ const TakeNotes = () => {
   useEffect(() => {
     document.title = "Your Notes | EduSys";
   }, []);
-  // Security
+
   const [student, loading, err] = useAuthState(auth);
   const navigate = useNavigate();
+
   const fetchUserName = async () => {
     try {
       const q = query(
@@ -41,8 +41,10 @@ const TakeNotes = () => {
         "error"
       );
       return navigate("/StudentLogin");
+      // return window.location.href("/StudentLogin")
     }
   };
+
   useEffect(() => {
     if (loading) return;
     if (!student) return navigate("/StudentLogin");
@@ -54,7 +56,7 @@ const TakeNotes = () => {
   const [newBody, setNewBody] = useState("");
 
   useEffect(() => {
-    const notesRef = collection(db, "notes");
+    const notesRef = collection(db, "Students", "Notes", student?.email);
     const unsubscribe = onSnapshot(notesRef, (snapshot) => {
       const notes = snapshot.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
@@ -62,12 +64,12 @@ const TakeNotes = () => {
       setNotes(notes);
     });
     return unsubscribe;
-  }, []);
+  }, [student?.email]);
 
   const handleAddNote = async () => {
     if (newTitle !== "" || newBody !== "") {
       const docRef = await addDoc(
-        collection(db, "Students", "Notes", student.email),
+        collection(db, "Students", "Notes", student?.email),
         {
           title: newTitle,
           body: newBody,
@@ -80,15 +82,23 @@ const TakeNotes = () => {
   };
 
   const handleDeleteNote = async (id) => {
-    await deleteDoc(doc(db, "notes", id));
-    setNotes(notes.filter((note) => note.id !== id));
+    await deleteDoc(doc(db, "Students", "Notes", student?.email, id));
+    const index = notes.findIndex((note) => note.id === id);
+    if (index !== -1) {
+      const newNotes = [...notes];
+      newNotes.splice(index, 1);
+      setNotes(newNotes);
+    }
   };
 
   const handleEditNote = async (updatedNote) => {
-    await updateDoc(doc(db, "notes", updatedNote.id), {
-      title: updatedNote.title,
-      body: updatedNote.body,
-    });
+    await updateDoc(
+      doc(db, "Students", "Notes", student?.email, updatedNote.id),
+      {
+        title: updatedNote.title,
+        body: updatedNote.body,
+      }
+    );
     const updatedNotes = notes.map((note) => {
       if (note.id === updatedNote.id) {
         return updatedNote;
@@ -135,6 +145,7 @@ const TakeNotes = () => {
                 onEdit={handleEditNote}
               />
             ))}
+            <span><h5>Please Don't Logout From This Page As Its Sophisticated ! Please Go To Another Page And Then Logout ! </h5></span>
         </center>
       </section>
     </>

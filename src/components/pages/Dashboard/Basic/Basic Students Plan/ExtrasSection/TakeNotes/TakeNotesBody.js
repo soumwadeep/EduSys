@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const TakeNotesBody = ({ note, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -9,16 +9,13 @@ const TakeNotesBody = ({ note, onDelete, onEdit }) => {
     onDelete(note.id);
   };
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
   const handleSave = () => {
-    onEdit({
+    const updatedNote = {
       id: note.id,
       title: updatedTitle,
       body: updatedBody,
-    });
+    };
+    onEdit(updatedNote);
     setIsEditing(false);
   };
 
@@ -28,46 +25,43 @@ const TakeNotesBody = ({ note, onDelete, onEdit }) => {
     setUpdatedBody(note.body);
   };
 
-  const handleTitleChange = (event) => {
-    setUpdatedTitle(event.target.value);
-  };
-
-  const handleBodyChange = (event) => {
-    setUpdatedBody(event.target.value);
-  };
-
-  if (isEditing) {
-    return (
-      <div id="TakeNotesCss">
-        <input value={updatedTitle} onChange={handleTitleChange} />
-        <textarea value={updatedBody} onChange={handleBodyChange} />
-        <button className="btn" onClick={handleSave}>
-          Save
-        </button>
-        <button className="btn" onClick={handleCancel}>
-          Cancel
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <div className="mt-3">
-        <span>
+  return (
+    <div id="TakeNotesCss">
+      {!isEditing ? (
+        <>
           <h3>{note.title}</h3>
-        </span>
-        <p>
-          <i>{note.body}</i>
-        </p>
-        <button className="btn" onClick={handleEdit}>
-          Edit
-        </button>
-        &nbsp;
-        <button className="btn" onClick={handleDelete}>
-          Delete
-        </button>
-      </div>
-    );
-  }
+          <p>
+            <i>{note.body}</i>
+          </p>
+          <button className="btn" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
+          &nbsp;
+          <button className="btn" onClick={handleDelete}>
+            Delete
+          </button>
+        </>
+      ) : (
+        <>
+          <input
+            type="text"
+            value={updatedTitle}
+            onChange={(e) => setUpdatedTitle(e.target.value)}
+          />
+          <textarea
+            value={updatedBody}
+            onChange={(e) => setUpdatedBody(e.target.value)}
+          />
+          <button className="btn" onClick={handleSave}>
+            Save
+          </button>
+          <button className="btn" onClick={handleCancel}>
+            Cancel
+          </button>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default TakeNotesBody;
