@@ -86,9 +86,21 @@ span {
   padding: 10px;
   margin: 10px;
   width: 100%;
-  max-width: fit-content;
+  height: auto;
+}
+
+#TakeNotesCss input,
+textarea {
+  border-radius: 10px;
+  border: 1px solid wheat;
+  margin-bottom: 20px;
+  width: 100%;
   height: auto;
   min-height: 40px;
+}
+
+#TakeNotesCss textarea {
+  min-height: 100px;
 }
 
 #privacypolicy {

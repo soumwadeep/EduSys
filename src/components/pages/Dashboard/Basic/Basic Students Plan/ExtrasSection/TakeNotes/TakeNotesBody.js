@@ -1,60 +1,73 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const TakeNotesBody = ({ note, onDelete, onEdit }) => {
-  const [isEditing, setIsEditing] = useState(false)
-  const [updatedTitle, setUpdatedTitle] = useState(note.title)
-  const [updatedBody, setUpdatedBody] = useState(note.body)
+  const [isEditing, setIsEditing] = useState(false);
+  const [updatedTitle, setUpdatedTitle] = useState(note.title);
+  const [updatedBody, setUpdatedBody] = useState(note.body);
 
   const handleDelete = () => {
-    onDelete(note.id)
-  }
+    onDelete(note.id);
+  };
 
   const handleEdit = () => {
-    setIsEditing(true)
-  }
+    setIsEditing(true);
+  };
 
   const handleSave = () => {
     onEdit({
       id: note.id,
       title: updatedTitle,
       body: updatedBody,
-    })
-    setIsEditing(false)
-  }
+    });
+    setIsEditing(false);
+  };
 
   const handleCancel = () => {
-    setIsEditing(false)
-    setUpdatedTitle(note.title)
-    setUpdatedBody(note.body)
-  }
+    setIsEditing(false);
+    setUpdatedTitle(note.title);
+    setUpdatedBody(note.body);
+  };
 
   const handleTitleChange = (event) => {
-    setUpdatedTitle(event.target.value)
-  }
+    setUpdatedTitle(event.target.value);
+  };
 
   const handleBodyChange = (event) => {
-    setUpdatedBody(event.target.value)
-  }
+    setUpdatedBody(event.target.value);
+  };
 
   if (isEditing) {
     return (
-      <div>
+      <div id="TakeNotesCss">
         <input value={updatedTitle} onChange={handleTitleChange} />
         <textarea value={updatedBody} onChange={handleBodyChange} />
-        <button className='btn' onClick={handleSave}>Save</button>
-        <button className='btn' onClick={handleCancel}>Cancel</button>
+        <button className="btn" onClick={handleSave}>
+          Save
+        </button>
+        <button className="btn" onClick={handleCancel}>
+          Cancel
+        </button>
       </div>
-    )
+    );
   } else {
     return (
-      <div>
-        <span><h3>{note.title}</h3></span>
-        <p><i>{note.body}</i></p>
-        <button className='btn' onClick={handleEdit}>Edit</button>
-        <button className='btn' onClick={handleDelete}>Delete</button>
+      <div className="mt-3">
+        <span>
+          <h3>{note.title}</h3>
+        </span>
+        <p>
+          <i>{note.body}</i>
+        </p>
+        <button className="btn" onClick={handleEdit}>
+          Edit
+        </button>
+        &nbsp;
+        <button className="btn" onClick={handleDelete}>
+          Delete
+        </button>
       </div>
-    )
+    );
   }
-}
+};
 
-export default TakeNotesBody
+export default TakeNotesBody;

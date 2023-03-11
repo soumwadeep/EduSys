@@ -1,8 +1,8 @@
-import { React, useEffect, useState } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
-import { auth, db, logout } from '../../../../../../firebase'
-import BasicStudentSidebar from '../../BasicStudentSidebar'
+import { React, useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth, db, logout } from "../../../../../../firebase";
+import BasicStudentSidebar from "../../BasicStudentSidebar";
 import {
   query,
   collection,
@@ -14,98 +14,98 @@ import {
   deleteDoc,
   updateDoc,
   doc,
-} from 'firebase/firestore'
-import swal from 'sweetalert'
-import TakeNotesBody from './TakeNotesBody'
+} from "firebase/firestore";
+import swal from "sweetalert";
+import TakeNotesBody from "./TakeNotesBody";
 
 const TakeNotes = () => {
   useEffect(() => {
-    document.title = 'Your Notes | EduSys'
-  }, [])
+    document.title = "Your Notes | EduSys";
+  }, []);
   // Security
-  const [student, loading, err] = useAuthState(auth)
-  const navigate = useNavigate()
+  const [student, loading, err] = useAuthState(auth);
+  const navigate = useNavigate();
   const fetchUserName = async () => {
     try {
       const q = query(
-        collection(db, 'Students'),
-        where('uid', '==', student?.uid),
-      )
-      const doc = await getDocs(q)
-      const data = doc.docs[0].data()
+        collection(db, "Students"),
+        where("uid", "==", student?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
     } catch (err) {
-      logout()
+      logout();
       swal(
-        'Error!',
-        'We Got An Error Fetching Your Data.Please Login Again!',
-        'error',
-      )
-      return navigate('/StudentLogin')
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
+      return navigate("/StudentLogin");
     }
-  }
+  };
   useEffect(() => {
-    if (loading) return
-    if (!student) return navigate('/StudentLogin')
-    fetchUserName()
-  }, [student, loading])
+    if (loading) return;
+    if (!student) return navigate("/StudentLogin");
+    fetchUserName();
+  }, [student, loading]);
 
-  const [notes, setNotes] = useState([])
-  const [newTitle, setNewTitle] = useState('')
-  const [newBody, setNewBody] = useState('')
+  const [notes, setNotes] = useState([]);
+  const [newTitle, setNewTitle] = useState("");
+  const [newBody, setNewBody] = useState("");
 
   useEffect(() => {
-    const notesRef = collection(db, 'notes')
+    const notesRef = collection(db, "notes");
     const unsubscribe = onSnapshot(notesRef, (snapshot) => {
       const notes = snapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() }
-      })
-      setNotes(notes)
-    })
-    return unsubscribe
-  }, [])
+        return { id: doc.id, ...doc.data() };
+      });
+      setNotes(notes);
+    });
+    return unsubscribe;
+  }, []);
 
   const handleAddNote = async () => {
-    if (newTitle !== '' || newBody !== '') {
+    if (newTitle !== "" || newBody !== "") {
       const docRef = await addDoc(
-        collection(db, 'Students', 'Notes', student.email),
+        collection(db, "Students", "Notes", student.email),
         {
           title: newTitle,
           body: newBody,
-        },
-      )
-      setNotes([...notes, { id: docRef.id, title: newTitle, body: newBody }])
-      setNewTitle('')
-      setNewBody('')
+        }
+      );
+      setNotes([...notes, { id: docRef.id, title: newTitle, body: newBody }]);
+      setNewTitle("");
+      setNewBody("");
     }
-  }
+  };
 
   const handleDeleteNote = async (id) => {
-    await deleteDoc(doc(db, 'notes', id))
-    setNotes(notes.filter((note) => note.id !== id))
-  }
+    await deleteDoc(doc(db, "notes", id));
+    setNotes(notes.filter((note) => note.id !== id));
+  };
 
   const handleEditNote = async (updatedNote) => {
-    await updateDoc(doc(db, 'notes', updatedNote.id), {
+    await updateDoc(doc(db, "notes", updatedNote.id), {
       title: updatedNote.title,
       body: updatedNote.body,
-    })
+    });
     const updatedNotes = notes.map((note) => {
       if (note.id === updatedNote.id) {
-        return updatedNote
+        return updatedNote;
       } else {
-        return note
+        return note;
       }
-    })
-    setNotes(updatedNotes)
-  }
+    });
+    setNotes(updatedNotes);
+  };
 
   const handleTitleChange = (event) => {
-    setNewTitle(event.target.value)
-  }
+    setNewTitle(event.target.value);
+  };
 
   const handleBodyChange = (event) => {
-    setNewBody(event.target.value)
-  }
+    setNewBody(event.target.value);
+  };
 
   return (
     <>
@@ -116,10 +116,14 @@ const TakeNotes = () => {
             <span>Take Notes</span>
           </h1>
           <br />
-          <div id='TakeNotesCss'>
-            <input value={newTitle} onChange={handleTitleChange} /><br/>
-            <textarea value={newBody} onChange={handleBodyChange} /><br/>
-            <button className='btn' onClick={handleAddNote}>Add Note</button>
+          <div id="TakeNotesCss">
+            <input value={newTitle} onChange={handleTitleChange} />
+            <br />
+            <textarea value={newBody} onChange={handleBodyChange} />
+            <br />
+            <button className="btn" onClick={handleAddNote}>
+              Add Note
+            </button>
           </div>
           <hr />
           {notes &&
@@ -134,7 +138,7 @@ const TakeNotes = () => {
         </center>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default TakeNotes
+export default TakeNotes;
