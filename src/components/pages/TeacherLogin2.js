@@ -1,34 +1,67 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { auth, logInWithEmailAndPassword} from '../firebase'
+import { auth, logInWithEmailAndPassword } from '../firebase'
+import {
+  getFirestore,
+  collection,
+  where,
+  query,
+  getDocs,
+} from 'firebase/firestore'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import teacherloginimg from '../../img/TeacherLogin.svg'
 import swal from 'sweetalert'
 
-const TeacherLogin = () => {
-  function formValidation() {
-    let x = document.getElementById('facultyno').value
-    if (!x) {
-      // swal("Error!", "Please Enter Your Faculty Number!", "error");
-      alert('Please Enter Your Faculty Number To Continue!')
-      return window.location.reload()
-    }
-  }
+const TeacherLogin2 = () => {
   useEffect(() => {
     document.title = "Teacher's Login | EduSys"
   }, [])
-  const [facultynum, setFacultynum] = useState('')
+
+  const [facultyNum, setFacultynum] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [teacher, loading, error] = useAuthState(auth)
+  const [teacher, loading] = useAuthState(auth)
   const navigate = useNavigate()
+  const formValidation = async () => {
+    if (!facultyNum) {
+      swal("Fill All Values","Please Enter Your Faculty Number To Continue!","warning")
+      // return window.location.reload()
+    }
+
+    const db = getFirestore()
+    console.log(db)
+    // const teachersRef = collection(db, 'Teachers')
+    // const q = query(teachersRef, where('facultynum', '==', facultyNum))
+    const q = query(
+      collection(db, "Teachers"),
+      where("facultynum", "==", teacher.facultyNum)
+    );
+    // console.log(q)
+    const querySnapshot = await getDocs(q)
+    
+    if (querySnapshot.empty) {
+      alert('Invalid Faculty Number')
+      return window.location.reload()
+    } else {
+      return true
+    }
+  }
+
+  const handleLogin = async () => {
+    const validFacultyNum = await formValidation()
+    if (validFacultyNum) {
+      await logInWithEmailAndPassword(email, password)
+    }
+  }
+
   useEffect(() => {
     if (loading) {
-      // maybe trigger a loading screen
       return
     }
     if (teacher) navigate('/BasicTeacher')
+    // eslint-disable-next-line
   }, [teacher, loading])
+
   return (
     <>
       <section id="login">
@@ -61,7 +94,7 @@ const TeacherLogin = () => {
                         type="text"
                         className="form-control"
                         id="facultyno"
-                        value={facultynum}
+                        value={facultyNum}
                         onChange={(e) => setFacultynum(e.target.value)}
                         required
                       />
@@ -86,13 +119,7 @@ const TeacherLogin = () => {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
-                    <button
-                      className="btn"
-                      onClick={() =>
-                        logInWithEmailAndPassword(email, password) &
-                        formValidation()
-                      }
-                    >
+                    <button className="btn" onClick={handleLogin}>
                       Login
                     </button>
                     {/* &nbsp;&nbsp;
@@ -145,4 +172,4 @@ const TeacherLogin = () => {
   )
 }
 
-export default TeacherLogin
+export default TeacherLogin2
