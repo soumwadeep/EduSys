@@ -27,6 +27,7 @@ const TeacherLogin2 = () => {
       swal("Fill All Values","Please Enter Your Faculty Number To Continue!","warning")
       // return window.location.reload()
     }
+    // Chat Gpt Response Is Here
 
     const db = getFirestore()
     console.log(db)

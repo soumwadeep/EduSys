@@ -46,6 +46,7 @@ import ResetPassword from "./components/pages/ResetPassword";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import Error from "./components/pages/Error";
+import BasicStudentClearDoubts from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClearDoubts";
 
 function App() {
   const location = useLocation();
@@ -77,6 +78,8 @@ function App() {
     location.pathname === "/BasicStudent/Profile";
   const isBasicStudentsExtrasRendering =
     location.pathname === "/BasicStudent/Extras";
+  const isBasicStudentsClearDoubtsRendering =
+    location.pathname === "/BasicStudent/ClearDoubts";
   // Basic Students Plan Extras
   const isBasicStudentsCalculatorRendering =
     location.pathname === "/BasicStudent/Extras/Calculator";
@@ -132,6 +135,7 @@ function App() {
         !isBasicStudentsClassesRendering &&
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
+        !isBasicStudentsClearDoubtsRendering &&
         !isBasicStudentsExtrasRendering &&
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&
@@ -228,6 +232,11 @@ function App() {
             path="/BasicStudent/Extras/TakeNotes"
             element={<BasicStudentTakeNotes />}
           />
+          <Route
+            exact
+            path="/BasicStudent/ClearDoubts"
+            element={<BasicStudentClearDoubts />}
+          />
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
           <Route
@@ -294,6 +303,7 @@ function App() {
         !isBasicStudentsClassesRendering &&
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
+        !isBasicStudentsClearDoubtsRendering &&
         !isBasicStudentsExtrasRendering &&
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&

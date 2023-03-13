@@ -157,6 +157,19 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
+            to="/BasicStudent/ClearDoubts"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;24x7 Doubt Clearing
+          </NavLink>
+          <br />
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
             to="/BasicStudent/Profile"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

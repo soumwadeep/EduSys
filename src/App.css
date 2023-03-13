@@ -103,6 +103,17 @@ textarea {
   min-height: 100px;
 }
 
+/* Doubt Clearing */
+.dcbgcss {
+  background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+}
+
 #privacypolicy {
   text-align: justify;
 }
