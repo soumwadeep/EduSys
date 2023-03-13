@@ -1,77 +1,119 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
-const PlayQuiz = () => {
+const QuizApp = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
     axios
-      .get(
-        "https://the-trivia-api.com/api/questions?categories=arts_and_literature,film_and_tv,general_knowledge,food_and_drink,geography,music,history,science,society_and_culture,sport_and_leisure&limit=20&difficulty=medium"
-      )
+      .get("https://opentdb.com/api.php?amount=25&type=multiple")
       .then((response) => {
         setQuestions(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    if (timeLeft === 0) {
-      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-      setTimeLeft(10);
-    }
-  }, [timeLeft]);
-
-  const handleAnswerClick = (answer) => {
+  const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correct_answer) {
-      setScore((prevScore) => prevScore + 1);
+      swal("Correct Answer!", "+5 Added :)", "success");
+      setScore(score + 5);
+    } else {
+      swal("Wrong Answer!", " -2 Deducted :( ", "error");
+      setScore(score - 2);
+      setShowAnswer(true);
     }
-
-    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-    setTimeLeft(10);
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      swal(
+        "Quiz Ended!",
+        `Your score is ${score} out of ${questions.length}.`,
+        "info"
+      );
+    }
   };
 
-  if (currentQuestion === questions.length) {
-    return <h2>Your score is {score}</h2>;
-  }
+  const handleNextQuestion = () => {
+    setShowAnswer(false);
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      alert(`Quiz Ended. Your score Is ${score} Out Of ${questions.length}.`);
+    }
+  };
 
   return (
-    <div>
-      <h2>Question {currentQuestion + 1}</h2>
-      <h3>{questions[currentQuestion].question}</h3>
-      <p>Time left: {timeLeft} seconds</p>
-      <ul>
-        {questions[currentQuestion].incorrect_answers.map((answer) => (
-          <li key={answer}>
-            <button onClick={() => handleAnswerClick(answer)}>{answer}</button>
-          </li>
-        ))}
-        <li key={questions[currentQuestion].correct_answer}>
-          <button
-            onClick={() =>
-              handleAnswerClick(questions[currentQuestion].correct_answer)
-            }
-          >
-            {questions[currentQuestion].correct_answer}
-          </button>
-        </li>
-      </ul>
-      <p>Score: {score}</p>
-    </div>
+    <>
+      <h1 className="text-center">
+        <span>Play Quiz</span>
+      </h1>
+      <div id="TakeNotesCss">
+        <center>
+          <h2 className="h2bg">Your Score: {score}</h2>
+        </center>
+        {questions.length > 0 ? (
+          <div>
+            <div>
+              <h5>
+                <span>
+                  Question{" "}
+                  <span style={{ color: "white" }}>{currentQuestion + 1}</span>{" "}
+                  Out Of{" "}
+                </span>
+                <span style={{ color: "white" }}>{questions.length}</span>
+              </h5>
+            </div>
+            <h3>
+              <span style={{ color: "#060047" }}>
+                {questions[currentQuestion].question}
+              </span>
+            </h3>
+            <div id="btncolourfix">
+              {questions[currentQuestion].incorrect_answers.map((answer) => (
+                <button
+                  key={answer}
+                  onClick={() => handleAnswer(answer)}
+                  disabled={showAnswer}
+                >
+                  {answer}
+                </button>
+              ))}
+              <button
+                onClick={() =>
+                  handleAnswer(questions[currentQuestion].correct_answer)
+                }
+                disabled={showAnswer}
+              >
+                {questions[currentQuestion].correct_answer}
+              </button>
+              {showAnswer && (
+                <div>
+                  <h4 className="mt-3">The Correct Answer Was:</h4>
+                  <p className="btngreen">
+                    {questions[currentQuestion].correct_answer}
+                  </p>
+                </div>
+              )}
+            </div>
+            {showAnswer && (
+              <center>
+                <button className="btn" onClick={handleNextQuestion}>
+                  Next Question
+                </button>
+              </center>
+            )}
+          </div>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+    </>
   );
 };
 
-export default PlayQuiz;
+export default QuizApp;

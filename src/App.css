@@ -26,6 +26,43 @@ span {
   color: #f53803;
 }
 
+.btngreen {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+}
+.h2bg
+{
+  background: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  text-align: center;
+  cursor: default;
+}
+#btncolourfix button
+{
+  background: linear-gradient(110.7deg, rgb(9, 154, 151) 6.3%, rgb(21, 205, 168) 90.6%);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  cursor: pointer;
+}
+
 /* Todos */
 #TodoApp .li {
   list-style: none;
