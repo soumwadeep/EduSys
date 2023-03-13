@@ -9,7 +9,7 @@ import BasicStudentSidebar from './BasicStudentSidebar'
 
 const BasicStudentClearDoubts = () => {
   useEffect(() => {
-    document.title = 'Your Extras Section | EduSys'
+    document.title = 'Your Doubt Clearing Section | EduSys'
   }, [])
   const [student, loading, err] = useAuthState(auth)
   const navigate = useNavigate()
