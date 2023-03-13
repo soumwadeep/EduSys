@@ -21,6 +21,8 @@ import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic
 import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs";
 import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
 import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
+import BasicStudentClearDoubts from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClearDoubts";
+import BasicStudentQuiz from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentQuiz";
 import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras";
 import BasicStudentCalculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
 import BasicStudentTodo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
@@ -46,7 +48,6 @@ import ResetPassword from "./components/pages/ResetPassword";
 import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import Error from "./components/pages/Error";
-import BasicStudentClearDoubts from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClearDoubts";
 
 function App() {
   const location = useLocation();
@@ -76,10 +77,12 @@ function App() {
     location.pathname === "/BasicStudent/Assignments";
   const isBasicStudentsProfileRendering =
     location.pathname === "/BasicStudent/Profile";
-  const isBasicStudentsExtrasRendering =
-    location.pathname === "/BasicStudent/Extras";
   const isBasicStudentsClearDoubtsRendering =
     location.pathname === "/BasicStudent/ClearDoubts";
+  const isBasicStudentsQuizRendering =
+    location.pathname === "/BasicStudent/PlayQuiz";
+  const isBasicStudentsExtrasRendering =
+    location.pathname === "/BasicStudent/Extras";
   // Basic Students Plan Extras
   const isBasicStudentsCalculatorRendering =
     location.pathname === "/BasicStudent/Extras/Calculator";
@@ -136,6 +139,7 @@ function App() {
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
         !isBasicStudentsClearDoubtsRendering &&
+        !isBasicStudentsQuizRendering &&
         !isBasicStudentsExtrasRendering &&
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&
@@ -237,6 +241,11 @@ function App() {
             path="/BasicStudent/ClearDoubts"
             element={<BasicStudentClearDoubts />}
           />
+          <Route
+            exact
+            path="/BasicStudent/PlayQuiz"
+            element={<BasicStudentQuiz />}
+          />
           {/* Basic Teachers All */}
           <Route exact path="/BasicTeacher" element={<BasicTeacher />} />
           <Route
@@ -304,6 +313,7 @@ function App() {
         !isBasicStudentsAssignmentsRendering &&
         !isBasicStudentsProfileRendering &&
         !isBasicStudentsClearDoubtsRendering &&
+        !isBasicStudentsQuizRendering &&
         !isBasicStudentsExtrasRendering &&
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&
