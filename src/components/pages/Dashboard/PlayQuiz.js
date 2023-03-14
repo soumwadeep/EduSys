@@ -6,7 +6,6 @@ const QuizApp = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
     axios
@@ -16,14 +15,21 @@ const QuizApp = () => {
       });
   }, []);
 
+  function restartGame() {
+    window.location.reload();
+  }
+
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correct_answer) {
-      swal("Correct Answer!", "+5 Added :)", "success");
+      swal("Congrats!", "It's The Correct Answer! +5 Added :)", "success");
       setScore(score + 5);
     } else {
-      swal("Wrong Answer!", " -2 Deducted :( ", "error");
+      swal(
+        "Wrong Answer!",
+        ` The Correct Answer Was: ${answer} . -2 Deducted :( `,
+        "error"
+      );
       setScore(score - 2);
-      setShowAnswer(true);
     }
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
@@ -36,22 +42,17 @@ const QuizApp = () => {
       );
     }
   };
-
-  const handleNextQuestion = () => {
-    setShowAnswer(false);
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      alert(`Quiz Ended. Your score Is ${score} Out Of ${questions.length}.`);
-    }
-  };
-
   return (
     <>
       <h1 className="text-center">
         <span>Play Quiz</span>
       </h1>
+      <p style={{color:"blue"}}>
+        <b>Note:</b>&nbsp;
+        This Quiz Consists Of Negative Marking!<br/>
+        <span style={{color:"green"}}>+5 For Correct Answer.</span><br/>
+        <span style={{color:"red"}}> -2 For Wrong Answer.</span>
+      </p>
       <div id="TakeNotesCss">
         <center>
           <h2 className="h2bg">Your Score: {score}</h2>
@@ -73,45 +74,32 @@ const QuizApp = () => {
                 {questions[currentQuestion].question}
               </span>
             </h3>
-            <div id="btncolourfix">
-              {questions[currentQuestion].incorrect_answers.map((answer) => (
+            <center>
+              <div id="btncolourfix">
+                {questions[currentQuestion].incorrect_answers.map((answer) => (
+                  <button key={answer} onClick={() => handleAnswer(answer)}>
+                    {answer}
+                  </button>
+                ))}
                 <button
-                  key={answer}
-                  onClick={() => handleAnswer(answer)}
-                  disabled={showAnswer}
+                  onClick={() =>
+                    handleAnswer(questions[currentQuestion].correct_answer)
+                  }
                 >
-                  {answer}
+                  {questions[currentQuestion].correct_answer}
                 </button>
-              ))}
-              <button
-                onClick={() =>
-                  handleAnswer(questions[currentQuestion].correct_answer)
-                }
-                disabled={showAnswer}
-              >
-                {questions[currentQuestion].correct_answer}
-              </button>
-              {showAnswer && (
-                <div>
-                  <h4 className="mt-3">The Correct Answer Was:</h4>
-                  <p className="btngreen">
-                    {questions[currentQuestion].correct_answer}
-                  </p>
-                </div>
-              )}
-            </div>
-            {showAnswer && (
-              <center>
-                <button className="btn" onClick={handleNextQuestion}>
-                  Next Question
-                </button>
-              </center>
-            )}
+              </div>
+            </center>
           </div>
         ) : (
-          <div>Loading...</div>
+          <div>Loading The Best Questions For You...</div>
         )}
       </div>
+      <center>
+        <h3 className="btn mt-3" onClick={restartGame}>
+          <i className="fa-solid fa-rotate-right"></i>&nbsp;Restart
+        </h3>
+      </center>
     </>
   );
 };

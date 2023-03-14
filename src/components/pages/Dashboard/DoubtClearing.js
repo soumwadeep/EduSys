@@ -12,7 +12,7 @@ const DoubtClearing = () => {
       ...chatHistory,
       {
         question: userInput,
-        answer: 'Loading...',
+        answer: 'Thinking...',
         questionNumber: currentQuestionNumber,
       },
     ])
