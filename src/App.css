@@ -26,6 +26,19 @@ span {
   color: #f53803;
 }
 
+/* Remove Branding */
+#google_translate_element {
+  color: transparent;
+}
+
+#google_translate_element a {
+  display: none;
+}
+
+div.goog-te-gadget {
+  color: transparent !important;
+}
+
 .btngreen {
   background-color: green;
   color: white;
@@ -61,6 +74,11 @@ span {
   max-width: fit-content;
   height: auto;
   cursor: pointer;
+}
+
+/* Main Navbar */
+#main-bar {
+  font-size: 22px;
 }
 
 /* Todos */

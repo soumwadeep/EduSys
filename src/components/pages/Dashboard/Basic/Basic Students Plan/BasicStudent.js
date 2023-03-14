@@ -87,12 +87,31 @@ const BasicStudent = () => {
                       On The Assignments Button.
                     </p>
                     <p>
-                      <span>6.</span> To Know The Details Of Your{" "}
+                      <span>6.</span> To Practice Lab Practicals On <span>Virtual Labs</span> Click
+                      On The Virtual Labs Button.
+                    </p>
+                    <p>
+                      <span>7.</span> To Get Some Required Tools Like <span>Calculator,Todos & Take Notes</span> Click
+                      On The Extras Button.
+                    </p>
+                    <p>
+                      <span>8.</span> To Play <span>Quiz</span> Click
+                      On The Play Quiz Button.
+                    </p>
+                    <p>
+                      <span>9.</span> To Clear Your <span>Doubts</span> Click
+                      On The 24x7 Doubt Clearing Button.
+                    </p>
+                    <p>
+                      <span>10.</span> To Know The Details Of Your{" "}
                       <span>Profile</span> Click On The Profile Button.
                     </p>
                     <p>
-                      <span>7.</span> To <span>Log Out</span> Just Click On The
+                      <span>11.</span> To <span>Log Out</span> Just Click On The
                       Log Out Button.
+                    </p>
+                    <p>
+                      <span>12.</span> To <span>Translate Any Page To Your Favourite Language</span> Just Select Your Language From The Dropdown Provided In The Footer.
                     </p>
                   </div>
                 </div>

@@ -1,16 +1,33 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import icon from "../img/icon.png";
+
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   function toggleNav() {
     setNavOpen((state) => !state);
   }
-
   // Add toggleNav() in each navlink to close the navbar after clicking on a link.
   // add data-bs-dismiss={navOpen ? "offcanvas" : "none"} to the offcanvas div or mobile nav div
-
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
   return (
     <>
       <nav className="navbar sticky-top navbar-expand-lg text-center">
@@ -47,7 +64,7 @@ const Navbar = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body">
+            <div className="offcanvas-body" id="main-bar">
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <NavLink
@@ -133,6 +150,9 @@ const Navbar = () => {
                   >
                     Login
                   </NavLink>
+                </li>
+                <li className="nav-item mt-2">
+                <div id="google_translate_element"></div>
                 </li>
               </ul>
             </div>
