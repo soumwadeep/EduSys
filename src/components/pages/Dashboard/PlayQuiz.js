@@ -1,57 +1,71 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import swal from "sweetalert";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import swal from 'sweetalert'
 
 const QuizApp = () => {
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [questions, setQuestions] = useState([])
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [score, setScore] = useState(0)
+  const [timer, setTimer] = useState(30)
 
   useEffect(() => {
     axios
-      .get("https://opentdb.com/api.php?amount=25&type=multiple")
+      .get('https://opentdb.com/api.php?amount=25&type=multiple')
       .then((response) => {
-        setQuestions(response.data.results);
-      });
-  }, []);
+        setQuestions(response.data.results)
+      })
+  }, [])
+
+  useEffect(() => {
+    if (timer === 0) {
+      handleAnswer('')
+    }
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => prevTimer - 1)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [timer])
 
   function restartGame() {
-    window.location.reload();
+    window.location.reload()
   }
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correct_answer) {
-      swal("Congrats!", "It's The Correct Answer! +5 Added :)", "success");
-      setScore(score + 5);
-    } else {
+      swal('Congrats!', "It's The Correct Answer! +5 Added :)", 'success')
+      setScore(score + 5)
+    } else if (answer !== '') {
       swal(
-        "Wrong Answer!",
-        ` The Correct Answer Was: ${answer} . -2 Deducted :( `,
-        "error"
-      );
-      setScore(score - 2);
+        'Wrong Answer!',
+        ` The Correct Answer Was: ${questions[currentQuestion].correct_answer} . -2 Deducted :( `,
+        'error',
+      )
+      setScore(score - 2)
     }
-    const nextQuestion = currentQuestion + 1;
+    const nextQuestion = currentQuestion + 1
     if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
+      setCurrentQuestion(nextQuestion)
+      setTimer(30)
     } else {
       swal(
-        "Quiz Ended!",
+        'Quiz Ended!',
         `Your score is ${score} out of ${questions.length}.`,
-        "info"
-      );
+        'info',
+      )
     }
-  };
+  }
+
   return (
     <>
       <h1 className="text-center">
         <span>Play Quiz</span>
       </h1>
-      <p style={{color:"blue"}}>
-        <b>Note:</b>&nbsp;
-        This Quiz Consists Of Negative Marking!<br/>
-        <span style={{color:"green"}}>+5 For Correct Answer.</span><br/>
-        <span style={{color:"red"}}> -2 For Wrong Answer.</span>
+      <p style={{ color: 'blue' }}>
+        <b>Note:</b>&nbsp; This Quiz Consists Of Negative Marking!
+        <br />
+        <span style={{ color: 'green' }}>+5 For Correct Answer.</span>
+        <br />
+        <span style={{ color: 'red' }}> -2 For Wrong Answer.</span>
       </p>
       <div id="TakeNotesCss">
         <center>
@@ -62,18 +76,23 @@ const QuizApp = () => {
             <div>
               <h5>
                 <span>
-                  Question{" "}
-                  <span style={{ color: "white" }}>{currentQuestion + 1}</span>{" "}
-                  Out Of{" "}
+                  Question{' '}
+                  <span style={{ color: 'white' }}>{currentQuestion + 1}</span>{' '}
+                  Out Of{' '}
                 </span>
-                <span style={{ color: "white" }}>{questions.length}</span>
+                <span style={{ color: 'white' }}>{questions.length}</span>
               </h5>
             </div>
             <h3>
-              <span style={{ color: "#060047" }}>
+              <span style={{ color: '#060047' }}>
                 {questions[currentQuestion].question}
               </span>
             </h3>
+            {/* 30 seconds timer */}
+            <div style={{ textAlign: 'center' }}>
+              <h4>Time Left: <span>{timer}</span></h4>
+            </div>
+
             <center>
               <div id="btncolourfix">
                 {questions[currentQuestion].incorrect_answers.map((answer) => (
@@ -101,7 +120,7 @@ const QuizApp = () => {
         </h3>
       </center>
     </>
-  );
-};
+  )
+}
 
-export default QuizApp;
+export default QuizApp
