@@ -18,7 +18,9 @@ const DoubtClearing = () => {
     ])
     setQuestionNumber(currentQuestionNumber + 1)
 
-    const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions'
+    const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions' 
+    //Cheapest
+    //'https://api.openai.com/v1/engines/text-ada-001/completions'
     const headers = {
       'Content-Type': 'application/json',
       Authorization:
