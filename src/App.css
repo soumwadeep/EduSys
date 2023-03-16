@@ -26,7 +26,7 @@ span {
   color: #f53803;
 }
 
-/* Remove Branding */
+/* Remove Google Branding */
 #google_translate_element {
   color: transparent;
 }
@@ -37,6 +37,31 @@ span {
 
 div.goog-te-gadget {
   color: transparent !important;
+}
+
+.goog-te-combo {
+  border: none;
+  font-size: 22px !important;
+  /* margin-top: -0.05px!important; */
+  font-family: "Itim", cursive !important;
+  color: black;
+}
+
+/* @media screen and (max-width: 962px) {
+  .goog-te-combo {
+    font-size: 20px !important;
+  }
+} */
+
+/* Navbar fixes */
+.navbar-brand {
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 962px) {
+  .navbar-brand {
+    margin-top: 0px;
+  }
 }
 
 .btngreen {
@@ -661,14 +686,6 @@ a:hover {
 }
 
 @media screen and (max-width: 962px) {
-  /* #mobviewtextfix h1 {
-    font-size: 24px;
-  } */
-
-  /* #mobviewtextfix h5 {
-    font-size: 14px;
-  } */
-
   .offcanvas {
     -webkit-box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);
     -moz-box-shadow: -1px 0px 10px 9px rgba(245, 56, 3, 0.64);
