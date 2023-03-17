@@ -53,6 +53,14 @@ div.goog-te-gadget {
   }
 } */
 
+/* Calculator */
+.calciframe
+{
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
 /* Navbar fixes */
 .navbar-brand {
   margin-top: -10px;
