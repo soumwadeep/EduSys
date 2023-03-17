@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, {useEffect,useState } from "react";
 import home1 from "../../img/home1.svg";
 const Home = () => {
+  
   useEffect(() => {
     document.title = "Home | EduSys";
   }, []);
+
   return (
     <>
       <section id="home">

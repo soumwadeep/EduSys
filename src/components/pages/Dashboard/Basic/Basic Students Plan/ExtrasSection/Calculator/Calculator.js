@@ -4,9 +4,9 @@ const Calculator = () => {
   return (
     <section id='Calculator'>
         <h1>Calculator</h1>
-        <h3>
-          Work In Progress!
-        </h3>
+        <iframe src='./ScientificCalculator/Calculator.html'>
+
+        </iframe>
     </section>
   )
 }
