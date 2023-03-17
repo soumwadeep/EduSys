@@ -139,6 +139,7 @@ body {
 #mainContentArea {
     margin-top: 0px;
     padding: 10px;
+    width: 100%!important;
 }
 
 .calc_container {
