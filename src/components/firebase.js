@@ -153,6 +153,9 @@ const logout = () => {
   signOut(auth);
 };
 
+const twentyFourHoursInMilliseconds = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+setTimeout(logout, twentyFourHoursInMilliseconds);
+
 export {
   auth,
   db,
