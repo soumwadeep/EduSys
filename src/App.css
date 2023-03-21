@@ -40,8 +40,9 @@ div.goog-te-gadget {
 }
 
 .goog-te-combo {
-  border: none;
-  font-size: 22px !important;
+  border: 2px solid #f53803 !important;
+  border-radius: 15px;
+  font-size: 20px !important;
   /* margin-top: -0.05px!important; */
   font-family: "Itim", cursive !important;
   color: black;
@@ -54,8 +55,7 @@ div.goog-te-gadget {
 } */
 
 /* Calculator */
-.calciframe
-{
+.calciframe {
   width: 100%;
   height: auto;
   min-height: 60vh;
@@ -706,13 +706,20 @@ a:hover {
 .login-cards {
   width: 100%;
   height: auto;
-  max-width: 300px;
+  max-width: 500px;
   border: none;
   /* border: 1px solid #F53803; */
   text-align: center;
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 0 15px -2px rgba(241, 135, 4, 0.2);
+}
+
+@media screen and (max-width: 962px) {
+  .login-cards {
+    max-width: 400px;
+    margin-top: 20px;
+  }
 }
 
 /* Teacher Classes */

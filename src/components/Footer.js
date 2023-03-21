@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
+  useEffect(() => {
+    // Select all the elements with the .goog-te-combo class except for the first one
+    const comboElements = document.querySelectorAll(
+      "#google_translate_element .goog-te-combo:not(:first-child)"
+    );
+
+    // Remove the .goog-te-combo class from the extra elements
+    comboElements.forEach((element) => {
+      element.classList.remove("goog-te-combo");
+    });
+  }, []);
+
   return (
     <>
       <footer
@@ -47,6 +78,8 @@ const Footer = () => {
                   Consists Of Almost All The Features Required By
                   Teachers,Administrators And Students.
                 </p>
+                <p>Select Your <span>Favourite Language</span> From This Dropdown To <span>Translate:</span></p>
+                <div id="google_translate_element"></div>
               </div>
 
               <div className="col-sm">

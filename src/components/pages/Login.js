@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import login1 from "../../img/login1.svg";
-import studentimg from "../../img/student.jpg";
-import teacherimg from "../../img/teacher.jpg";
+import studentimg from "../../img/Student.svg";
+import teacherimg from "../../img/Teacher.svg";
 const Pricing = () => {
   useEffect(() => {
     document.title = "Login | EduSys";
