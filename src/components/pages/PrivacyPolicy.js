@@ -106,7 +106,7 @@ const PrivacyPolicy = () => {
               <strong>Website</strong> refers to EduSys, accessible from{" "}
               <a
                 href="https://edusys.co.in"
-                rel="external nofollow noopener"
+                rel="external nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://edusys.co.in
@@ -511,7 +511,7 @@ const PrivacyPolicy = () => {
             By visiting this page on our website:{" "}
             <a
               href="https://edusys.co.in/Contact"
-              rel="external nofollow noopener"
+              rel="external nofollow noopener noreferrer"
               target="_blank"
             >
               https://edusys.co.in/Contact

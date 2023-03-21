@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { auth, logInWithEmailAndPassword} from '../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import teacherloginimg from '../../img/TeacherLogin.svg'
-import swal from 'sweetalert'
 
 const TeacherLogin = () => {
   function formValidation() {
@@ -20,7 +19,7 @@ const TeacherLogin = () => {
   const [facultynum, setFacultynum] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [teacher, loading, error] = useAuthState(auth)
+  const [teacher, loading] = useAuthState(auth)
   const navigate = useNavigate()
   useEffect(() => {
     if (loading) {
@@ -28,6 +27,7 @@ const TeacherLogin = () => {
       return
     }
     if (teacher) navigate('/BasicTeacher')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teacher, loading])
   return (
     <>

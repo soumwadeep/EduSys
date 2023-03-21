@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {
   auth,
   registerStudentWithEmailAndPassword,
-  signInWithGoogle,
 } from "../firebase";
 import register1 from "../../img/register1.svg";
 import swal from "sweetalert";
@@ -20,7 +19,7 @@ const StudentRegistration = () => {
   const [sem, setSem] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [student, loading, error] = useAuthState(auth);
+  const [student, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {
@@ -57,6 +56,7 @@ const StudentRegistration = () => {
   useEffect(() => {
     if (loading) return;
     if (student) navigate("/BasicStudent");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [student, loading]);
   return (
     <>

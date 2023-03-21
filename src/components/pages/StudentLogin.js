@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { auth, logInWithEmailAndPassword } from "../firebase";
+// import { signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import login1 from "../../img/login1.svg";
-import swal from "sweetalert";
 
 const StudentLogin = () => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const StudentLogin = () => {
   }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [student, loading, error] = useAuthState(auth);
+  const [student, loading] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) {
@@ -19,6 +19,7 @@ const StudentLogin = () => {
       return;
     }
     if (student) navigate("/BasicStudent");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [student, loading]);
   return (
     <>

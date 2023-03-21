@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { NavLink } from "react-router-dom";
 import icon from "../img/icon.png";
 
@@ -149,7 +149,7 @@ const Navbar = () => {
                       toggleNav();
                     }}
                   >
-                    Translate This Page
+                    Translate
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -159,7 +159,7 @@ const Navbar = () => {
                     }
                     to="/Login"
                     onClick={() => {
-                      handleClickScroll();
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                       toggleNav();
                     }}
                   >
