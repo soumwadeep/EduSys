@@ -56,13 +56,23 @@ const TakeNotes = () => {
   const [newBody, setNewBody] = useState("");
 
   useEffect(() => {
-    const notesRef = collection(db, "Students", "Notes", student?.email);
+    if (!student?.email) {
+      swal(
+        "Fetching Your Notes...",
+        "Please Wait While We Fetch Your Notes!",
+        "warning"
+      );
+      return;
+    }
+
+    const notesRef = collection(db, "Students", "Notes", student.email);
     const unsubscribe = onSnapshot(notesRef, (snapshot) => {
       const notes = snapshot.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
       });
       setNotes(notes);
     });
+
     return unsubscribe;
   }, [student?.email]);
 
@@ -145,7 +155,6 @@ const TakeNotes = () => {
                 onEdit={handleEditNote}
               />
             ))}
-            <span><h5>Please Don't Logout From This Page As Its Sophisticated ! Please Go To Another Page And Then Logout ! </h5></span>
         </center>
       </section>
     </>

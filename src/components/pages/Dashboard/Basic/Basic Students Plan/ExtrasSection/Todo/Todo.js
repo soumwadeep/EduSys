@@ -68,6 +68,15 @@ const Todos = () => {
 
   // Read todo from firebase
   useEffect(() => {
+    if (!student?.email) {
+      swal(
+        "Fetching Your Todos...",
+        "Please Wait While We Fetch Your Todos!",
+        "warning"
+      );
+      return;
+    }
+
     const q = query(collection(db, "Students", "Todos", student.email));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = [];
@@ -76,8 +85,9 @@ const Todos = () => {
       });
       setTodos(todosArr);
     });
+
     return () => unsubscribe();
-  }, []);
+  }, [student?.email]);
 
   // Update todo in firebase
   const toggleComplete = async (todo) => {
