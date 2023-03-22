@@ -79,7 +79,7 @@ const Footer = () => {
                   Teachers,Administrators And Students.
                 </p>
                 <p>Select Your <span>Favourite Language</span> From This Dropdown To <span>Translate:</span></p>
-                <div id="google_translate_element"></div>
+                <div className="translator" id="google_translate_element"></div>
               </div>
 
               <div className="col-sm">

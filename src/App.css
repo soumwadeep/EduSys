@@ -34,11 +34,14 @@ span {
 #google_translate_element a {
   display: none;
 }
-
+.translator
+{
+  display: block;
+  overflow: hidden!important;
+}
 div.goog-te-gadget {
   color: transparent !important;
 }
-
 .goog-te-combo {
   border: 2px solid #f53803 !important;
   border-radius: 15px;
