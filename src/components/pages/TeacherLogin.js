@@ -1,34 +1,53 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { auth, logInWithEmailAndPassword} from '../firebase'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import teacherloginimg from '../../img/TeacherLogin.svg'
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { auth, logInWithEmailAndPassword, db, logout } from "../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import swal from "sweetalert";
+import { useAuthState } from "react-firebase-hooks/auth";
+import teacherloginimg from "../../img/TeacherLogin.svg";
 
 const TeacherLogin = () => {
-  function formValidation() {
-    let x = document.getElementById('facultyno').value
-    if (!x) {
-      // swal("Error!", "Please Enter Your Faculty Number!", "error");
-      alert('Please Enter Your Faculty Number To Continue!')
-      return window.location.reload()
-    }
-  }
   useEffect(() => {
-    document.title = "Teacher's Login | EduSys"
-  }, [])
-  const [facultynum, setFacultynum] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [teacher, loading] = useAuthState(auth)
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return
+    document.title = "Teacher's Login | EduSys";
+  }, []);
+  const [facultynum, setFacultynum] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [teacher, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  const fetchUserName = async () => {
+    try {
+      const q = query(
+        collection(db, "Teachers"),
+        where("uid", "==", teacher?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      if (data.facultynum === facultynum && data.email === email) {
+        return navigate("/BasicTeacher");
+      } else {
+        swal(
+          "Error!",
+          "Please Enter Correct Faculty Number And Email Address!",
+          "error"
+        );
+        return navigate("/TeacherLogin");
+      }
+    } catch (err) {
+      logout();
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
+      return navigate("/TeacherLogin");
     }
-    if (teacher) navigate('/BasicTeacher')
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [teacher, loading])
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!teacher) return navigate("/TeacherLogin");
+    fetchUserName();
+  }, [teacher, loading]);
   return (
     <>
       <section id="login">
@@ -89,8 +108,8 @@ const TeacherLogin = () => {
                     <button
                       className="btn"
                       onClick={() =>
-                        logInWithEmailAndPassword(email, password) &
-                        formValidation()
+                        logInWithEmailAndPassword(email, password) &&
+                        fetchUserName()
                       }
                     >
                       Login
@@ -113,8 +132,8 @@ const TeacherLogin = () => {
                         window.scrollTo({
                           top: 0,
                           left: 0,
-                          behavior: 'smooth',
-                        })
+                          behavior: "smooth",
+                        });
                       }}
                     >
                       <span> Now.</span>
@@ -128,8 +147,8 @@ const TeacherLogin = () => {
                         window.scrollTo({
                           top: 0,
                           left: 0,
-                          behavior: 'smooth',
-                        })
+                          behavior: "smooth",
+                        });
                       }}
                     >
                       <span> Now.</span>
@@ -142,7 +161,7 @@ const TeacherLogin = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default TeacherLogin
+export default TeacherLogin;
