@@ -23,8 +23,18 @@ const TeacherLogin = () => {
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
-      if (data.facultynum === facultynum && data.email === email) {
+      if (
+        data.facultynum === facultynum &&
+        data.email === email &&
+        data.plan === "Basic Teacher"
+      ) {
         return navigate("/BasicTeacher");
+      } else if (
+        data.facultynum === facultynum &&
+        data.email === email &&
+        data.plan === "Pro Teacher"
+      ) {
+        return navigate("/ProTeacher");
       } else {
         swal(
           "Error!",

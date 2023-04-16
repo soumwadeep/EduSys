@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-  auth,
-  registerTeacherWithEmailAndPassword,
-} from "../firebase";
+import { auth, registerTeacherWithEmailAndPassword } from "../firebase";
 import register1 from "../../img/register1.svg";
 import swal from "sweetalert";
 const TeacherRegistration = () => {
@@ -18,6 +15,7 @@ const TeacherRegistration = () => {
   const [password, setPassword] = useState("");
   const [facultynum, setFacultynum] = useState("");
   const [position, setPosition] = useState("");
+  const [plan, setPlan] = useState("Basic Teacher");
   const [teacher, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -34,6 +32,8 @@ const TeacherRegistration = () => {
       swal("Error!", "Please Enter Your Email To Continue.", "error");
     } else if (!password) {
       swal("Error!", "Please Enter Your Password To Continue.", "error");
+    } else if (!plan) {
+      swal("Error!", "Please Select Your Plan To Continue.", "error");
     } else {
       registerTeacherWithEmailAndPassword(
         name,
@@ -41,7 +41,8 @@ const TeacherRegistration = () => {
         password,
         dept,
         facultynum,
-        position
+        position,
+        plan
       );
     }
   };
@@ -51,7 +52,7 @@ const TeacherRegistration = () => {
   useEffect(() => {
     if (loading) return;
     if (teacher) navigate("/BasicTeacher");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teacher, loading]);
   return (
     <>
@@ -111,6 +112,22 @@ const TeacherRegistration = () => {
                         onChange={(e) => setFacultynum(e.target.value)}
                         required
                       />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Plan</label>
+                      <select
+                        name="Selected-Plan"
+                        className="form-select"
+                        onChange={(e) => setPlan(e.target.value)}
+                        required
+                      >
+                        <option value="Basic Teacher" selected>
+                          Basic
+                        </option>
+                        <option value="Pro Teacher" disabled>
+                          Pro
+                        </option>
+                      </select>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">

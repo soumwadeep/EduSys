@@ -18,6 +18,7 @@ const BasicTeacherProfile = () => {
   const [position, setPosition] = useState("");
   const [email, setEmail] = useState("");
   const [facultynum, setFacultynum] = useState("");
+  const [plan, setPlan] = useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -33,10 +34,14 @@ const BasicTeacherProfile = () => {
       setPosition(data.position);
       setFacultynum(data.facultynum);
       setEmail(data.email);
-
+      setPlan(data.plan);
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/TeacherLogin");
     }
   };
@@ -62,7 +67,9 @@ const BasicTeacherProfile = () => {
                       Your
                       <span> Profile</span>
                     </h1>
-                    <h4>Plan:<span> Basic Plan</span></h4>
+                    <h4>
+                      Plan:<span>{plan}</span>
+                    </h4>
                     <h4>
                       Name:<span> {name}</span>
                     </h4>

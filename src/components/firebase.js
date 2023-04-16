@@ -88,7 +88,8 @@ const registerStudentWithEmailAndPassword = async (
   dept,
   sec,
   rollno,
-  sem
+  sem,
+  plan
 ) => {
   try {
     const student = await createUserWithEmailAndPassword(auth, email, password);
@@ -102,6 +103,7 @@ const registerStudentWithEmailAndPassword = async (
       sec,
       rollno,
       sem,
+      plan,
     });
   } catch (err) {
     console.error(err);
@@ -115,7 +117,8 @@ const registerTeacherWithEmailAndPassword = async (
   password,
   dept,
   facultynum,
-  position
+  position,
+  plan
 ) => {
   try {
     const teacher = await createUserWithEmailAndPassword(auth, email, password);
@@ -128,6 +131,7 @@ const registerTeacherWithEmailAndPassword = async (
       dept,
       facultynum,
       position,
+      plan,
     });
   } catch (err) {
     console.error(err);

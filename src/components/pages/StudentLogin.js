@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword } from "../firebase";
-// import { signInWithGoogle } from "../firebase";
+import { auth, logInWithEmailAndPassword, db, logout } from "../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import swal from "sweetalert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import login1 from "../../img/login1.svg";
 
@@ -13,13 +14,39 @@ const StudentLogin = () => {
   const [password, setPassword] = useState("");
   const [student, loading] = useAuthState(auth);
   const navigate = useNavigate();
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
+  const fetchUserName = async () => {
+    try {
+      const q = query(
+        collection(db, "Students"),
+        where("uid", "==", student?.uid)
+      );
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      console.log(data);
+      if (data.email === email && data.plan === "Basic Student") {
+        console.log("Success", data.plan);
+        return navigate("/BasicStudent");
+      } else if (data.email === email && data.plan === "Pro Student") {
+        console.log("Success", data.plan);
+        return navigate("/ProStudent");
+      } else {
+        swal("Error!", "Please Enter Correct Student Email Address!", "error");
+        return navigate("/StudentLogin");
+      }
+    } catch (err) {
+      logout();
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
+      return navigate("/StudentLogin");
     }
-    if (student) navigate("/BasicStudent");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!student) return navigate("/StudentLogin");
+    fetchUserName();
   }, [student, loading]);
   return (
     <>
@@ -69,7 +96,10 @@ const StudentLogin = () => {
                     </div>
                     <button
                       className="btn"
-                      onClick={() => logInWithEmailAndPassword(email, password)}
+                      onClick={() =>
+                        logInWithEmailAndPassword(email, password) &&
+                        fetchUserName()
+                      }
                     >
                       Login
                     </button>

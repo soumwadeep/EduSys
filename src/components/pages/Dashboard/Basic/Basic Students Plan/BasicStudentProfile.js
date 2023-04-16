@@ -19,6 +19,7 @@ const BasicStudentProfile = () => {
   const [sec, setSec] = useState("");
   const [rollno, setRollno] = useState("");
   const [sem, setSem] = useState("");
+  const [plan, setPlan] = useState("");
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -35,9 +36,14 @@ const BasicStudentProfile = () => {
       setSec(data.sec);
       setRollno(data.rollno);
       setSem(data.sem);
+      setPlan(data.plan);
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/StudentLogin");
     }
   };
@@ -63,7 +69,9 @@ const BasicStudentProfile = () => {
                       Your
                       <span> Profile</span>
                     </h1>
-                    <h4>Plan:<span> Basic Plan</span></h4>
+                    <h4>
+                      Plan:<span> {plan}</span>
+                    </h4>
                     <h4>
                       Name:<span> {name}</span>
                     </h4>
