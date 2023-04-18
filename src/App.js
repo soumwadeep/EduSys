@@ -1,134 +1,134 @@
-import './App.css'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import NavBar from './components/Navbar'
-import Home from './components/pages/Home'
-import About from './components/pages/About'
-import Footer from './components/Footer'
-import Features from './components/pages/Features'
-import Pricing from './components/pages/Pricing'
-import Login from './components/pages/Login'
-import StudentLogin from './components/pages/StudentLogin'
-import TeacherLogin from './components/pages/TeacherLogin'
-import Contact from './components/pages/Contact'
-import ThankYou from './components/pages/ThankYou'
-import StudentRegistration from './components/pages/StudentRegistration'
-import TeacherRegistration from './components/pages/TeacherRegistration'
+import "./App.css";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import NavBar from "./components/Navbar";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
+import Footer from "./components/Footer";
+import Features from "./components/pages/Features";
+import Pricing from "./components/pages/Pricing";
+import Login from "./components/pages/Login";
+import StudentLogin from "./components/pages/StudentLogin";
+import TeacherLogin from "./components/pages/TeacherLogin";
+import Contact from "./components/pages/Contact";
+import ThankYou from "./components/pages/ThankYou";
+import StudentRegistration from "./components/pages/StudentRegistration";
+import TeacherRegistration from "./components/pages/TeacherRegistration";
 // Basic Student All
-import BasicStudent from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent'
-import BasicStudentProfile from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile'
-import BasicStudentUpdates from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates'
-import BasicStudentStudyMaterials from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials'
-import BasicStudentVirtualLabs from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs'
-import BasicStudentClasses from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses'
-import BasicStudentAssignments from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments'
-import BasicStudentClearDoubts from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClearDoubts'
-import BasicStudentQuiz from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentQuiz'
-import BasicStudentExtras from './components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras'
-import BasicStudentCalculator from './components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator'
-import BasicStudentTodo from './components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo'
-import BasicStudentTakeNotes from './components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes'
+import BasicStudent from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudent";
+import BasicStudentProfile from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentProfile";
+import BasicStudentUpdates from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentUpdates";
+import BasicStudentStudyMaterials from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentStudyMaterials";
+import BasicStudentVirtualLabs from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentVirtualLabs";
+import BasicStudentClasses from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClasses";
+import BasicStudentAssignments from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentAssignments";
+import BasicStudentClearDoubts from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentClearDoubts";
+import BasicStudentQuiz from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentQuiz";
+import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras";
+import BasicStudentCalculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
+import BasicStudentTodo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
+import BasicStudentTakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes";
 // Basic Teacher All
-import BasicTeacher from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher'
-import BasicTeacherUpdates from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates'
-import BasicTeacherClasses from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses'
-import BasicTeacherStudyMaterials from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherStudyMaterials'
-import BasicTeacherVirtualLabs from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherVirtualLabs'
-import BasicTeacherAssignments from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherAssignments'
-import BasicTeacherProfile from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherProfile'
-import BasicTeacherExtras from './components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherExtras'
-import BasicTeacherCalculator from './components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Calculator/Calculator'
-import BasicTeacherTodo from './components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Todo/Todo'
-import BasicTeacherTakeNotes from './components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/TakeNotes/TakeNotes'
+import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
+import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
+import BasicTeacherClasses from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherClasses";
+import BasicTeacherStudyMaterials from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherStudyMaterials";
+import BasicTeacherVirtualLabs from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherVirtualLabs";
+import BasicTeacherAssignments from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherAssignments";
+import BasicTeacherProfile from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherProfile";
+import BasicTeacherExtras from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherExtras";
+import BasicTeacherCalculator from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Calculator/Calculator";
+import BasicTeacherTodo from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/Todo/Todo";
+import BasicTeacherTakeNotes from "./components/pages/Dashboard/Basic/Basic Teachers Plan/ExtrasSection/TakeNotes/TakeNotes";
 // Pro Student All
-import ProStudent from './components/pages/Dashboard/Pro/Pro Students Plan/ProStudent'
+import ProStudent from "./components/pages/Dashboard/Pro/Pro Students Plan/ProStudent";
 // Pro Teacher All
-import ProTeacher from './components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher'
+import ProTeacher from "./components/pages/Dashboard/Pro/Pro Teachers Plan/ProTeacher";
 // All Common Pages
-import ResetPassword from './components/pages/ResetPassword'
-import DashboardFooter from './components/pages/Dashboard/DashboardFooter'
-import PrivacyPolicy from './components/pages/PrivacyPolicy'
-import Error from './components/pages/Error'
+import ResetPassword from "./components/pages/ResetPassword";
+import DashboardFooter from "./components/pages/Dashboard/DashboardFooter";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import Error from "./components/pages/Error";
 // import Note from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/Note";
 
 function App() {
-  const location = useLocation()
+  const location = useLocation();
   //Main Files
-  const isHomeRendering = location.pathname === '/Home'
-  const isAboutRendering = location.pathname === '/About'
-  const isFeaturesRendering = location.pathname === '/Features'
-  const isPricingRendering = location.pathname === '/Pricing'
-  const isLoginRendering = location.pathname === '/Login'
+  const isHomeRendering = location.pathname === "/Home";
+  const isAboutRendering = location.pathname === "/About";
+  const isFeaturesRendering = location.pathname === "/Features";
+  const isPricingRendering = location.pathname === "/Pricing";
+  const isLoginRendering = location.pathname === "/Login";
   // Sub Files
-  const isThankYouRendering = location.pathname === '/ThankYou'
-  const isResetPasswordRendering = location.pathname === '/ResetPassword'
-  const isPrivacyPolicyRendering = location.pathname === '/PrivacyPolicy'
-  const isErrorRendering = location.pathname === '/404'
+  const isThankYouRendering = location.pathname === "/ThankYou";
+  const isResetPasswordRendering = location.pathname === "/ResetPassword";
+  const isPrivacyPolicyRendering = location.pathname === "/PrivacyPolicy";
+  const isErrorRendering = location.pathname === "/404";
 
   // Basic Students Plan
-  const isBasicStudentsRendering = location.pathname === '/BasicStudent'
+  const isBasicStudentsRendering = location.pathname === "/BasicStudent";
   const isBasicStudentsUpdatesRendering =
-    location.pathname === '/BasicStudent/Updates'
+    location.pathname === "/BasicStudent/Updates";
   const isBasicStudentsStudyMaterialsRendering =
-    location.pathname === '/BasicStudent/StudyMaterials'
+    location.pathname === "/BasicStudent/StudyMaterials";
   const isBasicStudentsVirtualLabsRendering =
-    location.pathname === '/BasicStudent/VirtualLabs'
+    location.pathname === "/BasicStudent/VirtualLabs";
   const isBasicStudentsClassesRendering =
-    location.pathname === '/BasicStudent/Classes'
+    location.pathname === "/BasicStudent/Classes";
   const isBasicStudentsAssignmentsRendering =
-    location.pathname === '/BasicStudent/Assignments'
+    location.pathname === "/BasicStudent/Assignments";
   const isBasicStudentsProfileRendering =
-    location.pathname === '/BasicStudent/Profile'
+    location.pathname === "/BasicStudent/Profile";
   const isBasicStudentsClearDoubtsRendering =
-    location.pathname === '/BasicStudent/ClearDoubts'
+    location.pathname === "/BasicStudent/ClearDoubts";
   const isBasicStudentsQuizRendering =
-    location.pathname === '/BasicStudent/PlayQuiz'
+    location.pathname === "/BasicStudent/PlayQuiz";
   const isBasicStudentsExtrasRendering =
-    location.pathname === '/BasicStudent/Extras'
+    location.pathname === "/BasicStudent/Extras";
   // Basic Students Plan Extras
   const isBasicStudentsCalculatorRendering =
-    location.pathname === '/BasicStudent/Extras/Calculator'
+    location.pathname === "/BasicStudent/Extras/Calculator";
   const isBasicStudentsTodoRendering =
-    location.pathname === '/BasicStudent/Extras/Todo'
+    location.pathname === "/BasicStudent/Extras/Todo";
   const isBasicStudentsTakeNotesRendering =
-    location.pathname === '/BasicStudent/Extras/TakeNotes'
+    location.pathname === "/BasicStudent/Extras/TakeNotes";
   // Basic Teachers Plans
-  const isBasicTeachersRendering = location.pathname === '/BasicTeacher'
+  const isBasicTeachersRendering = location.pathname === "/BasicTeacher";
   const isBasicTeachersUpdatesRendering =
-    location.pathname === '/BasicTeacher/Updates'
+    location.pathname === "/BasicTeacher/Updates";
   const isBasicTeachersClassesRendering =
-    location.pathname === '/BasicTeacher/Classes'
+    location.pathname === "/BasicTeacher/Classes";
   const isBasicTeachersStudyMaterialsRendering =
-    location.pathname === '/BasicTeacher/StudyMaterials'
+    location.pathname === "/BasicTeacher/StudyMaterials";
   const isBasicTeachersVirtualLabsRendering =
-    location.pathname === '/BasicTeacher/VirtualLabs'
+    location.pathname === "/BasicTeacher/VirtualLabs";
   const isBasicTeachersAssignmentsRendering =
-    location.pathname === '/BasicTeacher/Assignments'
+    location.pathname === "/BasicTeacher/Assignments";
   const isBasicTeachersProfileRendering =
-    location.pathname === '/BasicTeacher/Profile'
+    location.pathname === "/BasicTeacher/Profile";
   // Basic Teachers Plan Extras
   const isBasicTeachersExtrasRendering =
-    location.pathname === '/BasicTeacher/Extras'
+    location.pathname === "/BasicTeacher/Extras";
   const isBasicTeachersCalculatorRendering =
-    location.pathname === '/BasicTeacher/Extras/Calculator'
+    location.pathname === "/BasicTeacher/Extras/Calculator";
   const isBasicTeachersTodoRendering =
-    location.pathname === '/BasicTeacher/Extras/Todo'
+    location.pathname === "/BasicTeacher/Extras/Todo";
   const isBasicTeachersTakeNotesRendering =
-    location.pathname === '/BasicTeacher/Extras/TakeNotes'
+    location.pathname === "/BasicTeacher/Extras/TakeNotes";
 
   // Pro Students Plans
-  const isProStudentsRendering = location.pathname === '/ProStudent'
+  const isProStudentsRendering = location.pathname === "/ProStudent";
   // Pro Teachers Plans
-  const isProTeachersRendering = location.pathname === '/ProTeacher'
+  const isProTeachersRendering = location.pathname === "/ProTeacher";
   //Login Part
-  const isStudentLoginRendering = location.pathname === '/StudentLogin'
-  const isTeacherLoginRendering = location.pathname === '/TeacherLogin'
+  const isStudentLoginRendering = location.pathname === "/StudentLogin";
+  const isTeacherLoginRendering = location.pathname === "/TeacherLogin";
   //Contact
-  const isContactRendering = location.pathname === '/Contact'
+  const isContactRendering = location.pathname === "/Contact";
   //Registration Part
   const isStudentRegistrationRendering =
-    location.pathname === '/StudentRegistration'
+    location.pathname === "/StudentRegistration";
   const isTeacherRegistrationRendering =
-    location.pathname === '/TeacherRegistration'
+    location.pathname === "/TeacherRegistration";
 
   return (
     <>
@@ -353,6 +353,6 @@ function App() {
         !isPrivacyPolicyRendering &&
         !isErrorRendering && <DashboardFooter />}
     </>
-  )
+  );
 }
-export default App
+export default App;

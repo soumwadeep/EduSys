@@ -34,14 +34,16 @@ span {
 #google_translate_element a {
   display: none;
 }
-.translator
-{
+
+.translator {
   display: block;
-  overflow: hidden!important;
+  overflow: hidden !important;
 }
+
 div.goog-te-gadget {
   color: transparent !important;
 }
+
 .goog-te-combo {
   border: 2px solid #f53803 !important;
   border-radius: 15px;
@@ -49,6 +51,40 @@ div.goog-te-gadget {
   /* margin-top: -0.05px!important; */
   font-family: "Itim", cursive !important;
   color: black;
+}
+
+.itemslink {
+  position: fixed;
+  right: 0;
+  padding: 20px;
+}
+
+#itemslinkbtn {
+  background: linear-gradient(to left bottom, var(--g-color1), var(--g-color2));
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
+  color: white !important;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+@media screen and (min-width:300px) and (max-width:1366px) {
+  .itemslink {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+
+  #itemslinkbtn {
+    padding: 10px;
+    width: 100%;
+    max-width: 150px;
+    margin-right: 10px;
+  }
 }
 
 /* @media screen and (max-width: 962px) {

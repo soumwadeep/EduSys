@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import BasicStudentSidebar from "../../BasicStudentSidebar";
 import swal from "sweetalert";
+import ExtrasItemsNav from "../ExtrasItemsNav";
 
 const Todos = () => {
   useEffect(() => {
@@ -104,6 +105,7 @@ const Todos = () => {
   return (
     <section id="TodoApp">
       <BasicStudentSidebar />
+      <ExtrasItemsNav/>
       <h1>
         Your <span>Todos</span>
       </h1>

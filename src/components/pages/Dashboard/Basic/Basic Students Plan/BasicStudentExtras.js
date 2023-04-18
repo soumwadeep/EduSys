@@ -7,11 +7,12 @@ import swal from "sweetalert";
 import { NavLink } from "react-router-dom";
 import Extras from "../../../../../img/Designer.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
+import { Helmet } from "react-helmet";
 
 const BasicStudentExtras = () => {
-  useEffect(() => {
-    document.title = "Your Extras Section | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Your Extras Section | EduSys";
+  // }, []);
   const [student, loading, err] = useAuthState(auth);
   const navigate = useNavigate();
   const fetchUserName = async () => {
@@ -39,6 +40,17 @@ const BasicStudentExtras = () => {
   }, [student, loading]);
   return (
     <section id="basicstudentextras">
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To EduSys's Extras's Section!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Extras Section Edusys,Extras Section,Extras Section Of EduSys,Extras Section Of EduSys,Extras Portal Of EduSys,Extras Portal,Scientific Calculator Of Edusys,Todo App Edusys,Take Notes App Edusys"
+        />
+        <title>Your Extras Section | EduSys</title>
+      </Helmet>
       <BasicStudentSidebar />
       <div className="container">
         <div className="row">

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, db,logout } from "../../../../firebase";
+import { auth, db, logout } from "../../../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicDashboard1 from "../../../../../img/BasicDashboard1.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 const BasicStudent = () => {
   useEffect(() => {
     document.title = `Welcome ${name} | EduSys`;
+    console.log(name);
   }, []);
 
   const [user, loading, error] = useAuthState(auth);
@@ -37,7 +39,11 @@ const BasicStudent = () => {
       swal(`${greet} ${data.name}`, "Welcome To Our Dashboard!", "success");
     } catch (err) {
       logout();
-      swal("Error!", "We Got An Error Fetching Your Data.Please Login Again!", "error");
+      swal(
+        "Error!",
+        "We Got An Error Fetching Your Data.Please Login Again!",
+        "error"
+      );
       return navigate("/StudentLogin");
     }
   };
@@ -49,6 +55,16 @@ const BasicStudent = () => {
   }, [user, loading]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To EduSys's Student Dashboard!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Student's Dashboard,Basic Plan,Student's Dashboard Of Basic Plan,Student's Dashboard Of Basic Plan Of EduSys,Student's Dashboard Of Basic Plan Of EduSys India,Student's Dashboard Of Basic Plan Of EduSys India"
+        />
+      </Helmet>
       <section id="basicstudent">
         <BasicStudentSidebar />
         <div className="container">
@@ -87,20 +103,22 @@ const BasicStudent = () => {
                       On The Assignments Button.
                     </p>
                     <p>
-                      <span>6.</span> To Practice Lab Practicals On <span>Virtual Labs</span> Click
-                      On The Virtual Labs Button.
+                      <span>6.</span> To Practice Lab Practicals On{" "}
+                      <span>Virtual Labs</span> Click On The Virtual Labs
+                      Button.
                     </p>
                     <p>
-                      <span>7.</span> To Get Some Required Tools Like <span>Calculator,Todos & Take Notes</span> Click
-                      On The Extras Button.
+                      <span>7.</span> To Get Some Required Tools Like{" "}
+                      <span>Calculator,Todos & Take Notes</span> Click On The
+                      Extras Button.
                     </p>
                     <p>
-                      <span>8.</span> To Play <span>Quiz</span> Click
-                      On The Play Quiz Button.
+                      <span>8.</span> To Play <span>Quiz</span> Click On The
+                      Play Quiz Button.
                     </p>
                     <p>
-                      <span>9.</span> To Clear Your <span>Doubts</span> Click
-                      On The 24x7 Doubt Clearing Button.
+                      <span>9.</span> To Clear Your <span>Doubts</span> Click On
+                      The 24x7 Doubt Clearing Button.
                     </p>
                     <p>
                       <span>10.</span> To Know The Details Of Your{" "}
@@ -111,7 +129,10 @@ const BasicStudent = () => {
                       Log Out Button.
                     </p>
                     <p>
-                      <span>12.</span> To <span>Translate Any Page To Your Favourite Language</span> Just Select Your Language From The Dropdown Provided In The Footer.
+                      <span>12.</span> To{" "}
+                      <span>Translate Any Page To Your Favourite Language</span>{" "}
+                      Just Select Your Language From The Dropdown Provided In
+                      The Footer.
                     </p>
                   </div>
                 </div>

@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import swal from "sweetalert";
 import TakeNotesBody from "./TakeNotesBody";
+import ExtrasItemsNav from "../ExtrasItemsNav";
 
 const TakeNotes = () => {
   useEffect(() => {
@@ -131,6 +132,7 @@ const TakeNotes = () => {
     <>
       <section id="basicstudenttodo">
         <BasicStudentSidebar />
+        <ExtrasItemsNav/>
         <center>
           <h1>
             <span>Take Notes</span>

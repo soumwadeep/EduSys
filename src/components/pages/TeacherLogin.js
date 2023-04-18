@@ -5,11 +5,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import swal from "sweetalert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import teacherloginimg from "../../img/TeacherLogin.svg";
+import { Helmet } from "react-helmet";
 
 const TeacherLogin = () => {
-  useEffect(() => {
-    document.title = "Teacher's Login | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Teacher's Login | EduSys";
+  // }, []);
   const [facultynum, setFacultynum] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,6 +61,17 @@ const TeacherLogin = () => {
   }, [teacher, loading]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To Teacher's Login Section Of EduSys!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Teacher's Login EduSys,Teacher's Login,Teacher's Login Section,Teacher's Login Section Of EduSys,Teacher Login Portal Of EduSys,Teacher's Login Portal"
+        />
+        <title>Teacher's Login | EduSys</title>
+      </Helmet>
       <section id="login">
         <div className="row">
           <div className="col-sm">

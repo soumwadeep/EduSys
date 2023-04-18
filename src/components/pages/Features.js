@@ -1,11 +1,23 @@
 import React, { useEffect } from "react";
 import feature1 from "../../img/feature1.svg";
+import { Helmet } from "react-helmet";
 const Features = () => {
-  useEffect(() => {
-    document.title = "Features | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Features | EduSys";
+  // }, []);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To EduSys's Features Section!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Edusys Features,EduSys's Features,Edu Features,Features,Features Of EduSys,Features Of EduSys's,Features Of Edu,Features Of EduSys,Features Of EduSys's,Features Of Edu,Best Features"
+        />
+        <title>Features | EduSys</title>
+      </Helmet>
       <section id="features">
         <h1>
           Our <span>Features</span>
@@ -91,7 +103,7 @@ const Features = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="row">
               <div className="col-sm">
                 <div className="featureTable">

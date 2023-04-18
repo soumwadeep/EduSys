@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import contact1 from "../../img/contact1.svg";
+import { Helmet } from "react-helmet";
 const Contact = () => {
-  useEffect(() => {
-    document.title = "Contact | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Contact | EduSys";
+  // }, []);
   function ShowHideDiv() {
     var selectedChoice = document.getElementById("selectedChoice");
     var selectedPlan = document.getElementById("selectedPlan");
@@ -12,6 +13,14 @@ const Contact = () => {
   }
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Contact EduSys Now!" />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Contact Sales,Contact Edusys,Contact EduSys,Contact EduSys's,Contact Edu,Contact Us,Contact Us Now,Contact Us Now!,Contact"
+        />
+        <title>Contact | EduSys</title>
+      </Helmet>
       <section id="contact">
         <div className="row">
           <div className="col-sm">

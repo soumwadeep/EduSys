@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import about1 from "../../img/about1.svg";
+import { Helmet } from "react-helmet";
 const About = () => {
-  useEffect(() => {
-    document.title = "About | EduSys";
-  }, []);
+  // To add heading without using helmet
+  // useEffect(() => {
+  //   document.title = "About | EduSys";
+  // }, []);
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Welcome To EduSys's About Section!" />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,About Edusys,About EduSys,About EduSys's,About Edu"
+        />
+        <title>About | EduSys</title>
+      </Helmet>
       <section id="about">
         <div className="row">
           <div className="col-sm">

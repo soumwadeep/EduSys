@@ -1,12 +1,24 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import pricing1 from "../../img/pricing1.svg";
+import { Helmet } from "react-helmet";
 const Pricing = () => {
-  useEffect(() => {
-    document.title = "Pricing | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Pricing | EduSys";
+  // }, []);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Start With Your Most Preferred Plan At EduSys!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Login,Login To EduSys,Login To EduSys's,Login To Edu,Log,Sign In Edusys,Sign In,Si,Cheapest Packs,Lowest Price,Lowest Price Packs,Lowest Price Packs In India,Lowest Price Packs In,Lowest,Most Cheapest Complete Pack For All Your e-Learning Needs,Most Cheapest Complete Pack For All Your e-Learning Needs In India,Most Cheapest Complete Pack For All Your e-Learning Needs In,Rs.99 Packs"
+        />
+        <title>Pricing | EduSys</title>
+      </Helmet>
       <section id="pricing">
         <div className="row">
           <div className="col-sm">
@@ -47,7 +59,8 @@ const Pricing = () => {
             </h1>
             <br />
             <marquee direction="left" className="pricing-marquee">
-              We Are Providing Our Exclusive Virtual-Lab Feature For Free In Our Basic Plan For Limited Time.Enjoy!
+              We Are Providing Our Exclusive Virtual-Lab Feature For Free In Our
+              Basic Plan For Limited Time.Enjoy!
             </marquee>
             <br />
             <div className="row justify-content-md-center">
@@ -88,11 +101,18 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="/Contact"
-                    onClick={() => {
-                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    }}
-                    >Sign Up</NavLink>
+                    <NavLink
+                      to="/Contact"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      Sign Up
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -132,11 +152,18 @@ const Pricing = () => {
                     </li>
                   </ul>
                   <div className="pricingTable-signup">
-                    <NavLink to="/Contact"
-                    onClick={() => {
-                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    }}
-                    >Sign Up</NavLink>
+                    <NavLink
+                      to="/Contact"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      Sign Up
+                    </NavLink>
                   </div>
                 </div>
               </div>

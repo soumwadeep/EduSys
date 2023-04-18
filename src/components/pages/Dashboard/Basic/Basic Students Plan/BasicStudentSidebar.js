@@ -163,7 +163,8 @@ const BasicStudentSidebar = () => {
               toggleNav();
             }}
           >
-            <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;24x7 Doubt Clearing
+            <i className="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;24x7
+            Doubt Clearing
           </NavLink>
           <br />
           <NavLink

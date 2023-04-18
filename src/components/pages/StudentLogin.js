@@ -5,11 +5,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import swal from "sweetalert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import login1 from "../../img/login1.svg";
+import { Helmet } from "react-helmet";
 
 const StudentLogin = () => {
-  useEffect(() => {
-    document.title = "Student's Login | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Student's Login | EduSys";
+  // }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [student, loading] = useAuthState(auth);
@@ -22,12 +23,9 @@ const StudentLogin = () => {
       );
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
-      console.log(data);
       if (data.email === email && data.plan === "Basic Student") {
-        console.log("Success", data.plan);
         return navigate("/BasicStudent");
       } else if (data.email === email && data.plan === "Pro Student") {
-        console.log("Success", data.plan);
         return navigate("/ProStudent");
       } else {
         swal("Error!", "Please Enter Correct Student Email Address!", "error");
@@ -50,6 +48,17 @@ const StudentLogin = () => {
   }, [student, loading]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To Student's Login Section Of EduSys!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Student's Login EduSys,Student's Login,Student's Login Section,Student's Login Section Of EduSys,Student Login Section Of EduSys,Student Login Portal Of EduSys,Student's Login Portal"
+        />
+        <title>Student's Login | EduSys</title>
+      </Helmet>
       <section id="login">
         <div className="row">
           <div className="col-sm">

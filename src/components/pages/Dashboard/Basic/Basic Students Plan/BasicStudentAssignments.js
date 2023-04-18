@@ -6,11 +6,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicAssignment from "../../../../../img/BasicAssignment.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const BasicStudentAssignments = () => {
-  useEffect(() => {
-    document.title = "Your Assignments | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Your Assignments | EduSys";
+  // }, []);
   var BasicStudentAssignmentsLink, BasicStudentSubmitAssignmentsLink;
   const [student, loading, error] = useAuthState(auth);
   const [sem, setSem] = useState("");
@@ -64,6 +65,17 @@ const BasicStudentAssignments = () => {
   // }
   return (
     <>
+    <Helmet>
+        <meta
+          name="description"
+          content="Welcome To EduSys's Student Assignment's Section!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Student's Assignments Of EduSys,Student's Assignments,Student Assignment Section,Student Assignment Section Of EduSys"
+        />
+        <title>Your Assignments | EduSys</title>
+      </Helmet>
       <section id="basicstudentAssignments">
         <BasicStudentSidebar />
         <div className="container">

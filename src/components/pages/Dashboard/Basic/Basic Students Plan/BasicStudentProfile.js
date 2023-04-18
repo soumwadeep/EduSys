@@ -6,11 +6,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import BasicDashboardProfile from "../../../../../img/BasicDashboardProfile.svg";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const BasicStudentProfile = () => {
-  useEffect(() => {
-    document.title = "Your Profile | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Your Profile | EduSys";
+  // }, []);
 
   const [student, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -57,6 +58,17 @@ const BasicStudentProfile = () => {
 
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To Edusys's Profile Section!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Basic Student Profile Section Of Edusys"
+        />
+        <title>Your Profile | EduSys</title>
+      </Helmet>
       <section id="basicuserprofile">
         <BasicStudentSidebar />
         <div className="container">

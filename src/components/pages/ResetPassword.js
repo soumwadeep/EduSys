@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { sendPasswordReset } from "../firebase";
 import reset1 from "../../img/reset1.svg";
+import { Helmet } from "react-helmet";
 
 const ResetPassword = () => {
-  useEffect(() => {
-    document.title = "Reset Password | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Reset Password | EduSys";
+  // }, []);
   const [email, setEmail] = useState("");
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Reset Your EduSys Password Now!" />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Reset Your Password,Reset Password,Reset Password EduSys,One Click Reset Password"
+        />
+        <title>Reset Password | EduSys</title>
+      </Helmet>
       <section id="login">
         <div className="row">
           <div className="col-sm">

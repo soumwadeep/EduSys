@@ -4,10 +4,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { auth, registerStudentWithEmailAndPassword } from "../firebase";
 import register1 from "../../img/register1.svg";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
+
 const StudentRegistration = () => {
-  useEffect(() => {
-    document.title = "Student's Registration | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Student's Registration | EduSys";
+  // }, []);
 
   const [name, setName] = useState("");
   const [dept, setDept] = useState("");
@@ -35,11 +37,9 @@ const StudentRegistration = () => {
       swal("Error!", "Please Enter Your Email To Continue.", "error");
     } else if (!password) {
       swal("Error!", "Please Enter Your Password To Continue.", "error");
-    }
-    else if (!plan) {
+    } else if (!plan) {
       swal("Error!", "Please Select Your Plan To Continue.", "error");
-    }  
-    else {
+    } else {
       registerStudentWithEmailAndPassword(
         name,
         email,
@@ -63,6 +63,17 @@ const StudentRegistration = () => {
   }, [student, loading]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Register As A Student Of EduSys Now!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Student's Registration Edusys,Student's Registration in India,Student Registration Section Of Edusys,Student Registration Portal,Student Registration Portal Of Edusys,Edusys Student Registration"
+        />
+        <title>Student's Registration | EduSys</title>
+      </Helmet>
       <section id="register">
         <div className="row">
           <div className="col-sm">

@@ -4,10 +4,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { auth, registerTeacherWithEmailAndPassword } from "../firebase";
 import register1 from "../../img/register1.svg";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
+
 const TeacherRegistration = () => {
-  useEffect(() => {
-    document.title = "Teacher's Registration | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Teacher's Registration | EduSys";
+  // }, []);
 
   const [name, setName] = useState("");
   const [dept, setDept] = useState("");
@@ -56,6 +58,17 @@ const TeacherRegistration = () => {
   }, [teacher, loading]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Register As An EduSys Teacher And Guide Our Students To Get Successfull In Their Life!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Teacher Registration,Teacher Registration in,Teacher Registration in India,Tutor Registration,Tutor Registration in,Tutor Registration in India,Teacher Registration Portal Of EduSys,Teacher's Registration Portal Of EduSys,Edusys Teacher Registration"
+        />
+        <title>Teacher's Registration | EduSys</title>
+      </Helmet>
       <section id="register">
         <div className="row">
           <div className="col-sm">

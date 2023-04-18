@@ -3,12 +3,21 @@ import { NavLink } from "react-router-dom";
 import login1 from "../../img/login1.svg";
 import studentimg from "../../img/Student.svg";
 import teacherimg from "../../img/Teacher.svg";
+import { Helmet } from "react-helmet";
 const Pricing = () => {
-  useEffect(() => {
-    document.title = "Login | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Login | EduSys";
+  // }, []);
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Login To EduSys To Get Started!" />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Login,Login To EduSys,Login To EduSys's,Login To Edu,Log,Sign In Edusys,Sign In,Si"
+        />
+        <title>Login | EduSys</title>
+      </Helmet>
       <section id="login">
         <div className="container">
           <div className="row">

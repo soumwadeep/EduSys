@@ -1,13 +1,21 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import home1 from "../../img/home1.svg";
+import { Helmet } from "react-helmet";
 const Home = () => {
-  
-  useEffect(() => {
-    document.title = "Home | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Home | EduSys";
+  // }, []);
 
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Welcome To EduSys!" />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in"
+        />
+        <title>Home | EduSys</title>
+      </Helmet>
       <section id="home">
         <div className="row">
           <div className="col-sm">

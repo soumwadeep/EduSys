@@ -1,13 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Helmet } from "react-helmet";
 
 const PrivacyPolicy = () => {
-  useEffect(() => {
-    document.title = "Privacy Policy | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Privacy Policy | EduSys";
+  // }, []);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Trasparent Privacy Policies Of EduSys!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Privacy Policy,Privacy Policy of EduSys,Privacy Policy of EduSys India,Privacy Policy of EduSys in India,Privacy Policy of EduSys in,Privacy Policy of EduSys"
+        />
+        <title>Privacy Policy | EduSys</title>
+      </Helmet>
       <section id="privacypolicy">
-        <h1>Privacy <span>Policy</span></h1>
+        <h1>
+          Privacy <span>Policy</span>
+        </h1>
         <p>Last updated: February 09, 2023</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the

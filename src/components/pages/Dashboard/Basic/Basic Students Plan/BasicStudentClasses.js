@@ -6,11 +6,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import BasicClasses from "../../../../../img/BasicClasses.svg";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const BasicStudentClasses = () => {
-  useEffect(() => {
-    document.title = "Your Live Classes | EduSys";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Your Live Classes | EduSys";
+  // }, []);
   var BasicStudentClassesLink;
   const [student, loading, error] = useAuthState(auth);
   const [sem, setSem] = useState("");
@@ -58,6 +59,18 @@ const BasicStudentClasses = () => {
   }
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Welcome To EduSys's Live Classes's Section!"
+        />
+        <meta
+          name="keywords"
+          content="EduSys,Byjus,Aakash,Allen,Smart Class,Recorder Videos,Notes,Books,Cheap,Free,Online,Offline,India,Best education system,education system,education,edusys,edusys india,edusys,Best e-Learning Platform,edusys e-learning,edusys e-learning system,edusys e-learning system in,Live Classes Section Edusys,Live Classes Section Byjus,Live Classes Section Aakash,Live Classes Section Allen,Live Classes Section Smart Class,Live Classes Section Recorder Videos,Live Classes Section Notes,Live Classes Section Books,Live Classes Section Cheap,Live Classes Section Free,Live Classes Section Online,Live Classes Section Offline,Live Classes Section India,Live Classes Section Best education system,Live Classes Section education system,Live Classes Section education,Live Classes Section edusys,Live Classes Section edusys india,Live Classes Section edusys,Best e-Learning Platform,Live Classes Section edusys e-learning,Live Classes Section edusys e-learning system,Live Classes Section edusys e-learning system in,
+          Recorded Classes Of Edusys,Recorded Classes Of Byjus,Recorded Classes Of Aakash,Recorded Classes Of Allen,Recorded Classes Of Smart Class,Recorded Classes Of Recorder Videos,Recorded Classes Of Notes,Recorded Classes Of Books,Recorded Classes Of Cheap,Recorded Classes Of Free,Recorded Classes Of Online,Recorded Classes Of Offline,Recorded Classes Of India,Recorded Classes Of Best education system,Recorded Classes Of education system,Recorded Classes Of education,Recorded Classes Of edusys,Recorded Classes Of edusys india,Recorded Classes Of edusys,Best e-Learning Platform,Recorded Classes Of edusys e-learning,Recorded Classes Of edusys e-learning system,Recorded Classes Of edusys e-learning system in,"
+        />
+        <title>Your Live Classes | EduSys</title>
+      </Helmet>
       <section id="basicstudentclasses">
         <BasicStudentSidebar />
         <div className="container">

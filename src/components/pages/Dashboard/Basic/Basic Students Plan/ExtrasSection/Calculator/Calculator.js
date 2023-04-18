@@ -5,6 +5,7 @@ import { auth, db, logout } from "../../../../../../firebase";
 import { query, collection, where } from "firebase/firestore";
 import swal from "sweetalert";
 import BasicStudentSidebar from "../../BasicStudentSidebar";
+import ExtrasItemsNav from "../ExtrasItemsNav";
 
 const Calculator = () => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const Calculator = () => {
   return (
     <section id="Calculator">
       <BasicStudentSidebar />
+      <ExtrasItemsNav/>
       <h1>
         <span>Scientific </span>Calculator
       </h1>
