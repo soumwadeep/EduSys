@@ -124,6 +124,18 @@ div.goog-te-gadget {
   height: auto;
 }
 
+.btnred {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+}
+
 .h2bg {
   background: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
   color: white;

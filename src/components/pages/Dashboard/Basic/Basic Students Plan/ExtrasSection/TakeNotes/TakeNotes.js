@@ -133,8 +133,8 @@ const TakeNotes = () => {
     <>
       <section id="basicstudenttodo">
         <BasicStudentSidebar />
-        <ExtrasItemsNav/>
-        {/* <Notes/> */}
+        <ExtrasItemsNav />
+        <Notes />
         <center>
           <h1>
             <span>Take Notes</span>
