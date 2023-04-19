@@ -28,7 +28,7 @@ const StudentLogin = () => {
       } else if (data.email === email && data.plan === "Pro Student") {
         return navigate("/ProStudent");
       } else {
-        swal("Error!", "Please Enter Correct Student Email Address!", "error");
+        swal("Error!", "Please Enter Correct Student Email ID To Continue!", "error");
         return navigate("/StudentLogin");
       }
     } catch (err) {

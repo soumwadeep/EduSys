@@ -17,6 +17,7 @@ import {
 import swal from "sweetalert";
 import TakeNotesBody from "./TakeNotesBody";
 import ExtrasItemsNav from "../ExtrasItemsNav";
+import Notes from "./Notes";
 
 const TakeNotes = () => {
   useEffect(() => {
@@ -133,6 +134,7 @@ const TakeNotes = () => {
       <section id="basicstudenttodo">
         <BasicStudentSidebar />
         <ExtrasItemsNav/>
+        {/* <Notes/> */}
         <center>
           <h1>
             <span>Take Notes</span>
