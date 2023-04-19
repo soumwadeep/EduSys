@@ -19,12 +19,13 @@ const BasicStudent = () => {
 
   var today = new Date();
   var curHr = today.getHours();
+  var greet;
   if (curHr < 12) {
-    var greet = "Good Morning";
+    greet = "Good Morning";
   } else if (curHr < 16) {
-    var greet = "Good Afternoon";
+    greet = "Good Afternoon";
   } else {
-    var greet = "Good Evening";
+    greet = "Good Evening";
   }
 
   const fetchUserName = async () => {

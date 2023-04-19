@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import feature1 from "../../img/feature1.svg";
 import { Helmet } from "react-helmet";
 const Features = () => {

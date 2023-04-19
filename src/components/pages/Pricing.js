@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import pricing1 from "../../img/pricing1.svg";
 import { Helmet } from "react-helmet";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { sendPasswordReset } from "../firebase";
 import reset1 from "../../img/reset1.svg";
 import { Helmet } from "react-helmet";

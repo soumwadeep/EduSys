@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import contact1 from "../../img/contact1.svg";
 import { Helmet } from "react-helmet";
 const Contact = () => {
