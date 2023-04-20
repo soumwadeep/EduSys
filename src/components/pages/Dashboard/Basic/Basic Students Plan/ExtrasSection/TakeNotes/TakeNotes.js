@@ -134,7 +134,7 @@ const TakeNotes = () => {
       <section id="basicstudenttodo">
         <BasicStudentSidebar />
         <ExtrasItemsNav />
-        <Notes />
+        {/* <Notes /> */}
         <center>
           <h1>
             <span>Take Notes</span>

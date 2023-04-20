@@ -26,7 +26,7 @@ import BasicStudentQuiz from "./components/pages/Dashboard/Basic/Basic Students 
 import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Students Plan/BasicStudentExtras";
 import BasicStudentCalculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
 import BasicStudentTodo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
-import BasicStudentTakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/TakeNotes";
+import BasicStudentTakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/Notes";
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
