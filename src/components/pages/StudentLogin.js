@@ -34,9 +34,9 @@ const StudentLogin = () => {
     } catch (err) {
       logout();
       swal(
-        "Error!",
-        "We Got An Error Fetching Your Data.Please Login Again!",
-        "error"
+        "Login Failed!",
+        "We Got An Error Fetching Your Data.Please Wait While We Retry Your Login!",
+        "warning"
       );
       return navigate("/StudentLogin");
     }
