@@ -10,7 +10,6 @@ import { Helmet } from "react-helmet";
 const BasicStudent = () => {
   useEffect(() => {
     document.title = `Welcome ${name} | EduSys`;
-    console.log(name);
   }, []);
 
   const [user, loading, error] = useAuthState(auth);
