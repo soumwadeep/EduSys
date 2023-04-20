@@ -36,6 +36,9 @@ const toolbarOptions = [
 ];
 
 const Notes = () => {
+  useEffect(() => {
+    document.title = "Your Notes | EduSys";
+  }, []);
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState(null);
   const [quill, setQuill] = useState(null);
@@ -79,7 +82,7 @@ const Notes = () => {
 
   useEffect(() => {
     const fetchNotes = async () => {
-      const notesCollection = collection(db, "notes");
+      const notesCollection = collection(db, "Students", "Notes", student.email);
       const notesSnapshot = await getDocs(notesCollection);
       const notesData = notesSnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -153,7 +156,7 @@ const Notes = () => {
     }
 
     if (currentNote) {
-      const noteRef = doc(db, "notes", currentNote.id);
+      const noteRef = doc(db, "Students", "Notes", student.email, currentNote.id);
       await updateDoc(noteRef, { content });
       const updatedNotes = notes.map((note) =>
         note.id === currentNote.id ? { ...note, content } : note
@@ -161,7 +164,7 @@ const Notes = () => {
       setNotes(updatedNotes);
       swal("Updated!", "Your Note Has Been Updated Successfully!", "success");
     } else {
-      const noteRef = await addDoc(collection(db, "notes"), { content });
+      const noteRef = await addDoc(collection(db, "Students", "Notes", student.email), { content });
       const newNote = { id: noteRef.id, content };
       setNotes([...notes, newNote]);
       setCurrentNote(newNote);
@@ -175,7 +178,7 @@ const Notes = () => {
 
   const handleDeleteClick = async () => {
     if (currentNote) {
-      const noteRef = doc(db, "notes", currentNote.id);
+      const noteRef = doc(db, "Students", "Notes", student.email, currentNote.id);
       await deleteDoc(noteRef);
       const updatedNotes = notes.filter((note) => note.id !== currentNote.id);
       setNotes(updatedNotes);
