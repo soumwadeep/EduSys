@@ -114,7 +114,7 @@ const Footer = () => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     }}
                   >
-                    Fess Payment
+                    Fees Payment
                   </NavLink>
                 </p>
                 <p>
