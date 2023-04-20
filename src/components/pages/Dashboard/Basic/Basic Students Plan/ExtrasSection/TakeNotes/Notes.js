@@ -50,8 +50,6 @@ const Notes = () => {
         collection(db, "Students"),
         where("uid", "==", student?.uid)
       );
-      // const doc = await getDocs(q);
-      // const data = doc.docs[0].data();
     } catch (err) {
       logout();
       swal(
@@ -82,7 +80,12 @@ const Notes = () => {
 
   useEffect(() => {
     const fetchNotes = async () => {
-      const notesCollection = collection(db, "Students", "Notes", student.email);
+      const notesCollection = collection(
+        db,
+        "Students",
+        "Notes",
+        student.email
+      );
       const notesSnapshot = await getDocs(notesCollection);
       const notesData = notesSnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -129,7 +132,10 @@ const Notes = () => {
     }
   };
 
+  const [saveButton, setSaveButton] = useState("Save");
+
   const handleSaveClick = async () => {
+    setSaveButton("Saving...");
     const content = quill.root.innerHTML;
     const size = new Blob([content]).size;
 
@@ -156,7 +162,13 @@ const Notes = () => {
     }
 
     if (currentNote) {
-      const noteRef = doc(db, "Students", "Notes", student.email, currentNote.id);
+      const noteRef = doc(
+        db,
+        "Students",
+        "Notes",
+        student.email,
+        currentNote.id
+      );
       await updateDoc(noteRef, { content });
       const updatedNotes = notes.map((note) =>
         note.id === currentNote.id ? { ...note, content } : note
@@ -164,21 +176,34 @@ const Notes = () => {
       setNotes(updatedNotes);
       swal("Updated!", "Your Note Has Been Updated Successfully!", "success");
     } else {
-      const noteRef = await addDoc(collection(db, "Students", "Notes", student.email), { content });
+      const noteRef = await addDoc(
+        collection(db, "Students", "Notes", student.email),
+        { content }
+      );
       const newNote = { id: noteRef.id, content };
       setNotes([...notes, newNote]);
       setCurrentNote(newNote);
       swal("Saved!", "Your Note Has Been Saved Successfully!", "success");
     }
+    setSaveButton("Save");
   };
 
   function handleResetClick() {
     window.location.reload();
   }
 
+  const [deleteButton, setDeleteButton] = useState("Delete");
+
   const handleDeleteClick = async () => {
+    setDeleteButton("Deleting...");
     if (currentNote) {
-      const noteRef = doc(db, "Students", "Notes", student.email, currentNote.id);
+      const noteRef = doc(
+        db,
+        "Students",
+        "Notes",
+        student.email,
+        currentNote.id
+      );
       await deleteDoc(noteRef);
       const updatedNotes = notes.filter((note) => note.id !== currentNote.id);
       setNotes(updatedNotes);
@@ -187,6 +212,7 @@ const Notes = () => {
         quill.root.innerHTML = "";
       }
       swal("Deleted!", "Your Note Has Been Deleted Successfully!", "success");
+      setDeleteButton("Delete");
     }
   };
   return (
@@ -240,10 +266,10 @@ const Notes = () => {
         <div className="editor-container">
           <div id="container"></div>
           <button className="btngreen" onClick={handleSaveClick}>
-            <i className="fa-solid fa-floppy-disk"></i>&nbsp;&nbsp;Save
+            <i className="fa-solid fa-floppy-disk"></i>&nbsp;&nbsp;{saveButton}
           </button>
           <button className="btnred" onClick={handleDeleteClick}>
-            <i className="fa-solid fa-trash"></i>&nbsp;&nbsp;Delete
+            <i className="fa-solid fa-trash"></i>&nbsp;&nbsp;{deleteButton}
           </button>
           <button className="btnyellow" onClick={handleResetClick}>
             <i className="fa-solid fa-rotate-right"></i>&nbsp;&nbsp;Reset
