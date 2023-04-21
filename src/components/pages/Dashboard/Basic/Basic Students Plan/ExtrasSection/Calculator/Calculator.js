@@ -48,7 +48,7 @@ const Calculator = () => {
         And Easy To Use Calculator.
       </p>
       <iframe
-        src="https://soumwadeep.github.io/EduSys/ScientificCalculator/"
+        src="https://edusys.co.in/ScientificCalculator/index.html"
         className="calciframe"
       ></iframe>
     </section>
