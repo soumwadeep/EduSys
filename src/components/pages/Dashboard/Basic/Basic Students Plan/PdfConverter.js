@@ -135,13 +135,14 @@ const BasicStudentClearDoubts = () => {
               onChange={handleFileChange}
               ref={fileInputRef}
               multiple
+              
             />
-            <button onClick={convertToPDF} disabled={isConverting}>
+            <button onClick={convertToPDF} className="btngreen" disabled={isConverting}>
               {isConverting ? "Converting..." : "Convert to PDF"}
             </button>
             {pdfData && (
               <div>
-                <button onClick={handleDownload}>Download PDF</button>
+                <button className="btngreen" onClick={handleDownload}>Download PDF</button>
                 <iframe
                   src={URL.createObjectURL(pdfData)}
                   width="100%"
