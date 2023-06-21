@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../../../../firebase";
-import { query, collection, where } from "firebase/firestore";
+import { query, collection, where, addDoc } from "firebase/firestore";
 import swal from "sweetalert";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import jsPDF from "jspdf";
@@ -44,6 +44,33 @@ const BasicStudentClearDoubts = () => {
     }
   };
 
+  const savePdfToDatabase = async (pdfData) => {
+    try {
+      const base64Data = await getBase64Data(pdfData);
+      const docRef = await addDoc(
+        collection(db, "Students", "ConvertedPdfs", student.email),
+        {
+          pdfData: base64Data,
+          timestamp: new Date().getTime(),
+        }
+      );
+      console.log("PDF saved to database with ID: ", docRef.id);
+    } catch (error) {
+      console.error("Error saving PDF to database: ", error);
+    }
+  };
+
+  const getBase64Data = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  };
+
   const convertToPDF = () => {
     if (selectedImages.length > 0) {
       setIsConverting(true);
@@ -57,6 +84,7 @@ const BasicStudentClearDoubts = () => {
           const pdfData = doc.output("blob"); // Generate blob data for the PDF
           setPdfData(pdfData); // Store the PDF data in state
           setIsConverting(false);
+          savePdfToDatabase(pdfData); // Save the PDF to the database
           return;
         }
 
@@ -93,6 +121,7 @@ const BasicStudentClearDoubts = () => {
               const pdfData = doc.output("blob"); // Generate blob data for the PDF
               setPdfData(pdfData); // Store the PDF data in state
               setIsConverting(false);
+              savePdfToDatabase(pdfData); // Save the PDF to the database
             } else {
               processImage(index + 1);
             }
@@ -135,14 +164,19 @@ const BasicStudentClearDoubts = () => {
               onChange={handleFileChange}
               ref={fileInputRef}
               multiple
-              
             />
-            <button onClick={convertToPDF} className="btngreen" disabled={isConverting}>
+            <button
+              onClick={convertToPDF}
+              className="btngreen"
+              disabled={isConverting}
+            >
               {isConverting ? "Converting..." : "Convert to PDF"}
             </button>
             {pdfData && (
               <div>
-                <button className="btngreen" onClick={handleDownload}>Download PDF</button>
+                <button className="btngreen" onClick={handleDownload}>
+                  Download PDF
+                </button>
                 <iframe
                   src={URL.createObjectURL(pdfData)}
                   width="100%"
