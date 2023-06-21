@@ -7,7 +7,7 @@ import swal from "sweetalert";
 import BasicStudentSidebar from "./BasicStudentSidebar";
 import jsPDF from "jspdf";
 
-const BasicStudentClearDoubts = () => {
+const BasicStudentPdfConverter = () => {
   useEffect(() => {
     document.title = "Your Pdf Converter | EduSys";
   }, []);
@@ -191,4 +191,4 @@ const BasicStudentClearDoubts = () => {
   );
 };
 
-export default BasicStudentClearDoubts;
+export default BasicStudentPdfConverter;
