@@ -27,6 +27,8 @@ import BasicStudentExtras from "./components/pages/Dashboard/Basic/Basic Student
 import BasicStudentCalculator from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Calculator/Calculator";
 import BasicStudentTodo from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/Todo/Todo";
 import BasicStudentTakeNotes from "./components/pages/Dashboard/Basic/Basic Students Plan/ExtrasSection/TakeNotes/Notes";
+import BasicStudentPdfConverter from "./components/pages/Dashboard/Basic/Basic Students Plan/PdfConverter";
+
 // Basic Teacher All
 import BasicTeacher from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacher";
 import BasicTeacherUpdates from "./components/pages/Dashboard/Basic/Basic Teachers Plan/BasicTeacherUpdates";
@@ -84,6 +86,8 @@ function App() {
     location.pathname === "/BasicStudent/PlayQuiz";
   const isBasicStudentsExtrasRendering =
     location.pathname === "/BasicStudent/Extras";
+  const isBasicStudentsPdfRendering =
+    location.pathname === "/BasicStudent/PdfConverter";
   // Basic Students Plan Extras
   const isBasicStudentsCalculatorRendering =
     location.pathname === "/BasicStudent/Extras/Calculator";
@@ -145,6 +149,7 @@ function App() {
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&
         !isBasicStudentsTakeNotesRendering &&
+        !isBasicStudentsPdfRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&
@@ -212,6 +217,11 @@ function App() {
             element={<BasicStudentAssignments />}
           />
 
+          <Route
+            exact
+            path="/BasicStudent/PdfConverter"
+            element={<BasicStudentPdfConverter />}
+          />
           <Route
             exact
             path="/BasicStudent/Profile"
@@ -324,6 +334,7 @@ function App() {
         !isBasicStudentsCalculatorRendering &&
         !isBasicStudentsTodoRendering &&
         !isBasicStudentsTakeNotesRendering &&
+        !isBasicStudentsPdfRendering &&
         !isBasicTeachersRendering &&
         !isBasicTeachersUpdatesRendering &&
         !isBasicTeachersClassesRendering &&

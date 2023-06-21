@@ -118,6 +118,19 @@ const BasicStudentSidebar = () => {
             className={(navData) =>
               navData.isActive ? "menu_active" : "nav-link"
             }
+            to="/BasicStudent/PdfConverter"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              toggleNav();
+            }}
+          >
+            <i className="fa-brands fa-dochub"></i>&nbsp;&nbsp;Pdf Converter
+          </NavLink>
+          <br/>
+          <NavLink
+            className={(navData) =>
+              navData.isActive ? "menu_active" : "nav-link"
+            }
             to="/BasicStudent/VirtualLabs"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
