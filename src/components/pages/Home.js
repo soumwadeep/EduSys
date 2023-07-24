@@ -1,10 +1,16 @@
 import React from "react";
 import home1 from "../../img/home1.svg";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   // useEffect(() => {
   //   document.title = "Home | EduSys";
   // }, []);
+
+  const navigate = useNavigate();
+  function goToSignUp() {
+    navigate("/Login");
+  }
 
   return (
     <>
@@ -30,6 +36,15 @@ const Home = () => {
                     Consists Of Almost All The Features Required By
                     Teachers,Administrators And Students.
                   </h5>
+                  <button
+                    className="btn btn-lg"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                      goToSignUp();
+                    }}
+                  >
+                    Click Here To Register
+                  </button>
                 </div>
               </div>
             </div>
