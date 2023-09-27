@@ -1,69 +1,81 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
+import axios from "axios";
 
 const DoubtClearing = () => {
-  const [userInput, setUserInput] = useState('')
-  const [chatHistory, setChatHistory] = useState([])
-  const [questionNumber, setQuestionNumber] = useState(1)
+  const [userInput, setUserInput] = useState("");
+  const [chatHistory, setChatHistory] = useState([]);
+  const [questionNumber, setQuestionNumber] = useState(1);
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
 
   const handleMessageSubmit = async () => {
-    const currentQuestionNumber = questionNumber
-    setChatHistory([
-      ...chatHistory,
+    if (!userInput || isLoading) return; // Don't send empty questions or when loading
+
+    setIsLoading(true); // Set loading state
+
+    const currentQuestionNumber = questionNumber;
+    setChatHistory((prevHistory) => [
+      ...prevHistory,
       {
         question: userInput,
-        answer: 'Thinking...',
+        answer: "Thinking...",
         questionNumber: currentQuestionNumber,
       },
-    ])
-    setQuestionNumber(currentQuestionNumber + 1)
+    ]);
+    setQuestionNumber(currentQuestionNumber + 1);
 
-    const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions' 
-    //Cheapest
-    //'https://api.openai.com/v1/engines/text-ada-001/completions'
+    const apiUrl = "https://api.openai.com/v1/engines/davinci/completions";
     const headers = {
-      'Content-Type': 'application/json',
-      Authorization:
-        'Bearer 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',
-    }
-    const data = {
-      prompt: `Q.${currentQuestionNumber}) ${userInput}\nA:`,
-      max_tokens: 100,
-      temperature: 0,
-      stop: ['\n'],
-    }
+      "Content-Type": "application/json",
+      Authorization: `Bearer sk-${process.env.REACT_APP_OPEN_AI_KEY}`,
+    };
+
     try {
-      const response = await axios.post(apiUrl, data, { headers })
-      const answer = response.data.choices[0].text.trim()
+      const response = await axios.post(
+        apiUrl,
+        {
+          prompt: `Q.${currentQuestionNumber}) ${userInput}\nA:`,
+          max_tokens: 100,
+          temperature: 0,
+          stop: ["\n"],
+        },
+        { headers }
+      );
+
+      const answer = response.data.choices[0].text.trim();
       setChatHistory((prevHistory) => {
         const updatedHistory = prevHistory.map((item) => {
           if (item.questionNumber === currentQuestionNumber) {
             return {
               ...item,
               answer,
-            }
+            };
           }
-          return item
-        })
-        return updatedHistory
-      })
+          return item;
+        });
+        return updatedHistory;
+      });
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      const errorMessage =
+        error.response?.data?.error?.message || "Something went wrong!";
       setChatHistory((prevHistory) => {
         const updatedHistory = prevHistory.map((item) => {
           if (item.questionNumber === currentQuestionNumber) {
             return {
               ...item,
-              answer: 'Sorry, Something Went Wrong!',
-            }
+              answer: `Error: ${errorMessage}`,
+            };
           }
-          return item
-        })
-        return updatedHistory
-      })
+          return item;
+        });
+        return updatedHistory;
+      });
+    } finally {
+      setIsLoading(false); // Reset loading state
     }
-    setUserInput('')
-  }
+
+    setUserInput("");
+  };
 
   return (
     <div className="container">
@@ -80,13 +92,15 @@ const DoubtClearing = () => {
                 placeholder="Type Your Question Here..."
                 value={userInput}
                 onChange={(event) => setUserInput(event.target.value)}
+                disabled={isLoading} // Disable input while loading
               />
               <button
                 className="btn"
                 type="button"
                 onClick={handleMessageSubmit}
+                disabled={isLoading} // Disable button while loading
               >
-                Send
+                {isLoading ? "Sending..." : "Send"}
               </button>
             </div>
             <div className="card-body">
@@ -96,13 +110,13 @@ const DoubtClearing = () => {
                   <div
                     key={chat.questionNumber}
                     className={`chat-message ${
-                      chat.answer !== 'loading...' ? 'ai' : ''
+                      chat.answer !== "Thinking..." ? "ai" : ""
                     } mt-3`}
                   >
                     <div className="chat-bubble">
                       Q.{chat.questionNumber} {chat.question}
                     </div>
-                    {chat.answer !== 'loading...' && (
+                    {chat.answer !== "Thinking..." && (
                       <div className="chat-bubble ai">Ans: {chat.answer}</div>
                     )}
                   </div>
@@ -113,7 +127,7 @@ const DoubtClearing = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DoubtClearing
+export default DoubtClearing;
