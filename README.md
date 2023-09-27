@@ -1,6 +1,6 @@
 # About EduSys
 
-An All In One Education Web App Built Using React And Basic HTML,CSS And JavaScript.
+An All In One Education Web App Built Using React.Js And Basic HTML,CSS And JavaScript.
 
 To Host It On Firebase Follow The Steps Below:
  Run npm i firebase (To Install Firebase)
