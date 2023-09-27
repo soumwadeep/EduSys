@@ -39,7 +39,7 @@ const Calculator = () => {
   return (
     <section id="Calculator">
       <BasicStudentSidebar />
-      <ExtrasItemsNav/>
+      <ExtrasItemsNav />
       <h1>
         <span>Scientific </span>Calculator
       </h1>
@@ -48,7 +48,7 @@ const Calculator = () => {
         And Easy To Use Calculator.
       </p>
       <iframe
-        src="https://edusys.co.in/ScientificCalculator/index.html"
+        src="https://edusys.soumwadeepguha.com/ScientificCalculator/index.html"
         className="calciframe"
       ></iframe>
     </section>
