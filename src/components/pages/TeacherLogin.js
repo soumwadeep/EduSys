@@ -25,13 +25,13 @@ const TeacherLogin = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       if (
-        data.facultynum === facultynum &&
+        // data.facultynum === facultynum &&
         data.email === email &&
         data.plan === "Basic Teacher"
       ) {
         return navigate("/BasicTeacher");
       } else if (
-        data.facultynum === facultynum &&
+        // data.facultynum === facultynum &&
         data.email === email &&
         data.plan === "Pro Teacher"
       ) {
@@ -96,7 +96,7 @@ const TeacherLogin = () => {
                     Sign <span>In</span>
                   </h1>
                   <div>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                       <label className="form-label">Faculty Number</label>
                       <input
                         type="text"
@@ -106,7 +106,7 @@ const TeacherLogin = () => {
                         onChange={(e) => setFacultynum(e.target.value)}
                         required
                       />
-                    </div>
+                    </div> */}
                     <div className="mb-3">
                       <label className="form-label">Email Address</label>
                       <input
