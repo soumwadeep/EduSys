@@ -24,7 +24,7 @@ const DoubtClearing = () => {
     const headers = {
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer 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',
+        'Bearer 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',
     }
     const data = {
       prompt: `Q.${currentQuestionNumber}) ${userInput}\nA:`,
