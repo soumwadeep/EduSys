@@ -28,7 +28,7 @@ const DoubtClearing = () => {
       "Content-Type": "application/json",
       Authorization: `Bearer sk-${process.env.REACT_APP_OPEN_AI_KEY}`,
     };
-    console.log(process.env.REACT_APP_OPEN_AI_KEY);
+    // console.log(process.env.REACT_APP_OPEN_AI_KEY);
     try {
       const response = await axios.post(
         apiUrl,
